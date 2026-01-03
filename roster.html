@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roster - 777heaven Records</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 30px 50px;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-nav img { height: 35px; }
+
+        nav ul {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* --- 777HEAVEN BRANDED HEADER --- */
+        .roster-header {
+            padding: 220px 20px 40px;
+            text-align: center;
+        }
+
+        .main-brand-title {
+            font-size: clamp(50px, 12vw, 140px); 
+            font-weight: 700;
+            letter-spacing: -2px;
+            line-height: 0.9;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .location-subtitle {
+            font-family: "Times New Roman", Times, serif; 
+            font-style: italic;
+            font-size: clamp(18px, 3vw, 28px);
+            color: #888;
+            letter-spacing: 1px;
+            margin-bottom: 80px;
+        }
+
+        /* --- THE ROSTER GRID --- */
+        .heaven-records-roster {
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: center;
+            line-height: 2.2; 
+            padding: 0 40px 150px;
+        }
+
+        .artist-entry {
+            font-size: 20px;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: opacity 0.3s ease;
+            display: inline;
+        }
+
+        /* Dim other artists on hover */
+        .heaven-records-roster:hover .artist-entry {
+            opacity: 0.15;
+        }
+
+        .heaven-records-roster .artist-entry:hover {
+            opacity: 1;
+        }
+
+        /* --- THE GLIDING PREVIEW --- */
+        #artist-hover-preview {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 300px;
+            height: 420px;
+            pointer-events: none; 
+            z-index: 500;
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.85);
+            transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        #artist-hover-preview.active {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        #artist-hover-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @media (max-width: 768px) {
+            #artist-hover-preview { display: none; }
+            .main-brand-title { font-size: 60px; }
+            .artist-entry { font-size: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="artist-hover-preview">
+        <img src="" id="preview-image-element" alt="Artist Preview">
+    </div>
+
+    <nav>
+        <a href="index.html" class="logo-nav"><img src="logo.png" alt="777heaven"></a>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="roster.html">Roster</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header class="roster-header">
+        <h1 class="main-brand-title">777HEAVEN RECORDS</h1>
+        <div class="location-subtitle">A Homegrown Collective of Voices, Producers, and Visionaries</div>
+    </header>
+
+    <section class="heaven-records-roster">
+        <a href="artist1.html" class="artist-entry" data-img="artist1.png">Altev</a>,
+        <a href="artist2.html" class="artist-entry" data-img="artist2.jpg">Artist Two</a>,
+        <a href="artist3.html" class="artist-entry" data-img="artist3.jpg">Artist Three</a>,
+        <a href="artist4.html" class="artist-entry" data-img="artist4.jpg">Artist Four</a>,
+        <a href="artist5.html" class="artist-entry" data-img="artist5.jpg">Artist Five</a>,
+        <a href="artist6.html" class="artist-entry" data-img="artist6.jpg">Artist Six</a>,
+        <a href="artist7.html" class="artist-entry" data-img="artist7.jpg">Artist Seven</a>,
+        <a href="artist8.html" class="artist-entry" data-img="artist8.jpg">Artist Eight</a>,
+        <a href="artist9.html" class="artist-entry" data-img="artist9.jpg">Artist Nine</a>,
+        <a href="artist10.html" class="artist-entry" data-img="artist10.jpg">Artist Ten</a>,
+        <a href="artist11.html" class="artist-entry" data-img="artist11.jpg">Artist Eleven</a>,
+        <a href="artist12.html" class="artist-entry" data-img="artist12.jpg">Artist Twelve</a>,
+        <a href="artist13.html" class="artist-entry" data-img="artist13.jpg">Artist Thirteen</a>,
+        <a href="artist14.html" class="artist-entry" data-img="artist14.jpg">Artist Fourteen</a>,
+        <a href="artist15.html" class="artist-entry" data-img="artist15.jpg">Artist Fifteen</a>,
+        <a href="artist16.html" class="artist-entry" data-img="artist16.jpg">Artist Sixteen</a>
+    </section>
+
+    <script>
+        const previewBox = document.getElementById('artist-hover-preview');
+        const previewImg = document.getElementById('preview-image-element');
+        const artistNodes = document.querySelectorAll('.artist-entry');
+
+        document.addEventListener('mousemove', (e) => {
+            previewBox.style.left = e.clientX + 'px';
+            previewBox.style.top = e.clientY + 'px';
+        });
+
+        artistNodes.forEach(node => {
+            node.addEventListener('mouseenter', () => {
+                const sourcePath = node.getAttribute('data-img');
+                if (sourcePath) {
+                    previewImg.src = sourcePath;
+                    previewBox.classList.add('active');
+                }
+            });
+
+            node.addEventListener('mouseleave', () => {
+                previewBox.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

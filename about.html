@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - 777heaven Records</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Space Grotesk', -apple-system, sans-serif;
+            background: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 30px;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        nav .wrap {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-nav img {
+            height: 38px;
+            transition: all 0.3s;
+        }
+
+        .logo-nav:hover img {
+            filter: brightness(1.3) drop-shadow(0 0 20px rgba(255,255,255,0.4));
+        }
+
+        nav ul {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            position: relative;
+            font-weight: 400;
+        }
+
+        nav ul a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: linear-gradient(90deg, #fff, transparent);
+            transition: width 0.3s;
+        }
+
+        nav ul a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 28px;
+            height: 2px;
+            background: #fff;
+            transition: all 0.3s;
+        }
+
+        .mobile-menu.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .mobile-menu.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(8px, -8px);
+        }
+
+        .page-header {
+            padding: 150px 30px 80px;
+            text-align: center;
+            position: relative;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .page-header h1 {
+            font-size: clamp(50px, 10vw, 90px);
+            font-weight: 700;
+            letter-spacing: -3px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-header p {
+            font-size: 15px;
+            color: #888;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
+        }
+
+        .story-section {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 80px 30px;
+        }
+
+        .story-section h2 {
+            font-size: clamp(32px, 6vw, 48px);
+            margin-bottom: 30px;
+            font-weight: 700;
+            letter-spacing: -2px;
+        }
+
+        .story-section p {
+            font-size: 16px;
+            line-height: 1.9;
+            color: #bbb;
+            margin-bottom: 25px;
+            font-weight: 400;
+        }
+
+        .values-section {
+            padding: 100px 30px;
+            background: linear-gradient(180deg, transparent, rgba(255,255,255,0.02), transparent);
+        }
+
+        .values-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1px;
+            background: rgba(255,255,255,0.05);
+        }
+
+        .value-card {
+            background: #000;
+            padding: 50px 40px;
+            transition: all 0.4s;
+            position: relative;
+        }
+
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 0;
+            background: linear-gradient(180deg, #fff, transparent);
+            transition: height 0.4s;
+        }
+
+        .value-card:hover::before {
+            height: 100%;
+        }
+
+        .value-card:hover {
+            background: rgba(255,255,255,0.02);
+            transform: translateY(-5px);
+        }
+
+        .value-card h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .value-card p {
+            font-size: 14px;
+            line-height: 1.8;
+            color: #aaa;
+            font-weight: 400;
+        }
+
+        .cta-section {
+            padding: 100px 30px;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(36px, 7vw, 56px);
+            margin-bottom: 25px;
+            font-weight: 700;
+            letter-spacing: -2px;
+        }
+
+        .cta-section p {
+            max-width: 600px;
+            margin: 0 auto 40px;
+            font-size: 15px;
+            line-height: 1.8;
+            color: #888;
+            font-weight: 400;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 18px 40px;
+            background: #fff;
+            color: #000;
+            text-decoration: none;
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-weight: 700;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            background: rgba(255,255,255,0.9);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 40px rgba(255,255,255,0.2);
+        }
+
+        footer {
+            padding: 80px 30px 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .footer-brand p {
+            font-size: 13px;
+            line-height: 1.8;
+            color: #666;
+            max-width: 400px;
+            font-weight: 400;
+        }
+
+        .footer-links h4 {
+            font-size: 12px;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            opacity: 0.5;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .footer-links a {
+            display: block;
+            color: #aaa;
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 12px;
+            transition: all 0.2s;
+            font-weight: 400;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 12px;
+            color: #555;
+            font-weight: 400;
+        }
+
+        @media (max-width: 968px) {
+            nav ul {
+                position: fixed;
+                top: 77px;
+                left: 0;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.95);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                gap: 0;
+                padding: 0;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s;
+            }
+
+            nav ul.active {
+                max-height: 400px;
+            }
+
+            nav ul li {
+                border-bottom: 1px solid rgba(255,255,255,0.05);
+            }
+
+            nav ul a {
+                display: block;
+                padding: 25px 30px;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="wrap">
+            <a href="index.html" class="logo-nav">
+                <img src="logo.png" alt="777heaven">
+            </a>
+            <div class="mobile-menu" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="roster.html">Roster</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <h1>ABOUT US</h1>
+        <p>Bedroom roots. Underground soul.</p>
+        <p>777heaven Records is independent music done the right way.</p>
+
+    </section>
+
+<section class="story-section">
+    <h2>Our Story</h2>
+    <p>777heaven Records didn't start in an office. It started in 2024 in a Manila bedroom with a laptop, a few friends, and a shared frustration. We were musicians who lived the highs and lows of self-releasing, and we realized the industry was broken. It treated music like a product and artists like line items. We knew there was a better way.</p>
+    <p> We moved from late-night sessions to the front lines of the underground scene. To give our artists real power, we partnered with oneRPM. This partnership bridges the gap between total creative freedom and global growth. You get the professional distribution and dashboard tools the majors use, while we stay rooted in the same DIY grit we started with.</p>
+    <p>This is more than just a label. We are a collective that values authenticity over algorithms and people over metrics. We aren’t here to own your masters. We’re here to master your ownership. We support the artists pushing boundaries, taking risks, and creating work that actually matters. No suits. No compromise. Just the music.</p>
+</section>
+<section class="values-section">
+    <div class="values-grid">
+        <div class="value-card">
+            <h3>DIY at Scale</h3>
+            <p>Started in a Manila bedroom with a laptop and a vision. Today, we’ve scaled that DIY energy into a global engine. Professional reach without the corporate baggage.</p>
+        </div>
+        <div class="value-card">
+            <h3>Master Your Ownership</h3>
+            <p>We aren’t here to own your masters. We’re here to master your ownership. You keep the rights, the vision, and the control. We just provide the platform to amplify it.</p>
+        </div>
+        <div class="value-card">
+            <h3>Full Visibility</h3>
+            <p>The industry is full of secrets. We aren't. We provide a professional dashboard with all the tools you need to manage your releases and track your growth in real time. Total clarity.</p>
+        </div>
+    </div>
+</section>
+
+    <section class="cta-section">
+        <h2>JOIN THE JOURNEY</h2>
+        <p>If you're an artist who values creative freedom and authentic partnerships, we want to hear from you.</p>
+        <a href="contact.html" class="btn">Get In Touch</a>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>777HEAVEN RECORDS</h3>
+                <p>An independent label built for artists who refuse to compromise. We champion creative freedom, transparent partnerships, and the raw energy of underground music.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Navigate</h4>
+                <a href="index.html">Home</a>
+                <a href="roster.html">Roster</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-links">
+                <h4>Connect</h4>
+                <a href="#">Instagram</a>
+                <a href="#">Twitter</a>
+                <a href="#">Spotify</a>
+                <a href="#">SoundCloud</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 777heaven Records. Independent since day one.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('navMenu');
+            const burger = document.querySelector('.mobile-menu');
+            menu.classList.toggle('active');
+            burger.classList.toggle('active');
+        }
+
+        document.addEventListener('click', function(event) {
+            const nav = document.querySelector('nav');
+            const menu = document.getElementById('navMenu');
+            const burger = document.querySelector('.mobile-menu');
+            
+            if (!nav.contains(event.target) && menu.classList.contains('active')) {
+                menu.classList.remove('active');
+                burger.classList.remove('active');
+            }
+        });
+
+        document.querySelectorAll('#navMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                const menu = document.getElementById('navMenu');
+                const burger = document.querySelector('.mobile-menu');
+                menu.classList.remove('active');
+                burger.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
