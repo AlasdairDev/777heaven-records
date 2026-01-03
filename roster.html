@@ -143,13 +143,22 @@
     </div>
 
     <nav>
-        <a href="index.html" class="logo-nav"><img src="logo.png" alt="777heaven"></a>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="roster.html">Roster</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
+        <div class="wrap">
+            <a href="index.html" class="logo-nav">
+                <img src="logo.png" alt="777heaven">
+            </a>
+            <div class="mobile-menu" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="roster.html">Roster</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
     </nav>
 
     <header class="roster-header">
