@@ -20,8 +20,6 @@
             overflow-x: hidden;
         }
 
-
-
         nav {
             position: fixed;
             top: 0;
@@ -87,6 +85,7 @@
             flex-direction: column;
             gap: 6px;
             cursor: pointer;
+            z-index: 1001;
         }
 
         .mobile-menu span {
@@ -480,12 +479,20 @@
         }
 
         @media (max-width: 968px) {
+            nav {
+                padding: 15px 20px;
+            }
+
+            .logo-nav img {
+                height: 32px;
+            }
+
             nav ul {
                 position: fixed;
-                top: 77px;
+                top: 62px;
                 left: 0;
                 width: 100%;
-                background: rgba(0, 0, 0, 0.95);
+                background: rgba(0, 0, 0, 0.98);
                 backdrop-filter: blur(20px);
                 flex-direction: column;
                 gap: 0;
@@ -493,11 +500,11 @@
                 border-bottom: 1px solid rgba(255,255,255,0.1);
                 max-height: 0;
                 overflow: hidden;
-                transition: max-height 0.3s;
+                transition: max-height 0.3s ease;
             }
 
             nav ul.active {
-                max-height: 400px;
+                max-height: 300px;
             }
 
             nav ul li {
@@ -506,21 +513,35 @@
 
             nav ul a {
                 display: block;
-                padding: 25px 30px;
+                padding: 20px 20px;
+                font-size: 12px;
             }
 
             .mobile-menu {
                 display: flex;
             }
 
+            .hero {
+                padding: 100px 20px 60px;
+            }
+
             .hero-content {
                 grid-template-columns: 1fr;
-                gap: 50px;
+                gap: 40px;
                 text-align: center;
+            }
+
+            .hero-left img {
+                max-width: 300px;
+                margin: 0 auto;
             }
 
             .hero-cta {
                 justify-content: center;
+            }
+
+            .ethos {
+                padding: 80px 20px;
             }
 
             .ethos-grid {
@@ -528,9 +549,25 @@
                 gap: 1px;
             }
 
+            .ethos-card {
+                padding: 40px 25px;
+            }
+
+            .collection {
+                padding: 80px 20px;
+            }
+
+            .playlist-box {
+                padding: 30px 20px;
+            }
+
             .footer-grid {
                 grid-template-columns: 1fr;
                 gap: 40px;
+            }
+
+            footer {
+                padding: 60px 20px 30px;
             }
         }
 
@@ -538,6 +575,16 @@
             .btn {
                 width: 100%;
                 text-align: center;
+                justify-content: center;
+            }
+
+            .hero-cta {
+                width: 100%;
+            }
+
+            .spotify-btn {
+                width: 100%;
+                justify-content: center;
             }
         }
     </style>
@@ -615,7 +662,7 @@
             </div>
             <div class="ethos-card">
                 <h3>The Real Scene</h3>
-                <p>We grew up in the DIY scene, and we’re still there. We care about the culture, the community, and the craft. Everything else is secondary.</p>
+                <p>We grew up in the DIY scene, and we're still there. We care about the culture, the community, and the craft. Everything else is secondary.</p>
             </div>
         </div>
     </section>
@@ -668,7 +715,6 @@
     </footer>
 
     <script>
-        // Mobile menu
         function toggleMenu() {
             const menu = document.getElementById('navMenu');
             const burger = document.querySelector('.mobile-menu');
@@ -676,7 +722,6 @@
             burger.classList.toggle('active');
         }
 
-        // Close menu when clicking outside
         document.addEventListener('click', function(event) {
             const nav = document.querySelector('nav');
             const menu = document.getElementById('navMenu');
@@ -688,7 +733,6 @@
             }
         });
 
-        // Close menu on link click
         document.querySelectorAll('#navMenu a').forEach(link => {
             link.addEventListener('click', () => {
                 const menu = document.getElementById('navMenu');
