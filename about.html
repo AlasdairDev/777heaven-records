@@ -84,6 +84,7 @@
             flex-direction: column;
             gap: 6px;
             cursor: pointer;
+            z-index: 1001;
         }
 
         .mobile-menu span {
@@ -319,12 +320,20 @@
         }
 
         @media (max-width: 968px) {
+            nav {
+                padding: 15px 20px;
+            }
+
+            .logo-nav img {
+                height: 32px;
+            }
+
             nav ul {
                 position: fixed;
-                top: 77px;
+                top: 62px;
                 left: 0;
                 width: 100%;
-                background: rgba(0, 0, 0, 0.95);
+                background: rgba(0, 0, 0, 0.98);
                 backdrop-filter: blur(20px);
                 flex-direction: column;
                 gap: 0;
@@ -332,11 +341,11 @@
                 border-bottom: 1px solid rgba(255,255,255,0.1);
                 max-height: 0;
                 overflow: hidden;
-                transition: max-height 0.3s;
+                transition: max-height 0.3s ease;
             }
 
             nav ul.active {
-                max-height: 400px;
+                max-height: 300px;
             }
 
             nav ul li {
@@ -345,20 +354,52 @@
 
             nav ul a {
                 display: block;
-                padding: 25px 30px;
+                padding: 20px 20px;
+                font-size: 12px;
             }
 
             .mobile-menu {
                 display: flex;
             }
 
+            .page-header {
+                padding: 100px 20px 60px;
+            }
+
+            .story-section {
+                padding: 60px 20px;
+            }
+
+            .values-section {
+                padding: 80px 20px;
+            }
+
             .values-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .value-card {
+                padding: 40px 25px;
+            }
+
+            .cta-section {
+                padding: 80px 20px;
             }
 
             .footer-grid {
                 grid-template-columns: 1fr;
                 gap: 40px;
+            }
+
+            footer {
+                padding: 60px 20px 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .btn {
+                width: 100%;
+                text-align: center;
             }
         }
     </style>
@@ -394,17 +435,18 @@
     <h2>Our Story</h2>
     <p>777heaven Records didn't start in an office. It started in 2024 in a Manila bedroom with a laptop, a few friends, and a shared frustration. We were musicians who lived the highs and lows of self-releasing, and we realized the industry was broken. It treated music like a product and artists like line items. We knew there was a better way.</p>
     <p> We moved from late-night sessions to the front lines of the underground scene. To give our artists real power, we partnered with oneRPM. This partnership bridges the gap between total creative freedom and global growth. You get the professional distribution and dashboard tools the majors use, while we stay rooted in the same DIY grit we started with.</p>
-    <p>This is more than just a label. We are a collective that values authenticity over algorithms and people over metrics. We aren’t here to own your masters. We’re here to master your ownership. We support the artists pushing boundaries, taking risks, and creating work that actually matters. No suits. No compromise. Just the music.</p>
+    <p>This is more than just a label. We are a collective that values authenticity over algorithms and people over metrics. We aren't here to own your masters. We're here to master your ownership. We support the artists pushing boundaries, taking risks, and creating work that actually matters. No suits. No compromise. Just the music.</p>
 </section>
+
 <section class="values-section">
     <div class="values-grid">
         <div class="value-card">
             <h3>DIY at Scale</h3>
-            <p>Started in a Manila bedroom with a laptop and a vision. Today, we’ve scaled that DIY energy into a global engine. Professional reach without the corporate baggage.</p>
+            <p>Started in a Manila bedroom with a laptop and a vision. Today, we've scaled that DIY energy into a global engine. Professional reach without the corporate baggage.</p>
         </div>
         <div class="value-card">
             <h3>Master Your Ownership</h3>
-            <p>We aren’t here to own your masters. We’re here to master your ownership. You keep the rights, the vision, and the control. We just provide the platform to amplify it.</p>
+            <p>We aren't here to own your masters. We're here to master your ownership. You keep the rights, the vision, and the control. We just provide the platform to amplify it.</p>
         </div>
         <div class="value-card">
             <h3>Full Visibility</h3>
