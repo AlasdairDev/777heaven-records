@@ -294,9 +294,14 @@
         }
 
         .releases-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            display: flex;
+            justify-content: center;
             gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .release-card {
+            width: 280px;
         }
 
         .release-card {
