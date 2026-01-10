@@ -591,24 +591,8 @@
     </style>
 </head>
 <body>
-    <nav>
-        <div class="wrap">
-            <a href="../index.html" class="logo-nav">
-                <img src="../logo.png" alt="777heaven">
-            </a>
-            <div class="mobile-menu" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <ul id="navMenu">
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="../roster.html">Roster</a></li>
-                <li><a href="../about.html">About</a></li>
-                <li><a href="../contact.html">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+    <!-- Navigation placeholder -->
+    <div id="nav-placeholder"></div>
 
     <div class="back-nav">
         <a href="../roster.html">← Back to Roster</a>
@@ -616,7 +600,7 @@
 
     <section class="artist-hero">
         <div class="artist-image">
-            <img src="../artist-pages/artist-images/" alt="Altev">
+            <img src="artist-images/altev.png" alt="Altev">
         </div>
         <div class="artist-details">
             <h1>altev</h1>
@@ -735,59 +719,10 @@
         </div>
     </section>
 
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-brand">
-                <h3>777HEAVEN RECORDS</h3>
-                <p>An independent label built for artists who refuse to compromise. We champion creative freedom, transparent partnerships, and the raw energy of underground music.</p>
-            </div>
-            <div class="footer-links">
-                <h4>Navigate</h4>
-                <a href="../index.html">Home</a>
-                <a href="../roster.html">Roster</a>
-                <a href="../about.html">About</a>
-                <a href="../contact.html">Contact</a>
-            </div>
-            <div class="footer-links">
-                <h4>Connect</h4>
-                <a href="#">Instagram</a>
-                <a href="#">Twitter</a>
-                <a href="#">Spotify</a>
-                <a href="#">SoundCloud</a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2024 777heaven Records. Independent since day one.</p>
-        </div>
-    </footer>
+    <!-- Footer placeholder -->
+    <div id="footer-placeholder"></div>
 
-    <script>
-        function toggleMenu() {
-            const menu = document.getElementById('navMenu');
-            const burger = document.querySelector('.mobile-menu');
-            menu.classList.toggle('active');
-            burger.classList.toggle('active');
-        }
-
-        document.addEventListener('click', function(event) {
-            const nav = document.querySelector('nav');
-            const menu = document.getElementById('navMenu');
-            const burger = document.querySelector('.mobile-menu');
-            
-            if (!nav.contains(event.target) && menu.classList.contains('active')) {
-                menu.classList.remove('active');
-                burger.classList.remove('active');
-            }
-        });
-
-        document.querySelectorAll('#navMenu a').forEach(link => {
-            link.addEventListener('click', () => {
-                const menu = document.getElementById('navMenu');
-                const burger = document.querySelector('.mobile-menu');
-                menu.classList.remove('active');
-                burger.classList.remove('active');
-            });
-        });
-    </script>
+    <!-- Load shared components -->
+    <script src="../components.js"></script>
 </body>
 </html>
