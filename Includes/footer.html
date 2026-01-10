@@ -1,3 +1,80 @@
+<style>
+    footer {
+        padding: 80px 30px 40px;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        background: #000;
+    }
+
+    .footer-grid {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        gap: 60px;
+        margin-bottom: 60px;
+    }
+
+    .footer-brand h3 {
+        font-size: 24px;
+        margin-bottom: 20px;
+        font-weight: 700;
+        color: #fff;
+    }
+
+    .footer-brand p {
+        font-size: 13px;
+        line-height: 1.8;
+        color: #666;
+        max-width: 400px;
+        font-weight: 400;
+    }
+
+    .footer-links h4 {
+        font-size: 12px;
+        letter-spacing: 2px;
+        margin-bottom: 20px;
+        opacity: 0.5;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: #fff;
+    }
+
+    .footer-links a {
+        display: block;
+        color: #aaa;
+        text-decoration: none;
+        font-size: 14px;
+        margin-bottom: 12px;
+        transition: all 0.2s;
+        font-weight: 400;
+    }
+
+    .footer-links a:hover {
+        color: #fff;
+        padding-left: 5px;
+    }
+
+    .footer-bottom {
+        text-align: center;
+        padding-top: 40px;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        font-size: 12px;
+        color: #555;
+        font-weight: 400;
+    }
+
+    @media (max-width: 968px) {
+        .footer-grid {
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        footer {
+            padding: 60px 20px 30px;
+        }
+    }
+</style>
+
 <footer>
     <div class="footer-grid">
         <div class="footer-brand">
@@ -13,10 +90,10 @@
         </div>
         <div class="footer-links">
             <h4>Connect</h4>
-            <a href="https://www.facebook.com/777heavenrecords">Facebook</a>
-            <a href="https://www.instagram.com/777hvnrx">Instagram</a>
-            <a href="https://www.tiktok.com/@777heavenrecords">Tiktok</a>
-            <a href="https://www.youtube.com/@777heavenrecords">Youtube</a>
+            <a href="https://www.facebook.com/777heavenrecords" target="_blank">Facebook</a>
+            <a href="https://www.instagram.com/777hvnrx" target="_blank">Instagram</a>
+            <a href="https://www.tiktok.com/@777heavenrecords" target="_blank">Tiktok</a>
+            <a href="https://www.youtube.com/@777heavenrecords" target="_blank">Youtube</a>
         </div>
     </div>
     <div class="footer-bottom">
