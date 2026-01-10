@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Averyle - 777heaven Records</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Space Grotesk', -apple-system, sans-serif;
+            background: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 30px;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        nav .wrap {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-nav img {
+            height: 38px;
+            transition: all 0.3s;
+            filter: brightness(1);
+        }
+
+        .logo-nav:hover img {
+            filter: brightness(1.3) drop-shadow(0 0 20px rgba(255,255,255,0.4));
+        }
+
+        nav ul {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            position: relative;
+            font-weight: 400;
+        }
+
+        nav ul a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: linear-gradient(90deg, #fff, transparent);
+            transition: width 0.3s;
+        }
+
+        nav ul a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 28px;
+            height: 2px;
+            background: #fff;
+            transition: all 0.3s;
+        }
+
+        .mobile-menu.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .mobile-menu.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(8px, -8px);
+        }
+
+        .back-nav {
+            padding: 100px 30px 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .back-nav a {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 13px;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+
+        .back-nav a:hover {
+            color: #fff;
+            padding-left: 10px;
+        }
+
+        .artist-hero {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 60px 30px 80px;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .artist-image {
+            width: 100%;
+            aspect-ratio: 1;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 120px;
+            color: rgba(255,255,255,0.1);
+            overflow: hidden;
+        }
+
+        .artist-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .artist-details h1 {
+            font-size: clamp(45px, 8vw, 80px);
+            margin-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: -2px;
+            line-height: 1;
+        }
+
+        .artist-genre {
+            font-size: 13px;
+            color: #666;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        .artist-bio {
+            font-size: 16px;
+            line-height: 1.9;
+            color: #bbb;
+            margin-bottom: 40px;
+            font-weight: 400;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            padding: 14px 28px;
+            background: #fff;
+            color: #000;
+            text-decoration: none;
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-weight: 700;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(0,0,0,0.1);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .social-link:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .social-link span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .stats-section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px 80px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1px;
+            background: rgba(255,255,255,0.1);
+        }
+
+        .stat-card {
+            background: #000;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.4s;
+            position: relative;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 0;
+            background: linear-gradient(180deg, #fff, transparent);
+            transition: height 0.4s;
+        }
+
+        .stat-card:hover::before {
+            height: 100%;
+        }
+
+        .stat-card:hover {
+            background: rgba(255,255,255,0.02);
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #666;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+
+        .discography-section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 80px 30px;
+        }
+
+        .section-header {
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(36px, 6vw, 56px);
+            font-weight: 700;
+            letter-spacing: -2px;
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            font-size: 14px;
+            color: #888;
+            font-weight: 400;
+        }
+
+        .releases-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .release-card {
+            width: 280px;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.4s;
+        }
+
+        .release-card:hover {
+            background: rgba(255,255,255,0.04);
+            transform: translateY(-5px);
+            border-color: rgba(255,255,255,0.2);
+        }
+
+        .release-cover {
+            width: 100%;
+            aspect-ratio: 1;
+            background: rgba(255,255,255,0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: rgba(255,255,255,0.2);
+        }
+
+        .release-info {
+            padding: 25px;
+        }
+
+        .release-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .release-meta {
+            font-size: 12px;
+            color: #666;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+
+        .stream-section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 80px 30px 120px;
+            text-align: center;
+        }
+
+        .stream-section h2 {
+            font-size: clamp(40px, 7vw, 60px);
+            margin-bottom: 30px;
+            font-weight: 700;
+            letter-spacing: -2px;
+        }
+
+        .stream-section p {
+            font-size: 15px;
+            color: #888;
+            margin-bottom: 50px;
+            font-weight: 400;
+        }
+
+        .embed-container {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 50px;
+            margin-bottom: 40px;
+            backdrop-filter: blur(10px);
+        }
+
+        .embed-placeholder {
+            width: 100%;
+            height: 380px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .dsp-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .dsp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 30px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 700;
+            transition: all 0.3s;
+            border: 1px solid rgba(255,255,255,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dsp-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            transition: left 0.3s;
+            z-index: 0;
+        }
+
+        .dsp-btn:hover::before {
+            left: 0;
+        }
+
+        .dsp-btn:hover {
+            color: #000;
+            border-color: transparent;
+            transform: translateY(-2px);
+        }
+
+        .dsp-btn span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .dsp-btn svg {
+            position: relative;
+            z-index: 1;
+        }
+
+        .dsp-btn.spotify::before { background: #1DB954; }
+        .dsp-btn.apple::before { background: #FA243C; }
+        .dsp-btn.youtube-music::before { background: #FF0000; }
+        .dsp-btn.youtube::before { background: #FF0000; }
+        .dsp-btn.deezer::before { background: #FF0092; }
+
+        footer {
+            padding: 80px 30px 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .footer-brand p {
+            font-size: 13px;
+            line-height: 1.8;
+            color: #666;
+            max-width: 400px;
+            font-weight: 400;
+        }
+
+        .footer-links h4 {
+            font-size: 12px;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            opacity: 0.5;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .footer-links a {
+            display: block;
+            color: #aaa;
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 12px;
+            transition: all 0.2s;
+            font-weight: 400;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 12px;
+            color: #555;
+            font-weight: 400;
+        }
+
+        @media (max-width: 968px) {
+            nav {
+                padding: 15px 20px;
+            }
+
+            .logo-nav img {
+                height: 32px;
+            }
+
+            nav ul {
+                position: fixed;
+                top: 62px;
+                left: 0;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                gap: 0;
+                padding: 0;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+            }
+
+            nav ul.active {
+                max-height: 300px;
+            }
+
+            nav ul li {
+                border-bottom: 1px solid rgba(255,255,255,0.05);
+            }
+
+            nav ul a {
+                display: block;
+                padding: 20px 20px;
+                font-size: 12px;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .artist-hero {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                padding: 40px 20px 60px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .releases-grid {
+                gap: 20px;
+            }
+
+            .release-card {
+                width: 100%;
+                max-width: 350px;
+            }
+
+            .embed-container {
+                padding: 30px 20px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            footer {
+                padding: 60px 20px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation placeholder -->
+    <div id="nav-placeholder"></div>
+
+    <div class="back-nav">
+        <a href="../roster.html">← Back to Roster</a>
+    </div>
+
+    <section class="artist-hero">
+        <div class="artist-image">
+            <img src="artist-images/averyle.png" alt="Averyle">
+        </div>
+        <div class="artist-details">
+            <h1>Averyle</h1>
+            <p class="artist-genre">Bedroom Pop</p>
+            <p class="artist-bio">
+                This is where the artist's story lives. Talk about their sound, their journey, what drives them. 
+                Maybe they started making beats in their bedroom at 3am. Maybe they've been grinding in the underground 
+                scene for years. This is their space to shine—raw, authentic, unfiltered. Tell the world who they are 
+                and why their music matters.
+            </p>
+            <div class="social-links">
+                <a href="#" class="social-link" target="_blank"><span>Facebook</span></a>
+                <a href="#" class="social-link" target="_blank"><span>Instagram</span></a>
+                <a href="mailto:artist@email.com" class="social-link"><span>Email</span></a>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">1.2M+</div>
+                <div class="stat-label">Total Streams</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">12</div>
+                <div class="stat-label">Total Releases</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">25K+</div>
+                <div class="stat-label">Total Followers</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">2024</div>
+                <div class="stat-label">Joined Label</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stream-section">
+        <h2>Listen Now</h2>
+        <p>Stream the latest releases on your favorite platform</p>
+        
+        <div class="embed-container">
+            <div class="embed-placeholder">
+                Spotify Embed Placeholder<br>
+                Replace with actual embed code
+            </div>
+        </div>
+
+        <div class="dsp-buttons">
+            <a href="#" class="dsp-btn spotify" target="_blank">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+                </svg>
+                <span>Spotify</span>
+            </a>
+            
+            <a href="#" class="dsp-btn apple" target="_blank">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M23.994 6.124a8.23 8.23 0 0 0-.24-2.01c-.317-1.17-1.008-2.146-1.998-2.834-1.023-.71-2.21-1.03-3.527-1.01-.07 0-.14 0-.21.01-.64.03-1.25.18-1.83.39-.58.21-1.11.49-1.6.84-.48.35-.88.74-1.21 1.18-.33-.44-.73-.83-1.21-1.18-.49-.35-1.02-.63-1.6-.84-.58-.21-1.19-.36-1.83-.39-.07-.01-.14-.01-.21-.01-1.32-.02-2.504.3-3.527 1.01-.99.688-1.681 1.664-1.998 2.834-.24.717-.24 1.49-.24 2.01v11.37c0 .52 0 1.293.24 2.01.317 1.17 1.008 2.146 1.998 2.834 1.023.71 2.21 1.03 3.527 1.01.07 0 .14 0 .21-.01.64-.03 1.25-.18 1.83-.39.58-.21 1.11-.49 1.6-.84.48-.35.88-.74 1.21-1.18.33.44.73.83 1.21 1.18.49.35 1.02.63 1.6.84.58.21 1.19.36 1.83.39.07.01.14.01.21.01 1.32.02 2.504-.3 3.527-1.01.99-.688 1.681-1.664 1.998-2.834.24-.717.24-1.49.24-2.01V6.124zM12 15.313c-2.03 0-3.687-1.643-3.687-3.687S9.97 7.939 12 7.939s3.687 1.643 3.687 3.687-1.657 3.687-3.687 3.687zm7.375-8.438h-2.75V4.125h2.75v2.75z"/>
+                </svg>
+                <span>Apple Music</span>
+            </a>
+            
+            <a href="#" class="dsp-btn youtube-music" target="_blank">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0C5.376 0 0 5.376 0 12s5.376 12 12 12 12-5.376 12-12S18.624 0 12 0zm0 19.104c-3.924 0-7.104-3.18-7.104-7.104S8.076 4.896 12 4.896s7.104 3.18 7.104 7.104-3.18 7.104-7.104 7.104zm0-11.976c-2.688 0-4.872 2.184-4.872 4.872S9.312 16.872 12 16.872 16.872 14.688 16.872 12 14.688 7.128 12 7.128zM9.6 15.6V8.4L15.6 12 9.6 15.6z"/>
+                </svg>
+                <span>YouTube Music</span>
+            </a>
+            
+            <a href="#" class="dsp-btn youtube" target="_blank">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+                <span>YouTube</span>
+            </a>
+            
+            <a href="#" class="dsp-btn deezer" target="_blank">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.81 4.16v3.68h5.13V4.16h-5.13zm0 4.8v3.68h5.13V8.96h-5.13zm0 4.8v3.68h5.13v-3.68h-5.13zm-6.46-9.6v3.68h5.13V4.16h-5.13zm0 4.8v3.68h5.13V8.96h-5.13zm0 4.8v3.68h5.13v-3.68h-5.13zm0 4.8v3.68h5.13v-3.68h-5.13zM6.19 8.96v3.68h5.13V8.96H6.19zm0 4.8v3.68h5.13v-3.68H6.19zm0 4.8v3.68h5.13v-3.68H6.19zM0 13.76v3.68h5.13v-3.68H0zm0 4.8v3.68h5.13v-3.68H0z"/>
+                </svg>
+                <span>Deezer</span>
+            </a>
+        </div>
+    </section>
+
+    <section class="discography-section">
+        <div class="section-header">
+            <h2>Top Tracks</h2>
+            <p>Most popular releases</p>
+        </div>
+        <div class="releases-grid">
+            <div class="release-card">
+                <div class="release-cover">♪</div>
+                <div class="release-info">
+                    <h3 class="release-title">Track Title #1</h3>
+                    <p class="release-meta">2024 • Single</p>
+                </div>
+            </div>
+            <div class="release-card">
+                <div class="release-cover">♪</div>
+                <div class="release-info">
+                    <h3 class="release-title">Track Title #2</h3>
+                    <p class="release-meta">2024 • Single</p>
+                </div>
+            </div>
+            <div class="release-card">
+                <div class="release-cover">♪</div>
+                <div class="release-info">
+                    <h3 class="release-title">Track Title #3</h3>
+                    <p class="release-meta">2023 • Single</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Load shared components -->
+    <script src="../components.js"></script>
+</body>
+</html>
