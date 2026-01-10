@@ -20,7 +20,6 @@
             overflow-x: hidden;
         }
 
-        /* --- NAVIGATION --- */
         nav {
             position: fixed;
             top: 0;
@@ -106,7 +105,6 @@
             transform: rotate(-45deg) translate(8px, -8px);
         }
 
-        /* --- 777HEAVEN BRANDED HEADER --- */
         .roster-header {
             padding: 150px 20px 40px;
             text-align: center;
@@ -130,7 +128,6 @@
             margin-bottom: 80px;
         }
 
-        /* --- THE ROSTER GRID --- */
         .heaven-records-roster {
             max-width: 1100px;
             margin: 0 auto;
@@ -150,7 +147,6 @@
             display: inline;
         }
 
-        /* Dim other artists on hover */
         .heaven-records-roster:hover .artist-entry {
             opacity: 0.15;
         }
@@ -159,7 +155,6 @@
             opacity: 1;
         }
 
-        /* --- THE GLIDING PREVIEW --- */
         #artist-hover-preview {
             position: fixed;
             top: 0;
@@ -186,7 +181,67 @@
             object-fit: cover;
         }
 
-        /* --- MOBILE STYLES --- */
+        footer {
+            padding: 80px 30px 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .footer-brand p {
+            font-size: 13px;
+            line-height: 1.8;
+            color: #666;
+            max-width: 400px;
+            font-weight: 400;
+        }
+
+        .footer-links h4 {
+            font-size: 12px;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            opacity: 0.5;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .footer-links a {
+            display: block;
+            color: #aaa;
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 12px;
+            transition: all 0.2s;
+            font-weight: 400;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 12px;
+            color: #555;
+            font-weight: 400;
+        }
+
         @media (max-width: 968px) {
             nav ul {
                 position: fixed;
@@ -240,33 +295,25 @@
             .roster-header {
                 padding: 120px 20px 40px;
             }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            footer {
+                padding: 60px 20px 30px;
+            }
         }
     </style>
 </head>
 <body>
-
     <div id="artist-hover-preview">
         <img src="" id="preview-image-element" alt="Artist Preview">
     </div>
 
-    <nav>
-        <div class="wrap">
-            <a href="index.html" class="logo-nav">
-                <img src="logo.png" alt="777heaven">
-            </a>
-            <div class="mobile-menu" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <ul id="navMenu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="roster.html">Roster</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+    <!-- Navigation placeholder -->
+    <div id="nav-placeholder"></div>
 
     <header class="roster-header">
         <h1 class="main-brand-title">777HEAVEN RECORDS</h1>
@@ -292,34 +339,14 @@
         <a href="artist16.html" class="artist-entry" data-img="artist16.jpg">Artist Sixteen</a>
     </section>
 
+    <!-- Footer placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Load shared components -->
+    <script src="components.js"></script>
+    
+    <!-- Roster-specific JavaScript -->
     <script>
-        function toggleMenu() {
-            const menu = document.getElementById('navMenu');
-            const burger = document.querySelector('.mobile-menu');
-            menu.classList.toggle('active');
-            burger.classList.toggle('active');
-        }
-
-        document.addEventListener('click', function(event) {
-            const nav = document.querySelector('nav');
-            const menu = document.getElementById('navMenu');
-            const burger = document.querySelector('.mobile-menu');
-            
-            if (!nav.contains(event.target) && menu.classList.contains('active')) {
-                menu.classList.remove('active');
-                burger.classList.remove('active');
-            }
-        });
-
-        document.querySelectorAll('#navMenu a').forEach(link => {
-            link.addEventListener('click', () => {
-                const menu = document.getElementById('navMenu');
-                const burger = document.querySelector('.mobile-menu');
-                menu.classList.remove('active');
-                burger.classList.remove('active');
-            });
-        });
-
         const previewBox = document.getElementById('artist-hover-preview');
         const previewImg = document.getElementById('preview-image-element');
         const artistNodes = document.querySelectorAll('.artist-entry');
