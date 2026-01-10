@@ -3,7 +3,7 @@
         <a href="index.html" class="logo-nav">
             <img src="logo.png" alt="777heaven">
         </a>
-        <div class="mobile-menu" onclick="toggleMenu()">
+        <div class="mobile-menu">
             <span></span>
             <span></span>
             <span></span>
@@ -16,32 +16,3 @@
         </ul>
     </div>
 </nav>
-
-<script>
-    function toggleMenu() {
-        const menu = document.getElementById('navMenu');
-        const burger = document.querySelector('.mobile-menu');
-        menu.classList.toggle('active');
-        burger.classList.toggle('active');
-    }
-
-    document.addEventListener('click', function(event) {
-        const nav = document.querySelector('nav');
-        const menu = document.getElementById('navMenu');
-        const burger = document.querySelector('.mobile-menu');
-        
-        if (!nav.contains(event.target) && menu.classList.contains('active')) {
-            menu.classList.remove('active');
-            burger.classList.remove('active');
-        }
-    });
-
-    document.querySelectorAll('#navMenu a').forEach(link => {
-        link.addEventListener('click', () => {
-            const menu = document.getElementById('navMenu');
-            const burger = document.querySelector('.mobile-menu');
-            menu.classList.remove('active');
-            burger.classList.remove('active');
-        });
-    });
-</script>

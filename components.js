@@ -27,16 +27,48 @@ async function loadComponent(elementId, fileName) {
         
         document.getElementById(elementId).innerHTML = processedHtml;
         
-        // If nav was loaded, execute its scripts
+        // If nav was loaded, attach mobile menu functionality
         if (elementId === 'nav-placeholder') {
-            const scripts = document.getElementById(elementId).getElementsByTagName('script');
-            for (let script of scripts) {
-                eval(script.innerHTML);
-            }
+            initializeMobileMenu();
         }
     } catch (error) {
         console.error(`Error loading ${filePath}:`, error);
     }
+}
+
+// Initialize mobile menu functionality
+function initializeMobileMenu() {
+    const burger = document.querySelector('.mobile-menu');
+    const menu = document.getElementById('navMenu');
+    
+    if (!burger || !menu) {
+        console.error('Mobile menu elements not found');
+        return;
+    }
+    
+    // Toggle menu when clicking burger
+    burger.addEventListener('click', function(e) {
+        e.stopPropagation();
+        menu.classList.toggle('active');
+        burger.classList.toggle('active');
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+        const nav = document.querySelector('nav');
+        if (nav && !nav.contains(event.target) && menu.classList.contains('active')) {
+            menu.classList.remove('active');
+            burger.classList.remove('active');
+        }
+    });
+    
+    // Close menu when clicking nav links
+    document.querySelectorAll('#navMenu a').forEach(link => {
+        link.addEventListener('click', () => {
+            menu.classList.remove('active');
+            burger.classList.remove('active');
+        });
+    });
 }
 
 // Load components when DOM is ready
