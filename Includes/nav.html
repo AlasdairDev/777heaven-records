@@ -3,11 +3,17 @@
         position: fixed;
         top: 0;
         width: 100%;
-        padding: 20px 30px;
+        padding: 15px 30px;
         background: rgba(0, 0, 0, 0.85);
         backdrop-filter: blur(20px);
         z-index: 1000;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        transition: backdrop-filter 0.3s ease, background 0.3s ease;
+    }
+
+    nav.scrolled {
+        backdrop-filter: blur(40px);
+        background: rgba(0, 0, 0, 0.95);
     }
 
     nav .wrap {
@@ -19,7 +25,7 @@
     }
 
     .logo-nav img {
-        height: 38px;
+        height: 32px;
         transition: all 0.3s;
         filter: brightness(1);
     }
@@ -62,20 +68,20 @@
     .mobile-menu {
         display: none;
         flex-direction: column;
-        gap: 6px;
+        gap: 5px;
         cursor: pointer;
         z-index: 1001;
     }
 
     .mobile-menu span {
-        width: 28px;
+        width: 26px;
         height: 2px;
         background: #fff;
         transition: all 0.3s;
     }
 
     .mobile-menu.active span:nth-child(1) {
-        transform: rotate(45deg) translate(8px, 8px);
+        transform: rotate(45deg) translate(7px, 7px);
     }
 
     .mobile-menu.active span:nth-child(2) {
@@ -83,21 +89,26 @@
     }
 
     .mobile-menu.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(8px, -8px);
+        transform: rotate(-45deg) translate(7px, -7px);
     }
 
     @media (max-width: 968px) {
         nav {
-            padding: 15px 20px;
+            padding: 12px 20px;
+        }
+
+        nav.scrolled {
+            backdrop-filter: blur(40px);
+            background: rgba(0, 0, 0, 0.95);
         }
 
         .logo-nav img {
-            height: 32px;
+            height: 28px;
         }
 
         nav ul {
             position: fixed;
-            top: 62px;
+            top: 52px;
             left: 0;
             width: 100%;
             background: rgba(0, 0, 0, 0.98);
@@ -108,7 +119,11 @@
             border-bottom: 1px solid rgba(255,255,255,0.1);
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s ease;
+            transition: max-height 0.3s ease, backdrop-filter 0.3s ease;
+        }
+
+        nav ul.active {
+            backdrop-filter: blur(40px);
         }
 
         nav ul.active {
@@ -121,7 +136,7 @@
 
         nav ul a {
             display: block;
-            padding: 20px 20px;
+            padding: 18px 20px;
             font-size: 12px;
         }
 
@@ -131,6 +146,38 @@
 
         .mobile-menu {
             display: flex;
+        }
+    }
+
+    @media (max-width: 480px) {
+        nav {
+            padding: 10px 15px;
+        }
+
+        nav.scrolled {
+            backdrop-filter: blur(40px);
+            background: rgba(0, 0, 0, 0.95);
+        }
+
+        .logo-nav img {
+            height: 26px;
+        }
+
+        nav ul {
+            top: 46px;
+        }
+
+        nav ul.active {
+            backdrop-filter: blur(40px);
+        }
+
+        nav ul a {
+            padding: 16px 15px;
+            font-size: 11px;
+        }
+
+        .mobile-menu span {
+            width: 24px;
         }
     }
 </style>
@@ -153,3 +200,27 @@
         </ul>
     </div>
 </nav>
+
+<script>
+    // Scroll blur effect
+    const nav = document.querySelector('nav');
+    
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            nav.classList.add('scrolled');
+        } else {
+            nav.classList.remove('scrolled');
+        }
+    });
+
+    // Mobile menu toggle
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const navMenu = document.getElementById('navMenu');
+    
+    if (mobileMenu) {
+        mobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+    }
+</script>
