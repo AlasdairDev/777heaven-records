@@ -62,12 +62,15 @@
             display: inline;
         }
 
-        .heaven-records-roster:hover .artist-entry {
-            opacity: 0.15;
-        }
+        /* Desktop hover effects */
+        @media (min-width: 969px) {
+            .heaven-records-roster:hover .artist-entry {
+                opacity: 0.15;
+            }
 
-        .heaven-records-roster .artist-entry:hover {
-            opacity: 1;
+            .heaven-records-roster .artist-entry:hover {
+                opacity: 1;
+            }
         }
 
         #artist-hover-preview {
@@ -119,7 +122,7 @@
 
         @media (max-width: 968px) {
             #artist-hover-preview { 
-                display: none; 
+                display: none !important;
             }
 
             .main-brand-title { 
@@ -140,6 +143,66 @@
 
             .roster-archive {
                 padding: 0 20px 60px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .roster-header {
+                padding: 100px 20px 30px;
+            }
+
+            .main-brand-title {
+                font-size: 48px;
+            }
+
+            .location-subtitle {
+                font-size: 16px;
+                margin-bottom: 60px;
+            }
+
+            .artist-entry {
+                font-size: 15px;
+            }
+
+            .heaven-records-roster {
+                padding: 0 20px 80px;
+                line-height: 2;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .roster-header {
+                padding: 80px 15px 25px;
+            }
+
+            .main-brand-title {
+                font-size: 40px;
+            }
+
+            .location-subtitle {
+                font-size: 14px;
+                margin-bottom: 50px;
+            }
+
+            .artist-entry {
+                font-size: 14px;
+            }
+
+            .heaven-records-roster {
+                padding: 0 15px 60px;
+                line-height: 1.9;
+            }
+
+            .roster-archive {
+                padding: 0 15px 50px;
+            }
+
+            .roster-archive .sub-head {
+                font-size: 12px;
+            }
+
+            .roster-archive .names-small {
+                font-size: 12px;
             }
         }
     </style>
@@ -194,27 +257,44 @@
     
     <!-- Roster-specific JavaScript -->
     <script>
-        const previewBox = document.getElementById('artist-hover-preview');
-        const previewImg = document.getElementById('preview-image-element');
-        const artistNodes = document.querySelectorAll('.artist-entry');
+        // Only enable preview on desktop (screens wider than 968px)
+        function initPreview() {
+            if (window.innerWidth > 968) {
+                const previewBox = document.getElementById('artist-hover-preview');
+                const previewImg = document.getElementById('preview-image-element');
+                const artistNodes = document.querySelectorAll('.artist-entry');
 
-        document.addEventListener('mousemove', (e) => {
-            previewBox.style.left = e.clientX + 'px';
-            previewBox.style.top = e.clientY + 'px';
-        });
+                document.addEventListener('mousemove', (e) => {
+                    previewBox.style.left = e.clientX + 'px';
+                    previewBox.style.top = e.clientY + 'px';
+                });
 
-        artistNodes.forEach(node => {
-            node.addEventListener('mouseenter', () => {
-                const sourcePath = node.getAttribute('data-img');
-                if (sourcePath) {
-                    previewImg.src = sourcePath;
-                    previewBox.classList.add('active');
-                }
-            });
+                artistNodes.forEach(node => {
+                    node.addEventListener('mouseenter', () => {
+                        const sourcePath = node.getAttribute('data-img');
+                        if (sourcePath) {
+                            previewImg.src = sourcePath;
+                            previewBox.classList.add('active');
+                        }
+                    });
 
-            node.addEventListener('mouseleave', () => {
-                previewBox.classList.remove('active');
-            });
+                    node.addEventListener('mouseleave', () => {
+                        previewBox.classList.remove('active');
+                    });
+                });
+            }
+        }
+
+        // Initialize on load
+        initPreview();
+
+        // Re-initialize on resize (in case user rotates device or resizes window)
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                location.reload(); // Reload page on significant resize to re-check screen width
+            }, 250);
         });
     </script>
 </body>
