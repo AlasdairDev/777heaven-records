@@ -446,10 +446,10 @@ footer {
 }
 
 /* ============================================
-   RESPONSIVE DESIGN - MOBILE & TABLET
+   MOBILE RESPONSIVE STYLES
    ============================================ */
 
-/* Tablet styles (768px - 968px) */
+/* Tablet (768px - 968px) */
 @media (max-width: 968px) {
     .back-nav {
         padding: 80px 25px 15px;
@@ -530,7 +530,7 @@ footer {
     }
 }
 
-/* Mobile styles (480px - 768px) */
+/* Mobile (480px - 768px) */
 @media (max-width: 768px) {
     .back-nav {
         padding: 70px 20px 15px;
@@ -692,7 +692,7 @@ footer {
     }
 }
 
-/* Small mobile styles (max 480px) */
+/* Small Mobile (max 480px) */
 @media (max-width: 480px) {
     .back-nav {
         padding: 60px 15px 12px;
@@ -787,7 +787,7 @@ footer {
     }
 }
 
-/* Landscape mobile optimization */
+/* Landscape Mobile Optimization */
 @media (max-width: 968px) and (orientation: landscape) {
     .artist-hero {
         grid-template-columns: 1fr 1.2fr;
