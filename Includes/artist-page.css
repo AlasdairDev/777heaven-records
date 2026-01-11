@@ -445,16 +445,45 @@ footer {
     margin: 0;
 }
 
-/* Responsive Design */
+/* ============================================
+   RESPONSIVE DESIGN - MOBILE & TABLET
+   ============================================ */
+
+/* Tablet styles (768px - 968px) */
 @media (max-width: 968px) {
+    .back-nav {
+        padding: 80px 25px 15px;
+    }
+
     .artist-hero {
         grid-template-columns: 1fr;
         gap: 40px;
-        padding: 40px 20px 60px;
+        padding: 40px 25px 60px;
+    }
+
+    .artist-image {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .artist-details h1 {
+        font-size: clamp(40px, 7vw, 65px);
+    }
+
+    .stats-section {
+        padding: 0 25px 60px;
     }
 
     .stats-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .discography-section {
+        padding: 60px 25px;
+    }
+
+    .section-header {
+        margin-bottom: 40px;
     }
 
     .releases-grid {
@@ -466,19 +495,30 @@ footer {
         max-width: 350px;
     }
 
+    .stream-section {
+        padding: 60px 25px 100px;
+    }
+
     .embed-container {
         padding: 30px 20px;
     }
 
+    .embed-placeholder {
+        height: 320px;
+    }
+
+    .dsp-buttons {
+        gap: 12px;
+    }
+
     .footer-grid {
         grid-template-columns: 1fr;
-        gap: 35px;
+        gap: 40px;
         margin-bottom: 30px;
     }
 
     .footer-brand {
         padding-right: 0;
-        text-align: left;
     }
 
     .footer-brand p {
@@ -487,23 +527,292 @@ footer {
 
     .footer-links {
         min-width: auto;
-        text-align: left;
+    }
+}
+
+/* Mobile styles (480px - 768px) */
+@media (max-width: 768px) {
+    .back-nav {
+        padding: 70px 20px 15px;
+    }
+
+    .back-nav a {
+        font-size: 12px;
+    }
+
+    .artist-hero {
+        padding: 30px 20px 50px;
+        gap: 30px;
+    }
+
+    .artist-image {
+        max-width: 100%;
+        font-size: 80px;
+    }
+
+    .artist-details h1 {
+        font-size: clamp(36px, 9vw, 50px);
+        margin-bottom: 12px;
+    }
+
+    .artist-genre {
+        font-size: 11px;
+        margin-bottom: 25px;
+    }
+
+    .artist-bio {
+        font-size: 15px;
+        line-height: 1.8;
+        margin-bottom: 30px;
+    }
+
+    .social-links {
+        gap: 10px;
+    }
+
+    .social-link {
+        padding: 12px 24px;
+        font-size: 11px;
+        flex: 1 1 auto;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .stats-section {
+        padding: 0 20px 50px;
+    }
+
+    .stat-card {
+        padding: 30px 20px;
+    }
+
+    .stat-number {
+        font-size: 36px;
+    }
+
+    .stat-label {
+        font-size: 10px;
+    }
+
+    .discography-section {
+        padding: 50px 20px;
+    }
+
+    .section-header {
+        margin-bottom: 35px;
+    }
+
+    .section-header h2 {
+        font-size: clamp(32px, 7vw, 45px);
+    }
+
+    .section-header p {
+        font-size: 13px;
+    }
+
+    .releases-grid {
+        gap: 15px;
+    }
+
+    .release-card {
+        max-width: 100%;
+    }
+
+    .release-info {
+        padding: 20px;
+    }
+
+    .release-title {
+        font-size: 18px;
+    }
+
+    .stream-section {
+        padding: 50px 20px 80px;
+    }
+
+    .stream-section h2 {
+        font-size: clamp(32px, 8vw, 48px);
+        margin-bottom: 20px;
+    }
+
+    .stream-section p {
+        font-size: 14px;
+        margin-bottom: 35px;
+    }
+
+    .embed-container {
+        padding: 20px 15px;
+        margin-bottom: 30px;
+    }
+
+    .embed-placeholder {
+        height: 280px;
+        font-size: 13px;
+    }
+
+    .dsp-buttons {
+        gap: 10px;
+    }
+
+    .dsp-btn {
+        padding: 14px 24px;
+        font-size: 11px;
+        flex: 1 1 calc(50% - 5px);
+        justify-content: center;
+    }
+
+    footer {
+        padding: 40px 20px 20px;
+    }
+
+    .footer-grid {
+        gap: 30px;
+    }
+
+    .footer-brand h3 {
+        font-size: 16px;
+    }
+
+    .footer-brand p {
+        font-size: 11px;
     }
 
     .footer-links h4 {
+        font-size: 9px;
         margin-bottom: 10px;
     }
 
     .footer-links a {
-        margin-bottom: 8px;
-    }
-
-    .footer-links a:hover {
-        padding-left: 5px;
+        font-size: 12px;
     }
 
     .footer-bottom {
         padding-top: 20px;
         font-size: 10px;
+    }
+}
+
+/* Small mobile styles (max 480px) */
+@media (max-width: 480px) {
+    .back-nav {
+        padding: 60px 15px 12px;
+    }
+
+    .artist-hero {
+        padding: 25px 15px 40px;
+        gap: 25px;
+    }
+
+    .artist-image {
+        font-size: 60px;
+    }
+
+    .artist-details h1 {
+        font-size: clamp(32px, 10vw, 42px);
+    }
+
+    .artist-bio {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .social-links {
+        flex-direction: column;
+    }
+
+    .social-link {
+        width: 100%;
+    }
+
+    .stats-section {
+        padding: 0 15px 40px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stat-card {
+        padding: 25px 15px;
+    }
+
+    .stat-number {
+        font-size: 32px;
+    }
+
+    .discography-section {
+        padding: 40px 15px;
+    }
+
+    .release-cover {
+        font-size: 50px;
+    }
+
+    .release-info {
+        padding: 18px;
+    }
+
+    .stream-section {
+        padding: 40px 15px 60px;
+    }
+
+    .stream-section h2 {
+        font-size: clamp(28px, 9vw, 38px);
+    }
+
+    .embed-container {
+        padding: 15px 10px;
+    }
+
+    .embed-placeholder {
+        height: 240px;
+        font-size: 12px;
+    }
+
+    .dsp-buttons {
+        flex-direction: column;
+    }
+
+    .dsp-btn {
+        width: 100%;
+        flex: 1 1 100%;
+    }
+
+    footer {
+        padding: 35px 15px 18px;
+    }
+
+    .footer-grid {
+        gap: 25px;
+    }
+}
+
+/* Landscape mobile optimization */
+@media (max-width: 968px) and (orientation: landscape) {
+    .artist-hero {
+        grid-template-columns: 1fr 1.2fr;
+        gap: 30px;
+    }
+
+    .artist-image {
+        max-width: 300px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 768px) and (orientation: landscape) {
+    .artist-hero {
+        padding: 25px 20px 40px;
+    }
+
+    .artist-image {
+        max-width: 250px;
+    }
+
+    .stat-card {
+        padding: 25px 15px;
     }
 }
