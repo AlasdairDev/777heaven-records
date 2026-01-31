@@ -308,7 +308,7 @@ body {
     gap: 15px;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 60px;
+    margin-top: 80px;
 }
 
 .dsp-btn {
@@ -510,7 +510,7 @@ footer {
 
     .dsp-buttons {
         gap: 12px;
-        margin-top: 50px;
+        margin-top: 70px;
     }
 
     .footer-grid {
@@ -654,7 +654,7 @@ footer {
 
     .dsp-buttons {
         gap: 10px;
-        margin-top: 40px;
+        margin-top: 60px;
     }
 
     .dsp-btn {
