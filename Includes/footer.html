@@ -1,150 +1,165 @@
 <style>
-footer {
-    padding: 50px 30px 25px;
-    border-top: 1px solid rgba(255,255,255,0.1);
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap');
+
+  .hv-footer {
     background: #000;
-    margin-top: 40px;
-}
+    padding: 60px 48px 28px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    font-family: 'DM Sans', sans-serif;
+    position: relative;
+    overflow: hidden;
+  }
 
-.footer-grid {
-    max-width: 1400px;
+  .hv-footer::before {
+    content: '777';
+    position: absolute;
+    top: -20px;
+    right: -10px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 220px;
+    color: rgba(255,255,255,0.025);
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+    letter-spacing: -4px;
+  }
+
+  .hv-inner {
+    max-width: 1100px;
     margin: 0 auto;
+  }
+
+  .hv-top {
     display: grid;
-    grid-template-columns: 2fr auto auto;
-    gap: 80px;
-    margin-bottom: 35px;
-    align-items: start;
-    justify-content: space-between;
-}
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 52px;
+    align-items: end;
+  }
 
-.footer-brand {
-    padding-right: 40px;
-}
-
-.footer-brand h3 {
-    font-size: 18px;
-    margin-bottom: 10px;
-    font-weight: 700;
+  .hv-wordmark {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 52px;
     color: #fff;
-    letter-spacing: -0.5px;
-}
+    letter-spacing: 0.02em;
+    line-height: 1;
+    margin: 0 0 12px;
+  }
 
-.footer-brand p {
-    font-size: 12px;
-    line-height: 1.6;
-    color: #666;
-    max-width: 350px;
-    font-weight: 400;
-}
+  .hv-wordmark span {
+    color: rgba(255,255,255,0.2);
+  }
 
-.footer-links {
-    min-width: 120px;
-}
-
-.footer-links h4 {
-    font-size: 10px;
-    letter-spacing: 2px;
-    margin-bottom: 12px;
-    opacity: 0.4;
-    text-transform: uppercase;
-    font-weight: 700;
-    color: #fff;
-}
-
-.footer-links a {
-    display: block;
-    color: #888;
-    text-decoration: none;
-    font-size: 13px;
-    margin-bottom: 8px;
-    transition: all 0.2s;
-    font-weight: 400;
-}
-
-.footer-links a:hover {
-    color: #fff;
-    padding-left: 5px;
-}
-
-.footer-bottom {
-    text-align: center;
-    padding-top: 25px;
-    border-top: 1px solid rgba(255,255,255,0.08);
+  .hv-tagline {
     font-size: 11px;
-    color: #555;
-    font-weight: 400;
-}
-
-.footer-bottom p {
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
     margin: 0;
-}
+  }
 
-@media (max-width: 968px) {
-    footer {
-        padding: 40px 20px 20px;
-        margin-top: 30px;
-    }
+  .hv-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    justify-self: end;
+    width: 100%;
+    max-width: 340px;
+  }
 
-    .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 35px;
-        margin-bottom: 30px;
-    }
+  .hv-col h4 {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+    margin: 0 0 16px;
+  }
 
-    .footer-brand {
-        padding-right: 0;
-        text-align: left;
-    }
+  .hv-col a {
+    display: block;
+    font-size: 13px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    margin-bottom: 10px;
+    transition: color 0.2s, letter-spacing 0.2s;
+    letter-spacing: 0.01em;
+  }
 
-    .footer-brand p {
-        max-width: 100%;
-    }
+  .hv-col a:hover {
+    color: #fff;
+    letter-spacing: 0.04em;
+  }
 
-    .footer-links {
-        min-width: auto;
-        text-align: left;
-    }
+  .hv-divider {
+    height: 1px;
+    background: linear-gradient(to right, rgba(255,255,255,0.08), transparent);
+    margin-bottom: 24px;
+  }
 
-    .footer-links h4 {
-        margin-bottom: 10px;
-    }
+  .hv-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 
-    .footer-links a {
-        margin-bottom: 8px;
-    }
+  .hv-copy {
+    font-size: 11px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.2);
+    letter-spacing: 0.05em;
+    margin: 0;
+  }
 
-    .footer-links a:hover {
-        padding-left: 5px;
-    }
+  .hv-badge {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 4px 10px;
+    border-radius: 2px;
+  }
 
-    .footer-bottom {
-        padding-top: 20px;
-        font-size: 10px;
-    }
-}
+  @media (max-width: 720px) {
+    .hv-footer { padding: 48px 24px 24px; }
+    .hv-top { grid-template-columns: 1fr; gap: 36px; }
+    .hv-links { justify-self: start; max-width: 100%; }
+    .hv-wordmark { font-size: 40px; }
+    .hv-footer::before { font-size: 140px; }
+  }
 </style>
 
-<footer>
-    <div class="footer-grid">
-        <div class="footer-brand">
-            <h3>777HEAVEN RECORDS</h3>
+<footer class="hv-footer">
+  <div class="hv-inner">
+    <div class="hv-top">
+      <div class="hv-brand">
+        <h3 class="hv-wordmark">777Heaven<span>.</span></h3>
+        <p class="hv-tagline">Records &nbsp;·&nbsp; Independent since day one</p>
+      </div>
+      <div class="hv-links">
+        <div class="hv-col">
+          <h4>Navigate</h4>
+          <a href="index.html">Home</a>
+          <a href="roster.html">Roster</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
         </div>
-        <div class="footer-links">
-            <h4>Navigate</h4>
-            <a href="index.html">Home</a>
-            <a href="roster.html">Roster</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
+        <div class="hv-col">
+          <h4>Connect</h4>
+          <a href="https://www.facebook.com/777heavenrecords" target="_blank">Facebook</a>
+          <a href="https://www.instagram.com/777hvnrx" target="_blank">Instagram</a>
+          <a href="https://www.tiktok.com/@777heavenrecords" target="_blank">TikTok</a>
+          <a href="https://www.youtube.com/@777heavenrecords" target="_blank">YouTube</a>
         </div>
-        <div class="footer-links">
-            <h4>Connect</h4>
-            <a href="https://www.facebook.com/777heavenrecords" target="_blank">Facebook</a>
-            <a href="https://www.instagram.com/777hvnrx" target="_blank">Instagram</a>
-            <a href="https://www.tiktok.com/@777heavenrecords" target="_blank">Tiktok</a>
-            <a href="https://www.youtube.com/@777heavenrecords" target="_blank">Youtube</a>
-        </div>
+      </div>
     </div>
-    <div class="footer-bottom">
-        <p>© 2024 777heaven Records. Independent since day one.</p>
+    <div class="hv-divider"></div>
+    <div class="hv-bottom">
+      <p class="hv-copy">© 2025 777Heaven Records. All rights reserved.</p>
+      <div class="hv-badge">Independent</div>
     </div>
+  </div>
 </footer>
