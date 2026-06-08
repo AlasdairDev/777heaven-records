@@ -79,6 +79,8 @@ body {
     letter-spacing: 1px;
     transition: opacity 0.2s ease;
     display: inline;
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 
 a.artist-entry {
