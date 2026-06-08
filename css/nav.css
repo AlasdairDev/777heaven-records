@@ -129,18 +129,22 @@ nav ul a:hover::after {
         left: 0;
         width: 100%;
         background: rgba(0, 0, 0, 0.98);
-        backdrop-filter: blur(24px);
-        -webkit-backdrop-filter: blur(24px);
         flex-direction: column;
         gap: 0;
         padding: 0;
-        border-bottom: 1px solid rgba(255,255,255,0.08);
+        border-bottom: none;
         max-height: 0;
         overflow: hidden;
-        transition: max-height 0.35s ease;
+        visibility: hidden;
+        transition: max-height 0.35s ease, visibility 0s linear 0.35s;
     }
 
-    nav ul.active { max-height: 280px; }
+    nav ul.active {
+        max-height: 280px;
+        visibility: visible;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        transition: max-height 0.35s ease, visibility 0s;
+    }
 
     nav ul li { border-bottom: 1px solid rgba(255,255,255,0.05); }
 

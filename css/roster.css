@@ -200,71 +200,33 @@ a.artist-entry:hover {
 }
 
 @media (max-width: 640px) {
-    .active-section { padding: 96px 0 64px; }
+    .active-section { padding: 96px 24px 64px; }
     .roster-title { letter-spacing: -2px; margin-bottom: 24px; }
     .roster-sub { margin-bottom: 28px; }
-    .inactive-section { padding: 48px 0 64px; }
+    .inactive-section { padding: 48px 24px 64px; }
 
-    /* Switch artist list to a single-column contained layout */
-    .heaven-records-roster {
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        line-height: 1;
-        gap: 0;
-    }
+    .heaven-records-roster { line-height: 2; }
+    .inactive-roster { line-height: 2; }
 
-    .artist-entry {
-        display: block;
-        padding: 15px 20px;
-        font-size: 13px;
-        letter-spacing: 1.5px;
-        border-bottom: 1px solid rgba(255,255,255,0.07);
-        text-align: center;
-    }
+    .artist-entry, .roster-sep { font-size: 13px; }
+    .inactive-entry, .inactive-sep { font-size: 12px; }
 
-    a.artist-entry:hover {
-        text-decoration: none;
-        background: rgba(255,255,255,0.04);
-    }
-
-    .roster-sep { display: none; }
-
-    .roster-count { margin-top: 0; padding: 16px 20px; border-top: none; }
-
-    /* Inactive list same treatment */
-    .inactive-roster {
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        line-height: 1;
-        gap: 0;
-    }
-
-    .inactive-entry {
-        display: block;
-        padding: 13px 20px;
-        font-size: 12px;
-        letter-spacing: 1.5px;
-        border-bottom: 1px solid rgba(255,255,255,0.05);
-        text-align: center;
-    }
-
-    .inactive-sep { display: none; }
+    .roster-count { letter-spacing: 2px; }
 }
 
 @media (max-width: 480px) {
-    .active-section { padding: 88px 0 56px; }
+    .active-section { padding: 88px 20px 56px; }
     .roster-title { letter-spacing: -1.5px; margin-bottom: 20px; }
-    .artist-entry { padding: 13px 16px; font-size: 12px; }
-    .inactive-entry { padding: 11px 16px; font-size: 11px; }
-    .inactive-section { padding: 40px 0 56px; }
+    .artist-entry, .roster-sep { font-size: 11px; }
+    .inactive-entry, .inactive-sep { font-size: 10px; }
+    .inactive-section { padding: 40px 20px 56px; }
 }
 
 @media (max-width: 380px) {
-    .active-section { padding: 80px 0 48px; }
+    .active-section { padding: 80px 16px 48px; }
     .roster-title { letter-spacing: -1px; }
-    .roster-count { padding: 14px 16px; font-size: 8px; }
-    .artist-entry { padding: 12px 14px; font-size: 11px; letter-spacing: 1px; }
-    .inactive-entry { padding: 10px 14px; font-size: 10px; letter-spacing: 1px; }
+    .roster-count { padding: 14px 0; font-size: 8px; letter-spacing: 1.5px; }
+    .artist-entry, .roster-sep { font-size: 10px; }
+    .inactive-entry, .inactive-sep { font-size: 9px; }
+    .inactive-section { padding: 36px 16px 48px; }
 }
