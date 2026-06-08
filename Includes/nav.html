@@ -8,7 +8,7 @@
         backdrop-filter: blur(24px);
         -webkit-backdrop-filter: blur(24px);
         z-index: 1000;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.14);
         transition: background 0.4s ease, border-color 0.4s ease;
     }
 
@@ -62,7 +62,7 @@
         text-transform: uppercase;
         position: relative;
         font-weight: 500;
-        opacity: 0.75;
+        opacity: 0.88;
         transition: opacity 0.2s;
     }
 
@@ -88,10 +88,15 @@
     .mobile-menu {
         display: none;
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
         gap: 5px;
         cursor: pointer;
         z-index: 1001;
-        padding: 4px;
+        padding: 10px;
+        min-width: 44px;
+        min-height: 44px;
+        touch-action: manipulation;
     }
 
     .mobile-menu span {
@@ -144,10 +149,13 @@
 
         nav ul a {
             display: block;
-            padding: 18px 24px;
+            padding: 16px 24px;
             font-size: 11px;
             letter-spacing: 2px;
-            opacity: 0.7;
+            opacity: 0.88;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
         }
 
         nav ul a::after { display: none; }

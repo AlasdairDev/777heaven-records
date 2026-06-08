@@ -18,6 +18,7 @@ body {
     padding: 100px 30px 20px;
     max-width: 1400px;
     margin: 0 auto;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
 .back-nav a {
@@ -49,8 +50,8 @@ body {
 .artist-image {
     width: 100%;
     aspect-ratio: 1;
-    background: rgba(255,255,255,0.02);
-    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.15);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -69,7 +70,7 @@ body {
     font-size: clamp(72px, 14vw, 140px);
     font-weight: 700;
     letter-spacing: -4px;
-    color: rgba(255,255,255,0.11);
+    color: rgba(255,255,255,0.22);
     line-height: 1;
     user-select: none;
     font-family: 'Space Grotesk', system-ui, sans-serif;
@@ -86,7 +87,7 @@ body {
 
 .artist-genre {
     font-size: 11px;
-    color: rgba(255,255,255,0.55);
+    color: rgba(255,255,255,0.68);
     letter-spacing: 3px;
     text-transform: uppercase;
     margin-bottom: 28px;
@@ -96,7 +97,7 @@ body {
 .artist-bio {
     font-size: 15px;
     line-height: 1.9;
-    color: rgba(255,255,255,0.75);
+    color: rgba(255,255,255,0.82);
     margin-bottom: 36px;
     font-weight: 400;
 }
@@ -119,6 +120,11 @@ body {
     transition: all 0.3s;
     position: relative;
     overflow: hidden;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    touch-action: manipulation;
 }
 
 .social-link::before {
@@ -155,7 +161,7 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1px;
-    background: rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.14);
 }
 
 .stat-card {
@@ -182,7 +188,7 @@ body {
 }
 
 .stat-card:hover {
-    background: rgba(255,255,255,0.02);
+    background: rgba(255,255,255,0.06);
     transform: translateY(-5px);
 }
 
@@ -194,7 +200,7 @@ body {
 
 .stat-label {
     font-size: 10px;
-    color: rgba(255,255,255,0.55);
+    color: rgba(255,255,255,0.68);
     letter-spacing: 2px;
     text-transform: uppercase;
     font-weight: 400;
@@ -220,7 +226,7 @@ body {
 
 .section-header p {
     font-size: 14px;
-    color: rgba(255,255,255,0.55);
+    color: rgba(255,255,255,0.68);
     font-weight: 400;
 }
 
@@ -233,8 +239,8 @@ body {
 
 .release-card {
     width: 280px;
-    background: rgba(255,255,255,0.02);
-    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.14);
     transition: all 0.4s;
 }
 
@@ -247,12 +253,12 @@ body {
 .release-cover {
     width: 100%;
     aspect-ratio: 1;
-    background: rgba(255,255,255,0.05);
+    background: rgba(255,255,255,0.08);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 60px;
-    color: rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.3);
 }
 
 .release-info {
@@ -336,7 +342,9 @@ body {
     text-transform: uppercase;
     font-weight: 700;
     transition: all 0.3s;
-    border: 1px solid rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.28);
+    min-height: 52px;
+    touch-action: manipulation;
     position: relative;
     overflow: hidden;
 }
@@ -542,6 +550,26 @@ footer {
 
     .footer-links {
         min-width: auto;
+    }
+}
+
+/* Mid-range tablet/large phone (640px - 768px) */
+@media (max-width: 640px) {
+    .artist-hero {
+        padding: 36px 22px 52px;
+        gap: 32px;
+    }
+
+    .dsp-buttons {
+        gap: 10px;
+        margin-top: 60px;
+    }
+
+    .dsp-btn {
+        padding: 14px 20px;
+        font-size: 12px;
+        flex: 1 1 calc(50% - 5px);
+        justify-content: center;
     }
 }
 

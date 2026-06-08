@@ -75,4 +75,20 @@ function initializeMobileMenu() {
 document.addEventListener('DOMContentLoaded', function() {
     loadComponent('nav-placeholder', 'nav.html');
     loadComponent('footer-placeholder', 'footer.html');
+
+    // Dot-grid texture on the body background
+    const tex = document.createElement('style');
+    tex.textContent = 'body { background-image: radial-gradient(rgba(255,255,255,0.055) 1px, transparent 1px); background-size: 36px 36px; }';
+    document.head.appendChild(tex);
+
+    // Film grain overlay on top of everything
+    const grain = document.createElement('div');
+    grain.setAttribute('aria-hidden', 'true');
+    grain.style.position = 'fixed';
+    grain.style.inset = '0';
+    grain.style.pointerEvents = 'none';
+    grain.style.zIndex = '9998';
+    grain.style.opacity = '0.07';
+    grain.style.backgroundImage = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")";
+    document.body.appendChild(grain);
 });

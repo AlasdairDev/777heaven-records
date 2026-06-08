@@ -6,6 +6,13 @@
     <link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="icon" href="logo.png" type="image/png" sizes="any"><link rel="apple-touch-icon" href="logo.png">
     <meta name="theme-color" content="#000000">
     <meta name="description" content="777heaven Records — independent underground label from Manila. Artist-owned. No compromises.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="777heaven Records">
+    <meta property="og:title" content="777heaven Records">
+    <meta property="og:description" content="777heaven Records — independent underground label from Manila. Artist-owned. No compromises.">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="777heaven Records">
+    <meta name="twitter:description" content="777heaven Records — independent underground label from Manila. Artist-owned. No compromises.">
     <title>777heaven Records</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
@@ -40,7 +47,7 @@
             position: absolute;
             width: 700px;
             height: 700px;
-            background: radial-gradient(circle, rgba(255,255,255,0.025) 0%, transparent 65%);
+            background: radial-gradient(circle, rgba(255,255,255,0.042) 0%, transparent 65%);
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
@@ -132,6 +139,9 @@
             overflow: hidden;
             display: inline-flex;
             align-items: center;
+            min-height: 44px;
+            touch-action: manipulation;
+            cursor: pointer;
         }
 
         .btn::before {
@@ -160,9 +170,9 @@
         /* ── MARQUEE ─────────────────────────────── */
 
         .marquee-section {
-            padding: 40px 0;
-            border-top: 1px solid rgba(255,255,255,0.07);
-            border-bottom: 1px solid rgba(255,255,255,0.07);
+            padding: 44px 0;
+            border-top: 1px solid rgba(255,255,255,0.18);
+            border-bottom: 1px solid rgba(255,255,255,0.18);
             overflow: hidden;
             -webkit-mask-image: linear-gradient(to right, transparent, #000 14%, #000 86%, transparent);
             mask-image: linear-gradient(to right, transparent, #000 14%, #000 86%, transparent);
@@ -181,16 +191,16 @@
         }
 
         .marquee span {
-            font-size: 12px;
-            letter-spacing: 3px;
+            font-size: 13px;
+            letter-spacing: 4px;
             text-transform: uppercase;
-            color: rgba(255,255,255,0.7);
+            color: rgba(255,255,255,0.88);
             font-weight: 500;
         }
 
         .marquee span.sep {
-            color: rgba(255,255,255,0.6);
-            font-weight: 400;
+            color: rgba(255,255,255,0.45);
+            font-weight: 300;
         }
 
         /* ── ETHOS ───────────────────────────────── */
@@ -205,7 +215,7 @@
             font-size: 9px;
             letter-spacing: 5px;
             text-transform: uppercase;
-            color: rgba(255,255,255,0.45);
+            color: rgba(255,255,255,0.65);
             text-align: center;
             margin-bottom: 32px;
         }
@@ -214,7 +224,7 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 1px;
-            background: rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.12);
         }
 
         .ethos-card {
@@ -238,7 +248,7 @@
 
         .ethos-card:hover::before { height: 100%; }
         .ethos-card:hover {
-            background: rgba(255,255,255,0.025);
+            background: rgba(255,255,255,0.055);
             transform: translateY(-4px);
         }
 
@@ -252,7 +262,7 @@
         .ethos-card p {
             font-size: 13px;
             line-height: 1.85;
-            color: rgba(255,255,255,0.68);
+            color: rgba(255,255,255,0.78);
             font-weight: 400;
         }
 
@@ -275,22 +285,22 @@
             max-width: 640px;
             margin: 0 auto;
             padding: 56px 48px;
-            background: rgba(255,255,255,0.02);
-            border: 1px solid rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.16);
             text-align: center;
         }
 
         .playlist-label {
             font-size: 9px;
             letter-spacing: 5px;
-            color: rgba(255,255,255,0.5);
+            color: rgba(255,255,255,0.65);
             text-transform: uppercase;
             margin-bottom: 14px;
         }
 
         .playlist-desc {
             font-size: 14px;
-            color: rgba(255,255,255,0.7);
+            color: rgba(255,255,255,0.78);
             line-height: 1.75;
             font-weight: 400;
             margin-bottom: 36px;
@@ -312,6 +322,8 @@
             text-transform: uppercase;
             font-weight: 700;
             transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
+            min-height: 44px;
+            touch-action: manipulation;
         }
 
         .spotify-btn:hover {
@@ -320,19 +332,148 @@
             box-shadow: 0 8px 32px rgba(29, 185, 84, 0.28);
         }
 
+        /* ── STATS STRIP ─────────────────────────── */
+
+        .stats-strip {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .stat-item {
+            padding: 52px 32px;
+            text-align: center;
+            background: #000;
+        }
+
+        .stat-num {
+            font-size: clamp(38px, 5.5vw, 62px);
+            font-weight: 700;
+            letter-spacing: -3px;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .stat-lbl {
+            font-size: 9px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.5);
+        }
+
+        /* ── ROSTER PREVIEW ──────────────────────── */
+
+        .roster-preview {
+            padding: 100px 40px;
+            background: rgba(255,255,255,0.018);
+            border-top: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .rp-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .rp-top {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            margin-bottom: 48px;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .rp-label {
+            font-size: 9px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.55);
+            margin-bottom: 12px;
+        }
+
+        .rp-top h2 {
+            font-size: clamp(28px, 4.5vw, 48px);
+            font-weight: 700;
+            letter-spacing: -1.5px;
+            line-height: 1;
+        }
+
+        .rp-link {
+            font-size: 10px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding-bottom: 2px;
+            white-space: nowrap;
+            transition: color 0.2s, border-color 0.2s;
+            flex-shrink: 0;
+        }
+
+        .rp-link:hover {
+            color: #fff;
+            border-color: rgba(255,255,255,0.7);
+        }
+
+        .artist-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: rgba(255,255,255,0.1);
+        }
+
+        .artist-tile {
+            background: #000;
+            padding: 22px 24px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 76px;
+        }
+
+        .artist-tile::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 0; height: 100%;
+            background: rgba(255,255,255,0.06);
+            transition: width 0.3s ease;
+        }
+
+        .artist-tile:hover::before { width: 100%; }
+
+        .artist-tile span {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.8);
+            position: relative;
+            z-index: 1;
+            transition: color 0.25s;
+        }
+
+        .artist-tile:hover span { color: #fff; }
+
         /* ── RESPONSIVE ──────────────────────────── */
 
         @media (max-width: 968px) {
-            .hero { padding: 100px 24px 64px; }
+            .hero { padding: 100px 28px 64px; }
 
             .hero-content {
                 grid-template-columns: 1fr;
-                gap: 40px;
+                gap: 44px;
                 text-align: center;
             }
 
             .hero-left img {
-                max-width: 260px;
+                max-width: 300px;
                 margin: 0 auto;
             }
 
@@ -340,41 +481,72 @@
 
             .hero-cta { justify-content: center; }
 
-            .ethos { padding: 80px 24px; }
-
-            .ethos-grid {
-                grid-template-columns: 1fr;
-            }
-
+            .ethos { padding: 80px 28px; }
+            .ethos-grid { grid-template-columns: 1fr; }
             .ethos-card { padding: 36px 28px; }
 
-            .collection { padding: 80px 24px; }
+            .roster-preview { padding: 80px 28px; }
+            .artist-grid { grid-template-columns: repeat(3, 1fr); }
 
-            .playlist-box { padding: 40px 28px; }
+            .collection { padding: 80px 28px; }
+            .playlist-box { padding: 40px 32px; }
         }
 
-        @media (max-width: 600px) {
-            .hero { padding: 88px 20px 56px; }
+        @media (max-width: 768px) {
+            .hero { padding: 96px 24px 56px; }
+            .hero-left img { max-width: 260px; }
+            .hero-right h1 { letter-spacing: -2px; }
+            .ethos { padding: 72px 24px; }
+            .stats-strip { grid-template-columns: repeat(2, 1fr); }
+            .stat-item { padding: 40px 24px; }
+            .roster-preview { padding: 72px 24px; }
+            .collection { padding: 72px 24px; }
+        }
+
+        @media (max-width: 640px) {
+            .hero { padding: 88px 20px 52px; }
+            .hero-content { gap: 36px; }
+            .hero-left img { max-width: 220px; }
             .hero-right h1 { letter-spacing: -1.5px; }
-            .ethos { padding: 64px 20px; }
-            .collection { padding: 64px 20px; }
+            .ethos { padding: 60px 20px; }
+            .ethos-card { padding: 30px 22px; }
+            .roster-preview { padding: 60px 20px; }
+            .artist-grid { grid-template-columns: repeat(2, 1fr); }
+            .rp-top { flex-direction: column; align-items: flex-start; gap: 16px; }
+            .collection { padding: 60px 20px; }
             .playlist-box { padding: 32px 20px; }
         }
 
         @media (max-width: 480px) {
             .hero-right h1 { letter-spacing: -1px; }
+            .hero-left img { max-width: 180px; }
 
             .btn {
                 width: 100%;
                 justify-content: center;
+                padding: 16px 24px;
             }
 
-            .hero-cta { width: 100%; }
+            .hero-cta {
+                width: 100%;
+                flex-direction: column;
+                gap: 10px;
+            }
 
             .spotify-btn {
                 width: 100%;
                 justify-content: center;
+                padding: 16px 24px;
             }
+
+            .stat-num { letter-spacing: -2px; }
+        }
+
+        @media (max-width: 380px) {
+            .hero { padding: 80px 16px 48px; }
+            .ethos { padding: 52px 16px; }
+            .roster-preview { padding: 52px 16px; }
+            .collection { padding: 52px 16px; }
         }
     </style>
 </head>
@@ -406,15 +578,40 @@
             <span>Independent</span><span class="sep"> · </span>
             <span>Underground</span><span class="sep"> · </span>
             <span>Artist-Owned</span><span class="sep"> · </span>
+            <span>Manila</span><span class="sep"> · </span>
+            <span>DIY</span><span class="sep"> · </span>
+            <span>Genre-Defying</span><span class="sep"> · </span>
             <span>777</span><span class="sep"> · </span>
+            <span>No Compromise</span><span class="sep"> · </span>
+            <span>Original</span><span class="sep"> · </span>
             <span>Independent</span><span class="sep"> · </span>
             <span>Underground</span><span class="sep"> · </span>
             <span>Artist-Owned</span><span class="sep"> · </span>
+            <span>Manila</span><span class="sep"> · </span>
+            <span>DIY</span><span class="sep"> · </span>
+            <span>Genre-Defying</span><span class="sep"> · </span>
             <span>777</span><span class="sep"> · </span>
-            <span>Independent</span><span class="sep"> · </span>
-            <span>Underground</span><span class="sep"> · </span>
-            <span>Artist-Owned</span><span class="sep"> · </span>
-            <span>777</span><span class="sep"> · </span>
+            <span>No Compromise</span><span class="sep"> · </span>
+            <span>Original</span><span class="sep"> · </span>
+        </div>
+    </div>
+
+    <div class="stats-strip">
+        <div class="stat-item">
+            <div class="stat-num">22</div>
+            <p class="stat-lbl">Artists & Bands</p>
+        </div>
+        <div class="stat-item">
+            <div class="stat-num">2024</div>
+            <p class="stat-lbl">Established</p>
+        </div>
+        <div class="stat-item">
+            <div class="stat-num">100%</div>
+            <p class="stat-lbl">Independent</p>
+        </div>
+        <div class="stat-item">
+            <div class="stat-num">Manila</div>
+            <p class="stat-lbl">Home Base</p>
         </div>
     </div>
 

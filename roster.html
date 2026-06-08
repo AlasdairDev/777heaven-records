@@ -6,7 +6,14 @@
     <link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="icon" href="logo.png" type="image/png" sizes="any"><link rel="apple-touch-icon" href="logo.png">
     <meta name="theme-color" content="#000000">
     <title>Roster — 777heaven Records</title>
-    <meta name="description" content="The 777Heaven Records roster — 18 independent underground artists from Manila and beyond.">
+    <meta name="description" content="The 777Heaven Records roster — 22 independent underground artists from Manila and beyond.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="777heaven Records">
+    <meta property="og:title" content="Roster — 777heaven Records">
+    <meta property="og:description" content="The 777Heaven Records roster — 22 independent underground artists from Manila and beyond.">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Roster — 777heaven Records">
+    <meta name="twitter:description" content="The 777Heaven Records roster — 22 independent underground artists from Manila and beyond.">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
@@ -21,49 +28,85 @@
 
         .roster-page {
             min-height: 100vh;
-            padding: 140px 40px 80px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            padding: 140px 40px 100px;
+            position: relative;
+            text-align: center;
         }
 
-        .roster-eyebrow {
+        .roster-page::before {
+            content: '';
+            position: absolute;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(255,255,255,0.028) 0%, transparent 65%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+
+        .roster-title {
+            font-size: clamp(88px, 16vw, 160px);
+            font-weight: 700;
+            letter-spacing: -6px;
+            line-height: 0.86;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 1;
+            animation: fadeUp 0.55s ease forwards;
+            opacity: 0;
+        }
+
+        .roster-sub {
             font-size: 9px;
-            letter-spacing: 6px;
+            letter-spacing: 5px;
             text-transform: uppercase;
-            color: rgba(255,255,255,0.5);
-            margin-bottom: 40px;
+            color: rgba(255,255,255,0.62);
+            margin-bottom: 52px;
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(14px); }
+            to   { opacity: 1; transform: translateY(0); }
         }
 
         .heaven-records-roster {
-            max-width: 980px;
-            text-align: center;
-            line-height: 2.1;
+            max-width: 880px;
+            line-height: 2.4;
+            position: relative;
+            z-index: 1;
         }
 
         .artist-entry {
-            font-size: clamp(19px, 2.8vw, 30px);
+            font-size: clamp(17px, 2.5vw, 26px);
             font-weight: 600;
             color: #fff;
             text-transform: uppercase;
-            letter-spacing: 0.3px;
+            letter-spacing: 1px;
             transition: opacity 0.2s ease;
             display: inline;
         }
 
         .roster-sep {
-            color: rgba(255,255,255,0.30);
-            font-weight: 300;
+            color: rgba(255,255,255,0.42);
+            font-weight: 400;
+            font-size: clamp(17px, 2.5vw, 26px);
             transition: opacity 0.2s ease;
             user-select: none;
             display: inline;
+            margin: 0 6px;
         }
 
         @media (min-width: 969px) {
             .heaven-records-roster:hover .artist-entry,
             .heaven-records-roster:hover .roster-sep {
-                opacity: 0.14;
+                opacity: 0.1;
             }
             .heaven-records-roster .artist-entry:hover {
                 opacity: 1 !important;
@@ -74,23 +117,40 @@
             margin-top: 52px;
             font-size: 9px;
             letter-spacing: 5px;
-            color: rgba(255,255,255,0.45);
+            color: rgba(255,255,255,0.55);
             text-transform: uppercase;
+            position: relative;
+            z-index: 1;
         }
 
         @media (max-width: 968px) {
-            .roster-page { padding: 120px 28px 64px; }
-            .heaven-records-roster { line-height: 2.0; }
+            .roster-page { padding: 120px 32px 80px; }
+            .roster-title { letter-spacing: -4px; margin-bottom: 40px; }
         }
 
-        @media (max-width: 600px) {
-            .roster-page { padding: 104px 20px 52px; }
-            .heaven-records-roster { line-height: 1.95; }
+        @media (max-width: 768px) {
+            .roster-page { padding: 108px 24px 72px; }
+            .roster-title { letter-spacing: -3px; }
         }
 
-        @media (max-width: 400px) {
-            .roster-page { padding: 88px 16px 44px; }
-            .heaven-records-roster { line-height: 1.9; }
+        @media (max-width: 640px) {
+            .roster-page { padding: 96px 20px 64px; }
+            .roster-title { letter-spacing: -2px; margin-bottom: 28px; }
+            .heaven-records-roster { line-height: 2.15; }
+            .roster-sub { margin-bottom: 40px; }
+        }
+
+        @media (max-width: 480px) {
+            .roster-page { padding: 88px 16px 56px; }
+            .roster-title { letter-spacing: -1.5px; margin-bottom: 24px; }
+            .heaven-records-roster { line-height: 2.05; }
+            .roster-sep { margin: 0 4px; }
+        }
+
+        @media (max-width: 380px) {
+            .roster-page { padding: 80px 14px 48px; }
+            .roster-title { letter-spacing: -1px; }
+            .roster-count { margin-top: 36px; }
         }
     </style>
 </head>
@@ -99,13 +159,14 @@
 
     <main class="roster-page">
 
-        <p class="roster-eyebrow">Current Roster</p>
+        <h1 class="roster-title">ROSTER</h1>
+        <p class="roster-sub">Artists / Bands</p>
 
-        <section class="heaven-records-roster">
-            <span class="artist-entry">6TREET</span><span class="roster-sep"> · </span><span class="artist-entry">AGONY AND ECSTASY</span><span class="roster-sep"> · </span><span class="artist-entry">ANYU</span><span class="roster-sep"> · </span><span class="artist-entry">AREN'T WE ORDINARY?</span><span class="roster-sep"> · </span><span class="artist-entry">ATARI2K</span><span class="roster-sep"> · </span><span class="artist-entry">BENSPLAYSSUUU</span><span class="roster-sep"> · </span><span class="artist-entry">CHEST.IN</span><span class="roster-sep"> · </span><span class="artist-entry">DECENT</span><span class="roster-sep"> · </span><span class="artist-entry">FORSYTHIÁ</span><span class="roster-sep"> · </span><span class="artist-entry">HOLDING RIVERS</span><span class="roster-sep"> · </span><span class="artist-entry">JAZTER</span><span class="roster-sep"> · </span><span class="artist-entry">JUCU</span><span class="roster-sep"> · </span><span class="artist-entry">KAYLE</span><span class="roster-sep"> · </span><span class="artist-entry">MOXY!</span><span class="roster-sep"> · </span><span class="artist-entry">OCRAM ARGEINAT</span><span class="roster-sep"> · </span><span class="artist-entry">SAMSKARA</span><span class="roster-sep"> · </span><span class="artist-entry">STRAWBERRY SWEETS</span><span class="roster-sep"> · </span><span class="artist-entry">YUVAL AGUAVIVA</span>
-        </section>
+        <div class="heaven-records-roster">
+            <span class="artist-entry">6TREET</span><span class="roster-sep">·</span><span class="artist-entry">AGONY AND ECSTASY</span><span class="roster-sep">·</span><span class="artist-entry">ANYU</span><span class="roster-sep">·</span><span class="artist-entry">AREN'T WE ORDINARY?</span><span class="roster-sep">·</span><span class="artist-entry">ATARI2K</span><span class="roster-sep">·</span><span class="artist-entry">BENSPLAYSSUUU</span><span class="roster-sep">·</span><span class="artist-entry">CHEST.IN</span><span class="roster-sep">·</span><span class="artist-entry">DAENA AMOR</span><span class="roster-sep">·</span><span class="artist-entry">DECENT</span><span class="roster-sep">·</span><span class="artist-entry">FORSYTHIÁ</span><span class="roster-sep">·</span><span class="artist-entry">HOLDING RIVERS</span><span class="roster-sep">·</span><span class="artist-entry">IKIA</span><span class="roster-sep">·</span><span class="artist-entry">JAZTER</span><span class="roster-sep">·</span><span class="artist-entry">JUCU</span><span class="roster-sep">·</span><span class="artist-entry">KAYLE</span><span class="roster-sep">·</span><span class="artist-entry">MOXY!</span><span class="roster-sep">·</span><span class="artist-entry">NEVERLAND</span><span class="roster-sep">·</span><span class="artist-entry">OCRAM ARGEINAT</span><span class="roster-sep">·</span><span class="artist-entry">SAMSKARA</span><span class="roster-sep">·</span><span class="artist-entry">STRAWBERRY SWEETS</span><span class="roster-sep">·</span><span class="artist-entry">YUVAL AGUAVIVA</span><span class="roster-sep">·</span><span class="artist-entry">ZYUN</span>
+        </div>
 
-        <p class="roster-count">18 Artists · 777Heaven Records</p>
+        <p class="roster-count">22 Artists & Bands · 777Heaven Records</p>
 
     </main>
 
