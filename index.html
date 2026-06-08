@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="icon" href="logo.png" type="image/png" sizes="any"><link rel="apple-touch-icon" href="logo.png">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="777heaven Records — independent underground label from Manila. Artist-owned. No compromises.">
     <title>777heaven Records</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
         * {
             margin: 0;
@@ -14,18 +17,20 @@
         }
 
         body {
-            font-family: 'Space Grotesk', -apple-system, sans-serif;
+            font-family: 'Space Grotesk', system-ui, sans-serif;
             background: #000;
             color: #fff;
             overflow-x: hidden;
         }
+
+        /* ── HERO ────────────────────────────────── */
 
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 120px 30px 80px;
+            padding: 120px 40px 80px;
             position: relative;
             overflow: hidden;
         }
@@ -33,172 +38,191 @@
         .hero::before {
             content: '';
             position: absolute;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(255,255,255,0.025) 0%, transparent 65%);
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            animation: pulse 8s ease-in-out infinite;
+            animation: pulse 10s ease-in-out infinite;
+            pointer-events: none;
         }
 
         @keyframes pulse {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.3; }
-            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.5; }
+            0%, 100% { transform: translate(-50%, -50%) scale(1);   opacity: 0.6; }
+            50%       { transform: translate(-50%, -50%) scale(1.15); opacity: 1;   }
         }
 
         .hero-content {
-            max-width: 1200px;
+            max-width: 1100px;
+            width: 100%;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 80px;
+            gap: 64px;
             align-items: center;
+            position: relative;
             z-index: 1;
         }
 
         .hero-left img {
             width: 100%;
-            max-width: 500px;
-            filter: drop-shadow(0 0 60px rgba(255,255,255,0.1));
+            max-width: 440px;
+            height: auto;
+            display: block;
+            object-fit: contain;
+            image-rendering: -webkit-optimize-contrast;
+            filter: drop-shadow(0 0 56px rgba(255,255,255,0.07));
+            transition: filter 0.7s ease;
+        }
+
+        .hero-left img:hover {
+            filter: drop-shadow(0 0 80px rgba(255,255,255,0.13));
         }
 
         .hero-right h1 {
-            font-size: clamp(45px, 9vw, 100px);
-            line-height: 0.9;
-            margin-bottom: 30px;
+            font-size: clamp(44px, 8.5vw, 96px);
+            line-height: 0.88;
+            margin-bottom: 24px;
             font-weight: 700;
             letter-spacing: -3px;
         }
 
         .hero-right h1 span {
             display: inline-block;
-            animation: fadeUp 0.8s ease forwards;
+            animation: fadeUp 0.7s ease forwards;
             opacity: 0;
         }
 
         .hero-right h1 span:nth-child(1) { animation-delay: 0.1s; }
-        .hero-right h1 span:nth-child(2) { animation-delay: 0.2s; }
-        .hero-right h1 span:nth-child(3) { animation-delay: 0.3s; }
+        .hero-right h1 span:nth-child(2) { animation-delay: 0.22s; }
+        .hero-right h1 span:nth-child(3) { animation-delay: 0.34s; }
 
         @keyframes fadeUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
+            from { opacity: 0; transform: translateY(18px); }
+            to   { opacity: 1; transform: translateY(0);    }
         }
 
-        .hero-right p {
-            font-size: 14px;
-            letter-spacing: 3px;
-            margin-bottom: 40px;
-            opacity: 0.7;
+        .hero-right .tagline {
+            font-size: 11px;
+            letter-spacing: 4px;
+            margin-bottom: 36px;
+            color: rgba(255,255,255,0.62);
             font-weight: 400;
+            text-transform: uppercase;
         }
 
         .hero-cta {
             display: flex;
-            gap: 15px;
+            gap: 12px;
             flex-wrap: wrap;
         }
 
         .btn {
-            padding: 16px 32px;
+            padding: 15px 30px;
             background: #fff;
             color: #000;
             text-decoration: none;
-            font-size: 12px;
-            letter-spacing: 1.5px;
+            font-size: 11px;
+            letter-spacing: 2px;
             text-transform: uppercase;
             font-weight: 700;
             border: none;
-            transition: all 0.3s;
+            transition: all 0.25s ease;
             position: relative;
             overflow: hidden;
+            display: inline-flex;
+            align-items: center;
         }
 
         .btn::before {
             content: '';
             position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: rgba(0,0,0,0.1);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
+            inset: 0;
+            background: rgba(0,0,0,0.08);
+            opacity: 0;
+            transition: opacity 0.25s;
         }
 
-        .btn:hover::before {
-            width: 300px;
-            height: 300px;
-        }
+        .btn:hover::before { opacity: 1; }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(255,255,255,0.12); }
 
-        .btn span {
-            position: relative;
-            z-index: 1;
-        }
+        .btn span { position: relative; z-index: 1; }
 
         .btn.outline {
             background: transparent;
             color: #fff;
-            border: 1px solid rgba(255,255,255,0.3);
+            border: 1px solid rgba(255,255,255,0.25);
         }
 
-        .btn.outline:hover {
-            border-color: #fff;
-            background: rgba(255,255,255,0.05);
-        }
+        .btn.outline::before { background: rgba(255,255,255,0.06); }
+        .btn.outline:hover { border-color: rgba(255,255,255,0.6); box-shadow: none; }
+
+        /* ── MARQUEE ─────────────────────────────── */
 
         .marquee-section {
-            padding: 60px 0;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding: 40px 0;
+            border-top: 1px solid rgba(255,255,255,0.07);
+            border-bottom: 1px solid rgba(255,255,255,0.07);
             overflow: hidden;
-            background: rgba(255,255,255,0.02);
+            -webkit-mask-image: linear-gradient(to right, transparent, #000 14%, #000 86%, transparent);
+            mask-image: linear-gradient(to right, transparent, #000 14%, #000 86%, transparent);
         }
 
         .marquee {
             display: flex;
-            gap: 60px;
-            animation: scroll 30s linear infinite;
+            gap: 48px;
+            animation: scroll 28s linear infinite;
             white-space: nowrap;
         }
 
         @keyframes scroll {
-            0% { transform: translateX(0); }
+            0%   { transform: translateX(0); }
             100% { transform: translateX(-50%); }
         }
 
         .marquee span {
-            font-size: 18px;
-            letter-spacing: 2px;
+            font-size: 12px;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            opacity: 0.5;
+            color: rgba(255,255,255,0.7);
+            font-weight: 500;
         }
 
+        .marquee span.sep {
+            color: rgba(255,255,255,0.6);
+            font-weight: 400;
+        }
+
+        /* ── ETHOS ───────────────────────────────── */
+
         .ethos {
-            padding: 120px 30px;
+            padding: 100px 40px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
+        .section-label {
+            font-size: 9px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.45);
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
         .ethos-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 1px;
-            background: rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.08);
         }
 
         .ethos-card {
-            padding: 50px 40px;
+            padding: 48px 36px;
             background: #000;
-            transition: all 0.4s;
+            transition: background 0.35s ease, transform 0.35s ease;
             position: relative;
+            overflow: hidden;
         }
 
         .ethos-card::before {
@@ -206,134 +230,100 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 3px;
+            width: 2px;
             height: 0;
-            background: linear-gradient(180deg, #fff, transparent);
-            transition: height 0.4s;
+            background: #fff;
+            transition: height 0.35s ease;
         }
 
-        .ethos-card:hover::before {
-            height: 100%;
-        }
-
+        .ethos-card:hover::before { height: 100%; }
         .ethos-card:hover {
-            background: rgba(255,255,255,0.03);
-            transform: translateY(-5px);
+            background: rgba(255,255,255,0.025);
+            transform: translateY(-4px);
         }
 
         .ethos-card h3 {
-            font-size: 20px;
-            margin-bottom: 15px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
+            font-size: 18px;
+            margin-bottom: 14px;
+            font-weight: 600;
+            letter-spacing: -0.3px;
         }
 
         .ethos-card p {
-            font-size: 14px;
-            line-height: 1.8;
-            color: #aaa;
+            font-size: 13px;
+            line-height: 1.85;
+            color: rgba(255,255,255,0.68);
             font-weight: 400;
         }
 
+        /* ── COLLECTION ──────────────────────────── */
+
         .collection {
-            padding: 100px 30px;
+            padding: 100px 40px;
             text-align: center;
-            background: linear-gradient(180deg, transparent, rgba(255,255,255,0.02), transparent);
         }
 
         .collection h2 {
-            font-size: clamp(40px, 7vw, 70px);
-            margin-bottom: 25px;
+            font-size: clamp(38px, 6.5vw, 68px);
+            margin-bottom: 52px;
             font-weight: 700;
             letter-spacing: -2px;
-            line-height: 1;
-        }
-
-        .collection-subtitle {
-            max-width: 650px;
-            margin: 0 auto 60px;
-            font-size: 15px;
-            line-height: 1.8;
-            color: #888;
-            font-weight: 400;
+            line-height: 0.95;
         }
 
         .playlist-box {
-            max-width: 900px;
+            max-width: 640px;
             margin: 0 auto;
-            padding: 50px;
+            padding: 56px 48px;
             background: rgba(255,255,255,0.02);
-            border: 1px solid rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            position: relative;
+            border: 1px solid rgba(255,255,255,0.08);
+            text-align: center;
         }
 
-        .playlist-box::after {
-            content: '';
-            position: absolute;
-            top: -1px;
-            left: -1px;
-            right: -1px;
-            bottom: -1px;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
-            opacity: 0;
-            transition: opacity 0.3s;
-            pointer-events: none;
+        .playlist-label {
+            font-size: 9px;
+            letter-spacing: 5px;
+            color: rgba(255,255,255,0.5);
+            text-transform: uppercase;
+            margin-bottom: 14px;
         }
 
-        .playlist-box:hover::after {
-            opacity: 1;
-        }
-
-        .tracks-preview {
-            display: grid;
-            gap: 12px;
-            margin-bottom: 40px;
-            text-align: left;
-        }
-
-        .track-item {
-            padding: 18px 20px;
-            background: rgba(0,0,0,0.4);
-            border-left: 2px solid transparent;
-            font-size: 13px;
-            transition: all 0.3s;
-            cursor: pointer;
+        .playlist-desc {
+            font-size: 14px;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.75;
             font-weight: 400;
-        }
-
-        .track-item:hover {
-            background: rgba(255,255,255,0.05);
-            border-left-color: #fff;
-            padding-left: 30px;
+            margin-bottom: 36px;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .spotify-btn {
             display: inline-flex;
             align-items: center;
-            gap: 12px;
-            padding: 20px 45px;
+            gap: 10px;
+            padding: 17px 40px;
             background: #1DB954;
             color: #000;
             text-decoration: none;
-            font-size: 13px;
-            letter-spacing: 1.5px;
+            font-size: 11px;
+            letter-spacing: 2px;
             text-transform: uppercase;
             font-weight: 700;
-            transition: all 0.3s;
-            border: none;
+            transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
         }
 
         .spotify-btn:hover {
             background: #1ed760;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 40px rgba(29, 185, 84, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(29, 185, 84, 0.28);
         }
 
+        /* ── RESPONSIVE ──────────────────────────── */
+
         @media (max-width: 968px) {
-            .hero {
-                padding: 100px 20px 60px;
-            }
+            .hero { padding: 100px 24px 64px; }
 
             .hero-content {
                 grid-template-columns: 1fr;
@@ -342,46 +332,44 @@
             }
 
             .hero-left img {
-                max-width: 300px;
+                max-width: 260px;
                 margin: 0 auto;
             }
 
-            .hero-cta {
-                justify-content: center;
-            }
+            .hero-right h1 { letter-spacing: -2px; }
 
-            .ethos {
-                padding: 80px 20px;
-            }
+            .hero-cta { justify-content: center; }
+
+            .ethos { padding: 80px 24px; }
 
             .ethos-grid {
                 grid-template-columns: 1fr;
-                gap: 1px;
             }
 
-            .ethos-card {
-                padding: 40px 25px;
-            }
+            .ethos-card { padding: 36px 28px; }
 
-            .collection {
-                padding: 80px 20px;
-            }
+            .collection { padding: 80px 24px; }
 
-            .playlist-box {
-                padding: 30px 20px;
-            }
+            .playlist-box { padding: 40px 28px; }
+        }
+
+        @media (max-width: 600px) {
+            .hero { padding: 88px 20px 56px; }
+            .hero-right h1 { letter-spacing: -1.5px; }
+            .ethos { padding: 64px 20px; }
+            .collection { padding: 64px 20px; }
+            .playlist-box { padding: 32px 20px; }
         }
 
         @media (max-width: 480px) {
+            .hero-right h1 { letter-spacing: -1px; }
+
             .btn {
                 width: 100%;
-                text-align: center;
                 justify-content: center;
             }
 
-            .hero-cta {
-                width: 100%;
-            }
+            .hero-cta { width: 100%; }
 
             .spotify-btn {
                 width: 100%;
@@ -391,7 +379,6 @@
     </style>
 </head>
 <body>
-    <!-- Navigation placeholder -->
     <div id="nav-placeholder"></div>
 
     <section class="hero">
@@ -405,7 +392,7 @@
                     <span>FOOL'S</span><br>
                     <span>JOURNEY</span>
                 </h1>
-                <p>TOLD THROUGH SOUND</p>
+                <p class="tagline">Told through sound</p>
                 <div class="hero-cta">
                     <a href="roster.html" class="btn"><span>Explore Artists</span></a>
                     <a href="#collection" class="btn outline"><span>Listen</span></a>
@@ -416,30 +403,27 @@
 
     <div class="marquee-section">
         <div class="marquee">
-            <span>INDEPENDENT</span>
-            <span>•</span>
-            <span>UNDERGROUND</span>
-            <span>•</span>
-            <span>ARTIST-OWNED</span>
-            <span>•</span>
-            <span>777</span>
-            <span>•</span>
-            <span>INDEPENDENT</span>
-            <span>•</span>
-            <span>UNDERGROUND</span>
-            <span>•</span>
-            <span>ARTIST-OWNED</span>
-            <span>•</span>
-            <span>777</span>
-            <span>•</span>
+            <span>Independent</span><span class="sep"> · </span>
+            <span>Underground</span><span class="sep"> · </span>
+            <span>Artist-Owned</span><span class="sep"> · </span>
+            <span>777</span><span class="sep"> · </span>
+            <span>Independent</span><span class="sep"> · </span>
+            <span>Underground</span><span class="sep"> · </span>
+            <span>Artist-Owned</span><span class="sep"> · </span>
+            <span>777</span><span class="sep"> · </span>
+            <span>Independent</span><span class="sep"> · </span>
+            <span>Underground</span><span class="sep"> · </span>
+            <span>Artist-Owned</span><span class="sep"> · </span>
+            <span>777</span><span class="sep"> · </span>
         </div>
     </div>
 
     <section class="ethos">
+        <p class="section-label">Our Ethos</p>
         <div class="ethos-grid">
             <div class="ethos-card">
                 <h3>Self-Made</h3>
-                <p>No investors. No suits. No compromises. We built this from zero so we could do things our way. That means doing them the right way.</p>
+                <p>No investors. No suits. No compromises. We built this from zero so we could do things our way — the right way.</p>
             </div>
             <div class="ethos-card">
                 <h3>Your Music, Your Rights</h3>
@@ -447,25 +431,19 @@
             </div>
             <div class="ethos-card">
                 <h3>The Real Scene</h3>
-                <p>We grew up in the DIY scene, and we're still there. We care about the culture, the community, and the craft. Everything else is secondary.</p>
+                <p>We grew up in the DIY scene and we're still there. We care about the culture, the community, and the craft. Everything else is secondary.</p>
             </div>
         </div>
     </section>
 
     <section class="collection" id="collection">
         <h2>THE HEAVEN<br>COLLECTION</h2>
-        <p class="collection-subtitle">A curated selection of releases that define our sound. From experimental electronics to genre-defying vocals—this is the sonic landscape of 777heaven.</p>
-        
+
         <div class="playlist-box">
-            <div class="tracks-preview">
-                <div class="track-item">01. ARTIST NAME — Track Title</div>
-                <div class="track-item">02. ARTIST NAME — Track Title</div>
-                <div class="track-item">03. ARTIST NAME — Track Title</div>
-                <div class="track-item">04. ARTIST NAME — Track Title</div>
-                <div class="track-item">05. ARTIST NAME — Track Title</div>
-            </div>
-            <a href="https://open.spotify.com/playlist/5DRdzAVR2CCXIImc58cvO5?si=8f6707140e474ce0" target="_blank" class="spotify-btn">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+            <p class="playlist-label">Now Streaming</p>
+            <p class="playlist-desc">A curated selection from our artists — experimental, underground, and genre-defying.</p>
+            <a href="https://open.spotify.com/playlist/5DRdzAVR2CCXIImc58cvO5?si=f69c20ca16884710" target="_blank" rel="noopener noreferrer" class="spotify-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
                 </svg>
                 Stream on Spotify
@@ -473,10 +451,7 @@
         </div>
     </section>
 
-    <!-- Footer placeholder -->
     <div id="footer-placeholder"></div>
-
-    <!-- Load shared components -->
     <script src="components.js"></script>
 </body>
 </html>

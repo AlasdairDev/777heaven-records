@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roster - 777heaven Records</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="icon" href="logo.png" type="image/png" sizes="any"><link rel="apple-touch-icon" href="logo.png">
+    <meta name="theme-color" content="#000000">
+    <title>Roster — 777heaven Records</title>
+    <meta name="description" content="The 777Heaven Records roster — 18 independent underground artists from Manila and beyond.">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Space Grotesk', sans-serif;
@@ -20,282 +19,97 @@
             overflow-x: hidden;
         }
 
-        .roster-header {
-            padding: 150px 20px 40px;
-            text-align: center;
+        .roster-page {
+            min-height: 100vh;
+            padding: 140px 40px 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
-        .main-brand-title {
-            font-size: clamp(50px, 12vw, 140px); 
-            font-weight: 700;
-            letter-spacing: -2px;
-            line-height: 0.9;
-            margin-bottom: 20px;
+        .roster-eyebrow {
+            font-size: 9px;
+            letter-spacing: 6px;
             text-transform: uppercase;
-        }
-
-        .location-subtitle {
-            font-family: "Times New Roman", Times, serif; 
-            font-style: italic;
-            font-size: clamp(18px, 3vw, 28px);
-            color: #888;
-            letter-spacing: 1px;
-            margin-bottom: 80px;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 40px;
         }
 
         .heaven-records-roster {
-            max-width: 1100px;
-            margin: 0 auto;
+            max-width: 980px;
             text-align: center;
-            line-height: 2.2; 
-            padding: 0 40px 150px;
+            line-height: 2.1;
         }
 
         .artist-entry {
-            font-size: 20px;
-            font-weight: 700;
+            font-size: clamp(19px, 2.8vw, 30px);
+            font-weight: 600;
             color: #fff;
-            text-decoration: none;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: opacity 0.3s ease;
+            letter-spacing: 0.3px;
+            transition: opacity 0.2s ease;
             display: inline;
         }
 
-        /* Desktop hover effects */
+        .roster-sep {
+            color: rgba(255,255,255,0.30);
+            font-weight: 300;
+            transition: opacity 0.2s ease;
+            user-select: none;
+            display: inline;
+        }
+
         @media (min-width: 969px) {
-            .heaven-records-roster:hover .artist-entry {
-                opacity: 0.15;
+            .heaven-records-roster:hover .artist-entry,
+            .heaven-records-roster:hover .roster-sep {
+                opacity: 0.14;
             }
-
             .heaven-records-roster .artist-entry:hover {
-                opacity: 1;
+                opacity: 1 !important;
             }
         }
 
-        #artist-hover-preview {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 300px;
-            height: 420px;
-            pointer-events: none; 
-            z-index: 500;
-            opacity: 0;
-            transform: translate(-50%, -50%) scale(0.85);
-            transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-
-        #artist-hover-preview.active {
-            opacity: 1;
-            transform: translate(-50%, -50%) scale(1);
-        }
-
-        #artist-hover-preview img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .roster-archive {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 40px 80px;
-            text-align: center;
-        }
-
-        .roster-archive .sub-head {
-            font-size: 14px;
-            color: #666;
-            letter-spacing: 2px;
+        .roster-count {
+            margin-top: 52px;
+            font-size: 9px;
+            letter-spacing: 5px;
+            color: rgba(255,255,255,0.45);
             text-transform: uppercase;
-            margin-bottom: 15px;
-        }
-
-        .roster-archive .names-small {
-            font-size: 13px;
-            color: #555;
-            line-height: 1.8;
         }
 
         @media (max-width: 968px) {
-            #artist-hover-preview { 
-                display: none !important;
-            }
-
-            .main-brand-title { 
-                font-size: 60px; 
-            }
-
-            .artist-entry { 
-                font-size: 16px; 
-            }
-
-            .heaven-records-roster {
-                padding: 0 20px 100px;
-            }
-
-            .roster-header {
-                padding: 120px 20px 40px;
-            }
-
-            .roster-archive {
-                padding: 0 20px 60px;
-            }
+            .roster-page { padding: 120px 28px 64px; }
+            .heaven-records-roster { line-height: 2.0; }
         }
 
-        @media (max-width: 768px) {
-            .roster-header {
-                padding: 100px 20px 30px;
-            }
-
-            .main-brand-title {
-                font-size: 48px;
-            }
-
-            .location-subtitle {
-                font-size: 16px;
-                margin-bottom: 60px;
-            }
-
-            .artist-entry {
-                font-size: 15px;
-            }
-
-            .heaven-records-roster {
-                padding: 0 20px 80px;
-                line-height: 2;
-            }
+        @media (max-width: 600px) {
+            .roster-page { padding: 104px 20px 52px; }
+            .heaven-records-roster { line-height: 1.95; }
         }
 
-        @media (max-width: 480px) {
-            .roster-header {
-                padding: 80px 15px 25px;
-            }
-
-            .main-brand-title {
-                font-size: 40px;
-            }
-
-            .location-subtitle {
-                font-size: 14px;
-                margin-bottom: 50px;
-            }
-
-            .artist-entry {
-                font-size: 14px;
-            }
-
-            .heaven-records-roster {
-                padding: 0 15px 60px;
-                line-height: 1.9;
-            }
-
-            .roster-archive {
-                padding: 0 15px 50px;
-            }
-
-            .roster-archive .sub-head {
-                font-size: 12px;
-            }
-
-            .roster-archive .names-small {
-                font-size: 12px;
-            }
+        @media (max-width: 400px) {
+            .roster-page { padding: 88px 16px 44px; }
+            .heaven-records-roster { line-height: 1.9; }
         }
     </style>
 </head>
 <body>
-    <div id="artist-hover-preview">
-        <img src="" id="preview-image-element" alt="Artist Preview">
-    </div>
-
-    <!-- Navigation placeholder -->
     <div id="nav-placeholder"></div>
 
-    <header class="roster-header">
-        <h1 class="main-brand-title">777HEAVEN RECORDS</h1>
-        <div class="location-subtitle">an active roster in 777heaven Records</div>
-    </header>
+    <main class="roster-page">
 
-    <section class="heaven-records-roster">
-        <a href="artist-pages/6treet.html" class="artist-entry" data-img="artist-pages/artist-images/6treet.png">6TREET</a>,
-        <a href="artist-pages/agony-and-ecstasy.html" class="artist-entry" data-img="artist-pages/artist-images/agony-and-ecstasy.png">AGONY AND ECSTASY</a>,
-        <a href="artist-pages/anyu.html" class="artist-entry" data-img="artist-images/anyu.png">ANYU</a>,
-        <a href="artist-pages/arent-we-ordinary.html" class="artist-entry" data-img="artist-images/arent-we-ordinary.png">AREN'T WE ORDINARY?</a>,
-        <a href="artist-pages/averyle.html" class="artist-entry" data-img="artist-images/averyle.png">AVERYLE</a>,
-        <a href="artist-pages/bensplayssuuu.html" class="artist-entry" data-img="artist-images/bensplayssuuu.png">BENSPLAYSSUUU</a>,
-        <a href="artist-pages/chest-in.html" class="artist-entry" data-img="artist-images/chest-in.png">CHEST.IN</a>,
-        <a href="artist-pages/danidrza.html" class="artist-entry" data-img="artist-images/danidrza.png">DANIDRZA</a>,
-        <a href="artist-pages/decent.html" class="artist-entry" data-img="artist-images/decent.png">DECENT</a>,
-        <a href="artist-pages/holding-rivers.html" class="artist-entry" data-img="artist-images/holding-rivers.png">HOLDING RIVERS</a>,
-        <a href="artist-pages/jay-soleil.html" class="artist-entry" data-img="artist-images/jay-soleil.png">JAY SOLEIL</a>,
-        <a href="artist-pages/jazter.html" class="artist-entry" data-img="artist-images/jazter.png">JAZTER</a>,
-        <a href="artist-pages/jucu.html" class="artist-entry" data-img="artist-images/jucu.png">JUCU</a>,
-        <a href="artist-pages/junopisyal.html" class="artist-entry" data-img="artist-images/junopisyal.png">JUNOPISYAL</a>,
-        <a href="artist-pages/kayle.html" class="artist-entry" data-img="artist-images/kayle.png">KAYLE</a>,
-        <a href="artist-pages/kyu-t-cis.html" class="artist-entry" data-img="artist-images/kyu-t-cis.png">KYU-T-CI'S</a>,
-        <a href="artist-pages/luminoizee.html" class="artist-entry" data-img="artist-images/luminoizee.png">LUMINOIZEE</a>,
-        <a href="artist-pages/ocram-argeinat.html" class="artist-entry" data-img="artist-images/ocram-argeinat.png">OCRAM ARGEINAT</a>,
-        <a href="artist-pages/shi-ji.html" class="artist-entry" data-img="artist-images/shi-ji.png">SHI JI</a>,
-        <a href="artist-pages/spurs-of-java.html" class="artist-entry" data-img="artist-images/spurs-of-java.png">SPURS OF JAVA</a>,
-        <a href="artist-pages/strawberry-sweets.html" class="artist-entry" data-img="artist-images/strawberry-sweets.png">STRAWBERRY SWEETS</a>
-    </section>
+        <p class="roster-eyebrow">Current Roster</p>
 
-    <div class="roster-archive">
-        <p class="sub-head">the 777 archive.</p>
-        <p class="names-small">ALTEV, IKIA, JUCULOFI, LEUNA, MANFRIED, ORDINARY SUMMER, WY BAU, YUVAL AGUAVIVA, ZAYLO, ZHI!</p>
-    </div>
+        <section class="heaven-records-roster">
+            <span class="artist-entry">6TREET</span><span class="roster-sep"> · </span><span class="artist-entry">AGONY AND ECSTASY</span><span class="roster-sep"> · </span><span class="artist-entry">ANYU</span><span class="roster-sep"> · </span><span class="artist-entry">AREN'T WE ORDINARY?</span><span class="roster-sep"> · </span><span class="artist-entry">ATARI2K</span><span class="roster-sep"> · </span><span class="artist-entry">BENSPLAYSSUUU</span><span class="roster-sep"> · </span><span class="artist-entry">CHEST.IN</span><span class="roster-sep"> · </span><span class="artist-entry">DECENT</span><span class="roster-sep"> · </span><span class="artist-entry">FORSYTHIÁ</span><span class="roster-sep"> · </span><span class="artist-entry">HOLDING RIVERS</span><span class="roster-sep"> · </span><span class="artist-entry">JAZTER</span><span class="roster-sep"> · </span><span class="artist-entry">JUCU</span><span class="roster-sep"> · </span><span class="artist-entry">KAYLE</span><span class="roster-sep"> · </span><span class="artist-entry">MOXY!</span><span class="roster-sep"> · </span><span class="artist-entry">OCRAM ARGEINAT</span><span class="roster-sep"> · </span><span class="artist-entry">SAMSKARA</span><span class="roster-sep"> · </span><span class="artist-entry">STRAWBERRY SWEETS</span><span class="roster-sep"> · </span><span class="artist-entry">YUVAL AGUAVIVA</span>
+        </section>
 
-    <!-- Footer placeholder -->
+        <p class="roster-count">18 Artists · 777Heaven Records</p>
+
+    </main>
+
     <div id="footer-placeholder"></div>
-
-    <!-- Load shared components -->
     <script src="components.js"></script>
-    
-    <!-- Roster-specific JavaScript -->
-    <script>
-        // Only enable preview on desktop (screens wider than 968px)
-        function initPreview() {
-            if (window.innerWidth > 968) {
-                const previewBox = document.getElementById('artist-hover-preview');
-                const previewImg = document.getElementById('preview-image-element');
-                const artistNodes = document.querySelectorAll('.artist-entry');
-
-                document.addEventListener('mousemove', (e) => {
-                    previewBox.style.left = e.clientX + 'px';
-                    previewBox.style.top = e.clientY + 'px';
-                });
-
-                artistNodes.forEach(node => {
-                    node.addEventListener('mouseenter', () => {
-                        const sourcePath = node.getAttribute('data-img');
-                        if (sourcePath) {
-                            previewImg.src = sourcePath;
-                            previewBox.classList.add('active');
-                        }
-                    });
-
-                    node.addEventListener('mouseleave', () => {
-                        previewBox.classList.remove('active');
-                    });
-                });
-            }
-        }
-
-        // Initialize on load
-        initPreview();
-
-        // Re-initialize on resize (in case user rotates device or resizes window)
-        let resizeTimer;
-        window.addEventListener('resize', () => {
-            clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(() => {
-                location.reload(); // Reload page on significant resize to re-check screen width
-            }, 250);
-        });
-    </script>
 </body>
 </html>
