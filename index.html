@@ -212,10 +212,10 @@
         }
 
         .section-label {
-            font-size: 9px;
+            font-size: 10px;
             letter-spacing: 5px;
             text-transform: uppercase;
-            color: rgba(255,255,255,0.65);
+            color: rgba(255,255,255,0.55);
             text-align: center;
             margin-bottom: 32px;
         }
@@ -259,10 +259,17 @@
             letter-spacing: -0.3px;
         }
 
+        .ethos-num {
+            font-size: 10px;
+            letter-spacing: 3px;
+            color: rgba(255,255,255,0.25);
+            margin-bottom: 14px;
+        }
+
         .ethos-card p {
-            font-size: 13px;
+            font-size: 14px;
             line-height: 1.85;
-            color: rgba(255,255,255,0.78);
+            color: rgba(255,255,255,0.82);
             font-weight: 400;
         }
 
@@ -291,16 +298,16 @@
         }
 
         .playlist-label {
-            font-size: 9px;
+            font-size: 10px;
             letter-spacing: 5px;
-            color: rgba(255,255,255,0.65);
+            color: rgba(255,255,255,0.55);
             text-transform: uppercase;
             margin-bottom: 14px;
         }
 
         .playlist-desc {
-            font-size: 14px;
-            color: rgba(255,255,255,0.78);
+            font-size: 15px;
+            color: rgba(255,255,255,0.82);
             line-height: 1.75;
             font-weight: 400;
             margin-bottom: 36px;
@@ -357,10 +364,10 @@
         }
 
         .stat-lbl {
-            font-size: 9px;
+            font-size: 10px;
             letter-spacing: 4px;
             text-transform: uppercase;
-            color: rgba(255,255,255,0.5);
+            color: rgba(255,255,255,0.55);
         }
 
         /* ── ROSTER PREVIEW ──────────────────────── */
@@ -461,6 +468,68 @@
 
         .artist-tile:hover span { color: #fff; }
 
+        /* ── MANIFESTO ───────────────────────────── */
+
+        .manifesto {
+            padding: 120px 40px;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+        }
+
+        .manifesto-text {
+            display: block;
+            font-size: clamp(40px, 7vw, 80px);
+            font-weight: 700;
+            letter-spacing: -3px;
+            line-height: 0.92;
+            margin: 24px auto 36px;
+            max-width: 900px;
+        }
+
+        .manifesto-text span {
+            display: block;
+        }
+
+        .manifesto-text span:last-child {
+            color: rgba(255,255,255,0.38);
+        }
+
+        .manifesto-sub {
+            font-size: 15px;
+            line-height: 1.85;
+            color: rgba(255,255,255,0.68);
+            max-width: 480px;
+            margin: 0 auto 40px;
+            font-weight: 400;
+        }
+
+        /* ── SUBMIT ──────────────────────────────── */
+
+        .submit-section {
+            padding: 100px 40px;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .submit-section h2 {
+            font-size: clamp(38px, 6.5vw, 68px);
+            font-weight: 700;
+            letter-spacing: -2px;
+            line-height: 0.95;
+            margin-bottom: 24px;
+        }
+
+        .submit-section p {
+            max-width: 480px;
+            margin: 0 auto 40px;
+            font-size: 15px;
+            line-height: 1.85;
+            color: rgba(255,255,255,0.72);
+            font-weight: 400;
+        }
+
         /* ── RESPONSIVE ──────────────────────────── */
 
         @media (max-width: 968px) {
@@ -542,11 +611,24 @@
             .stat-num { letter-spacing: -2px; }
         }
 
+        @media (max-width: 768px) {
+            .manifesto { padding: 88px 24px; }
+            .manifesto-text { letter-spacing: -2px; }
+            .submit-section { padding: 80px 24px; }
+        }
+
+        @media (max-width: 480px) {
+            .manifesto { padding: 72px 20px; }
+            .manifesto-text { letter-spacing: -1.5px; }
+            .submit-section { padding: 64px 16px; }
+        }
+
         @media (max-width: 380px) {
             .hero { padding: 80px 16px 48px; }
             .ethos { padding: 52px 16px; }
-            .roster-preview { padding: 52px 16px; }
             .collection { padding: 52px 16px; }
+            .manifesto { padding: 60px 14px; }
+            .submit-section { padding: 52px 14px; }
         }
     </style>
 </head>
@@ -598,7 +680,7 @@
 
     <div class="stats-strip">
         <div class="stat-item">
-            <div class="stat-num">22</div>
+            <div class="stat-num">39</div>
             <p class="stat-lbl">Artists & Bands</p>
         </div>
         <div class="stat-item">
@@ -615,18 +697,32 @@
         </div>
     </div>
 
+    <section class="manifesto">
+        <p class="section-label">Manifesto</p>
+        <blockquote class="manifesto-text">
+            <span>The music was</span>
+            <span>always here.</span>
+            <span>The support wasn't.</span>
+        </blockquote>
+        <p class="manifesto-sub">Filipino underground music has always had something worth hearing. What it never had was the infrastructure to back it up. That's the only reason this label exists.</p>
+        <a href="about.html" class="btn outline"><span>Our Story</span></a>
+    </section>
+
     <section class="ethos">
         <p class="section-label">Our Ethos</p>
         <div class="ethos-grid">
             <div class="ethos-card">
+                <p class="ethos-num">01</p>
                 <h3>Self-Made</h3>
                 <p>No investors. No suits. No compromises. We built this from zero so we could do things our way — the right way.</p>
             </div>
             <div class="ethos-card">
+                <p class="ethos-num">02</p>
                 <h3>Your Music, Your Rights</h3>
                 <p>We don't want to own you; we want to work with you. You keep the rights to your art. We just provide the engine to help it move.</p>
             </div>
             <div class="ethos-card">
+                <p class="ethos-num">03</p>
                 <h3>The Real Scene</h3>
                 <p>We grew up in the DIY scene and we're still there. We care about the culture, the community, and the craft. Everything else is secondary.</p>
             </div>
@@ -646,6 +742,13 @@
                 Stream on Spotify
             </a>
         </div>
+    </section>
+
+    <section class="submit-section">
+        <p class="section-label">Open Submissions</p>
+        <h2>GOT SOMETHING<br>WORTH HEARING?</h2>
+        <p>We listen to everything. Based in the Philippines, making music that doesn't fit the mold — send it through.</p>
+        <a href="contact.html" class="btn"><span>Submit Your Demo</span></a>
     </section>
 
     <div id="footer-placeholder"></div>
