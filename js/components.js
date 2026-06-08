@@ -104,7 +104,8 @@ function hydrateContactEmails() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    loadComponent('nav-placeholder',    'nav.html');
+    initializeMobileMenu();
+    initializeNavScroll();
     loadComponent('footer-placeholder', 'footer.html');
     initArtistPage();
     hydrateContactEmails();
