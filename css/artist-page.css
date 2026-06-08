@@ -15,7 +15,7 @@ body {
 
 /* Back Navigation */
 .back-nav {
-    padding: 100px 30px 20px;
+    padding: 84px 30px 20px;
     max-width: 1400px;
     margin: 0 auto;
     border-bottom: 1px solid rgba(255,255,255,0.1);
@@ -263,7 +263,7 @@ body {
 @media (max-width: 768px) {
     /* Remove border so back-nav doesn't read as a second nav bar on mobile */
     .back-nav {
-        padding: 70px 20px 12px;
+        padding: 76px 20px 12px;
         border-bottom: none;
     }
     .back-nav a { font-size: 11px; opacity: 0.7; }
@@ -313,7 +313,7 @@ body {
 }
 
 @media (max-width: 480px) {
-    .back-nav { padding: 58px 16px 0; border-bottom: none; }
+    .back-nav { padding: 72px 16px 0; border-bottom: none; }
     .artist-hero { padding: 25px 15px 40px; gap: 25px; }
     .artist-image { font-size: 60px; }
     .artist-details h1 { font-size: clamp(32px, 10vw, 42px); }
@@ -373,7 +373,7 @@ body {
 }
 
 @media (max-width: 380px) {
-    .back-nav { padding: 50px 14px 0; border-bottom: none; }
+    .back-nav { padding: 68px 14px 0; border-bottom: none; }
     .artist-hero { padding: 20px 14px 36px; gap: 20px; }
     .artist-image { font-size: 48px; }
     .artist-details h1 { font-size: clamp(28px, 10vw, 38px); letter-spacing: -1.5px; }
