@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /Includes/
+Disallow: /partials/
 
 Sitemap: https://777heavenrecords.studio/sitemap.xml

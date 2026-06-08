@@ -257,18 +257,6 @@ body {
     .dsp-buttons { gap: 12px; margin-top: 70px; }
 }
 
-@media (max-width: 640px) {
-    .artist-hero { padding: 36px 22px 52px; gap: 32px; }
-    .dsp-buttons { gap: 10px; margin-top: 60px; }
-
-    .dsp-btn {
-        padding: 14px 20px;
-        font-size: 12px;
-        flex: 1 1 calc(50% - 5px);
-        justify-content: center;
-    }
-}
-
 @media (max-width: 768px) {
     .back-nav { padding: 70px 20px 15px; }
     .back-nav a { font-size: 12px; }
@@ -297,6 +285,18 @@ body {
     .dsp-btn {
         padding: 14px 24px;
         font-size: 11px;
+        flex: 1 1 calc(50% - 5px);
+        justify-content: center;
+    }
+}
+
+@media (max-width: 640px) {
+    .artist-hero { padding: 36px 22px 52px; gap: 32px; }
+    .dsp-buttons { gap: 10px; margin-top: 60px; }
+
+    .dsp-btn {
+        padding: 14px 20px;
+        font-size: 12px;
         flex: 1 1 calc(50% - 5px);
         justify-content: center;
     }
