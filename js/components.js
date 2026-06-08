@@ -1,7 +1,3 @@
-function getBasePath() {
-    return window.location.pathname.includes('/artist-pages/') ? '../' : '';
-}
-
 function injectStylesheet(href) {
     if (!document.querySelector(`link[href="${href}"]`)) {
         const link = document.createElement('link');
@@ -12,22 +8,11 @@ function injectStylesheet(href) {
 }
 
 async function loadComponent(elementId, fileName) {
-    const basePath = getBasePath();
-
-    // Load the companion CSS alongside the partial
-    injectStylesheet(basePath + 'css/' + fileName.replace('.html', '.css'));
-
+    injectStylesheet('/css/' + fileName.replace('.html', '.css'));
     try {
-        const response = await fetch(basePath + 'partials/' + fileName);
-        let html = await response.text();
-
-        if (basePath === '../') {
-            html = html.replace(/href="(?!http|#|mailto|\/)/g, 'href="../');
-            html = html.replace(/src="(?!http|\/)/g,           'src="../');
-        }
-
+        const response = await fetch('/partials/' + fileName);
+        const html = await response.text();
         document.getElementById(elementId).innerHTML = html;
-
         if (elementId === 'nav-placeholder') {
             initializeMobileMenu();
             initializeNavScroll();

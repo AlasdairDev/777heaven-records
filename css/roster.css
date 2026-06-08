@@ -21,7 +21,6 @@ body {
     padding: 140px 40px 100px;
     position: relative;
     text-align: center;
-    overflow: hidden;
 }
 
 .active-section::before {
