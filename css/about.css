@@ -375,7 +375,7 @@ body {
     box-shadow: 0 10px 40px rgba(255,255,255,0.2);
 }
 
-@media (max-width: 968px) {
+@media (max-width: 1024px) {
     .page-header { padding: 120px 32px 56px; }
     .story-section { padding: 52px 32px 60px; }
     .values-section { padding: 72px 32px; }

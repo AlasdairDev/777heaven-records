@@ -516,7 +516,7 @@ body {
 
 /* ── RESPONSIVE ──────────────────────────── */
 
-@media (max-width: 968px) {
+@media (max-width: 1024px) {
     .hero { padding: 100px 28px 64px; }
 
     .hero-content {
@@ -537,6 +537,8 @@ body {
     .ethos { padding: 80px 28px; }
     .ethos-grid { grid-template-columns: 1fr; }
     .ethos-card { padding: 36px 28px; }
+
+    .stats-strip { grid-template-columns: repeat(2, 1fr); }
 
     .roster-preview { padding: 80px 28px; }
     .artist-grid { grid-template-columns: repeat(3, 1fr); }

@@ -120,21 +120,13 @@ nav ul a:hover::after {
     transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* ── 769–968px: large tablet — inline links, tighter gap ── */
-@media (max-width: 968px) {
+/* ── ≤1024px: hamburger for tablet + mobile ── */
+@media (max-width: 1024px) {
     nav { padding: 14px 24px; }
-    nav ul { gap: 28px; }
-    .logo-nav img { height: 30px; }
-}
 
-/* ── ≤768px: hamburger ── */
-@media (max-width: 768px) {
-    nav { padding: 14px 20px; }
-
-    /* collapse links into hidden dropdown */
     nav ul {
         position: fixed;
-        top: 57px;          /* 14 + 28 + 14 + 1border */
+        top: 59px;          /* 14 + 30 + 14 + 1border */
         left: 0;
         width: 100%;
         background: #000;
@@ -158,7 +150,7 @@ nav ul a:hover::after {
     nav ul a {
         display: flex;
         align-items: center;
-        padding: 15px 20px;
+        padding: 15px 24px;
         font-size: 11px;
         letter-spacing: 2px;
         opacity: 0.88;
@@ -168,6 +160,14 @@ nav ul a:hover::after {
     nav ul a::after { display: none; }
 
     .mobile-menu { display: flex; }
+    .logo-nav img { height: 30px; }
+}
+
+/* ── ≤768px: mobile refinements ── */
+@media (max-width: 768px) {
+    nav { padding: 14px 20px; }
+    nav ul { top: 57px; }   /* 14 + 28 + 14 + 1 */
+    nav ul a { padding: 15px 20px; }
     .logo-nav img { height: 28px; }
 }
 

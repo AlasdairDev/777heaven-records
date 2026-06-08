@@ -244,7 +244,7 @@ body {
 
 /* ── RESPONSIVE ──────────────────────────── */
 
-@media (max-width: 968px) {
+@media (max-width: 1024px) {
     .back-nav { padding: 80px 25px 15px; }
 
     .artist-hero {
@@ -385,7 +385,7 @@ body {
 }
 
 /* Landscape mobile */
-@media (max-width: 968px) and (orientation: landscape) {
+@media (max-width: 1024px) and (orientation: landscape) {
     .artist-hero { grid-template-columns: 1fr 1.2fr; gap: 30px; }
     .artist-image { max-width: 300px; }
 }

@@ -345,7 +345,7 @@ body {
 
 /* ── RESPONSIVE ──────────────────────────── */
 
-@media (max-width: 968px) {
+@media (max-width: 1024px) {
     .page-header { padding: 120px 28px 60px; }
 
     .contact-section {

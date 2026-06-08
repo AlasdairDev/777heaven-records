@@ -106,7 +106,7 @@ a.artist-entry:hover {
     margin: 0 6px;
 }
 
-@media (min-width: 969px) {
+@media (min-width: 1025px) {
     .heaven-records-roster:hover .artist-entry,
     .heaven-records-roster:hover .roster-sep {
         opacity: 0.1;
@@ -175,7 +175,7 @@ a.artist-entry:hover {
     transition: opacity 0.2s ease;
 }
 
-@media (min-width: 969px) {
+@media (min-width: 1025px) {
     .inactive-roster:hover .inactive-entry,
     .inactive-roster:hover .inactive-sep {
         opacity: 0.2;
@@ -187,7 +187,7 @@ a.artist-entry:hover {
 
 /* ── RESPONSIVE ───────────────────────────── */
 
-@media (max-width: 968px) {
+@media (max-width: 1024px) {
     .active-section { padding: 120px 32px 80px; }
     .roster-title { letter-spacing: -4px; margin-bottom: 40px; }
     .inactive-section { padding: 60px 32px 80px; }
