@@ -1,0 +1,395 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    background: #000;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* ── PAGE HEADER ────────────────────────── */
+
+.page-header {
+    padding: 160px 40px 80px;
+    text-align: center;
+    position: relative;
+}
+
+.page-header::before {
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(255,255,255,0.055) 0%, transparent 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.page-header h1 {
+    font-size: clamp(48px, 10vw, 88px);
+    font-weight: 700;
+    letter-spacing: -3px;
+    margin-bottom: 18px;
+    position: relative;
+    z-index: 1;
+}
+
+.page-header p {
+    font-size: 15px;
+    color: rgba(255,255,255,0.82);
+    max-width: 540px;
+    margin: 0 auto;
+    line-height: 1.8;
+    position: relative;
+    z-index: 1;
+    font-weight: 400;
+}
+
+/* ── TWO-COLUMN LAYOUT ──────────────────── */
+
+.contact-section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 40px 120px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+}
+
+/* ── LEFT: CONTACT INFO ─────────────────── */
+
+.contact-info h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    letter-spacing: -1.5px;
+}
+
+.contact-info > p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 44px;
+    font-weight: 400;
+}
+
+.info-item {
+    margin-bottom: 32px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid rgba(255,255,255,0.11);
+}
+
+.info-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.info-item h3 {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.62);
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+.info-item a.email-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 400;
+    transition: opacity 0.2s;
+    word-break: break-all;
+}
+
+.info-item a.email-link:hover {
+    opacity: 0.65;
+}
+
+.socials {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.social-link {
+    padding: 13px 20px;
+    background: transparent;
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border: 1px solid rgba(255,255,255,0.28);
+    transition: all 0.25s;
+    font-weight: 500;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    touch-action: manipulation;
+}
+
+.social-link:hover {
+    background: #fff;
+    color: #000;
+    border-color: #fff;
+}
+
+/* ── RIGHT: DEMO SUBMISSION ─────────────── */
+
+.demo-box {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 52px 48px;
+}
+
+.demo-eyebrow {
+    font-size: 10px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 20px;
+}
+
+.demo-heading {
+    font-size: clamp(32px, 4vw, 44px);
+    font-weight: 700;
+    letter-spacing: -2px;
+    line-height: 1.05;
+    margin-bottom: 22px;
+}
+
+.demo-body {
+    font-size: 14px;
+    line-height: 1.85;
+    color: rgba(255,255,255,0.8);
+    font-weight: 400;
+    margin-bottom: 38px;
+}
+
+.demo-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 18px;
+    background: #fff;
+    color: #000;
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-align: center;
+    transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
+    min-height: 52px;
+    touch-action: manipulation;
+}
+
+.demo-btn:hover {
+    background: rgba(255,255,255,0.88);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(255,255,255,0.15);
+}
+
+.demo-note {
+    margin-top: 18px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.42);
+    text-align: center;
+    font-weight: 400;
+}
+
+.demo-note a {
+    color: rgba(255,255,255,0.65);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.demo-note a:hover {
+    color: #fff;
+}
+
+/* ── PARTNERSHIP SECTION ─────────────────── */
+
+.partner-section {
+    padding: 80px 40px 100px;
+    background: rgba(255,255,255,0.018);
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.partner-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.partner-label {
+    font-size: 10px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 48px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.partner-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(255,255,255,0.1);
+}
+
+.partner-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+}
+
+.partner-heading {
+    font-size: clamp(26px, 4vw, 40px);
+    font-weight: 700;
+    letter-spacing: -1.5px;
+    margin-bottom: 18px;
+    line-height: 1.1;
+}
+
+.partner-body {
+    font-size: 14px;
+    line-height: 1.85;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 36px;
+    font-weight: 400;
+}
+
+.partner-email-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 28px;
+    border: 1px solid rgba(255,255,255,0.28);
+    color: rgba(255,255,255,0.9);
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: all 0.25s;
+    min-height: 44px;
+    touch-action: manipulation;
+}
+
+.partner-email-btn:hover {
+    background: #fff;
+    color: #000;
+    border-color: #fff;
+}
+
+.partner-types {
+    padding-top: 4px;
+}
+
+.partner-type-item {
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    font-size: 13px;
+    color: rgba(255,255,255,0.62);
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.partner-note {
+    margin-top: 16px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.38);
+    font-weight: 400;
+}
+
+.partner-note a {
+    color: rgba(255,255,255,0.62);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.partner-note a:hover { color: #fff; }
+
+.partner-type-item:first-child {
+    border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.partner-type-item::before {
+    content: '';
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.28);
+    flex-shrink: 0;
+}
+
+/* ── RESPONSIVE ──────────────────────────── */
+
+@media (max-width: 968px) {
+    .page-header { padding: 120px 28px 60px; }
+
+    .contact-section {
+        grid-template-columns: 1fr;
+        gap: 52px;
+        padding: 0 28px 72px;
+    }
+
+    .contact-info h2 { font-size: 28px; }
+    .demo-box { padding: 40px 32px; }
+    .partner-section { padding: 64px 28px 80px; }
+    .partner-grid { grid-template-columns: 1fr; gap: 44px; }
+}
+
+@media (max-width: 768px) {
+    .page-header { padding: 104px 24px 52px; }
+    .contact-section { padding: 0 24px 60px; gap: 44px; }
+    .demo-box { padding: 36px 28px; }
+    .partner-section { padding: 56px 24px 72px; }
+}
+
+@media (max-width: 640px) {
+    .page-header { padding: 96px 20px 48px; }
+    .page-header h1 { letter-spacing: -2px; }
+    .contact-section { padding: 0 20px 52px; gap: 40px; }
+    .demo-box { padding: 30px 24px; }
+    .partner-section { padding: 48px 20px 64px; }
+}
+
+@media (max-width: 480px) {
+    .page-header { padding: 88px 16px 40px; }
+    .page-header h1 { letter-spacing: -2px; font-size: clamp(38px, 10vw, 88px); }
+    .contact-section { padding: 0 16px 48px; }
+
+    .socials { flex-direction: column; }
+    .social-link { width: 100%; }
+
+    .demo-box { padding: 28px 20px; }
+    .demo-heading { letter-spacing: -1.5px; }
+    .partner-section { padding: 44px 16px 56px; }
+    .partner-email-btn { width: 100%; }
+}
+
+@media (max-width: 380px) {
+    .page-header { padding: 80px 14px 36px; }
+    .contact-section { padding: 0 14px 40px; }
+    .demo-box { padding: 24px 16px; }
+    .partner-section { padding: 40px 14px 52px; }
+}

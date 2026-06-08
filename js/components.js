@@ -1,68 +1,61 @@
-// Function to detect if we're in a subdirectory
 function getBasePath() {
-    const path = window.location.pathname;
-    // Check if we're in a subdirectory (like artist-pages/)
-    if (path.includes('/artist-pages/') || path.includes('/Includes/')) {
-        return '../';
-    }
-    return '';
+    return window.location.pathname.includes('/artist-pages/') ? '../' : '';
 }
 
-// Function to load shared components
+function injectStylesheet(href) {
+    if (!document.querySelector(`link[href="${href}"]`)) {
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = href;
+        document.head.appendChild(link);
+    }
+}
+
 async function loadComponent(elementId, fileName) {
     const basePath = getBasePath();
-    const filePath = basePath + 'Includes/' + fileName;
-    
+
+    // Load the companion CSS alongside the partial
+    injectStylesheet(basePath + 'css/' + fileName.replace('.html', '.css'));
+
     try {
-        const response = await fetch(filePath);
-        const html = await response.text();
-        
-        // For nav and footer, we need to adjust the paths in the loaded HTML
-        let processedHtml = html;
+        const response = await fetch(basePath + 'partials/' + fileName);
+        let html = await response.text();
+
         if (basePath === '../') {
-            // We're in a subdirectory, paths in nav/footer need adjustment
-            processedHtml = html.replace(/href="(?!http|#|mailto)/g, 'href="' + basePath);
-            processedHtml = processedHtml.replace(/src="(?!http)/g, 'src="' + basePath);
+            html = html.replace(/href="(?!http|#|mailto)/g, 'href="../');
+            html = html.replace(/src="(?!http)/g,           'src="../');
         }
-        
-        document.getElementById(elementId).innerHTML = processedHtml;
-        
-        // If nav was loaded, attach mobile menu functionality
+
+        document.getElementById(elementId).innerHTML = html;
+
         if (elementId === 'nav-placeholder') {
             initializeMobileMenu();
+            initializeNavScroll();
         }
-    } catch (error) {
-        console.error(`Error loading ${filePath}:`, error);
+    } catch (err) {
+        console.error(`Error loading partials/${fileName}:`, err);
     }
 }
 
-// Initialize mobile menu functionality
 function initializeMobileMenu() {
     const burger = document.querySelector('.mobile-menu');
-    const menu = document.getElementById('navMenu');
-    
-    if (!burger || !menu) {
-        console.error('Mobile menu elements not found');
-        return;
-    }
-    
-    // Toggle menu when clicking burger
-    burger.addEventListener('click', function(e) {
+    const menu   = document.getElementById('navMenu');
+    if (!burger || !menu) return;
+
+    burger.addEventListener('click', e => {
         e.stopPropagation();
         menu.classList.toggle('active');
         burger.classList.toggle('active');
     });
-    
-    // Close menu when clicking outside
-    document.addEventListener('click', function(event) {
+
+    document.addEventListener('click', e => {
         const nav = document.querySelector('nav');
-        if (nav && !nav.contains(event.target) && menu.classList.contains('active')) {
+        if (nav && !nav.contains(e.target) && menu.classList.contains('active')) {
             menu.classList.remove('active');
             burger.classList.remove('active');
         }
     });
-    
-    // Close menu when clicking nav links
+
     document.querySelectorAll('#navMenu a').forEach(link => {
         link.addEventListener('click', () => {
             menu.classList.remove('active');
@@ -71,16 +64,22 @@ function initializeMobileMenu() {
     });
 }
 
-// Inject DSP buttons on artist pages, auto-generating URLs from the artist name
+function initializeNavScroll() {
+    const nav = document.querySelector('nav');
+    if (!nav) return;
+    window.addEventListener('scroll', () => {
+        nav.classList.toggle('scrolled', window.scrollY > 50);
+    }, { passive: true });
+}
+
 function initArtistPage() {
     const h1 = document.querySelector('.artist-details h1');
     if (!h1) return;
 
     const name = h1.textContent.trim();
-    const q = encodeURIComponent(name);
+    const q    = encodeURIComponent(name);
 
-    // Use real artist profile URL if a Spotify embed is present with a real ID
-    const embed = document.querySelector('iframe[src*="open.spotify.com/embed/artist/"]');
+    const embed   = document.querySelector('iframe[src*="open.spotify.com/embed/artist/"]');
     const idMatch = embed && embed.src.match(/embed\/artist\/([^?]+)/);
     const spotifyId = idMatch && idMatch[1] !== 'ARTIST_SPOTIFY_ID' ? idMatch[1] : null;
     const spotifyUrl = spotifyId
@@ -111,25 +110,20 @@ function initArtistPage() {
     if (section) section.appendChild(wrapper);
 }
 
-// Load components when DOM is ready
-document.addEventListener('DOMContentLoaded', function() {
-    loadComponent('nav-placeholder', 'nav.html');
+document.addEventListener('DOMContentLoaded', () => {
+    loadComponent('nav-placeholder',    'nav.html');
     loadComponent('footer-placeholder', 'footer.html');
     initArtistPage();
 
-    // Dot-grid texture on the body background
+    // Dot-grid texture
     const tex = document.createElement('style');
     tex.textContent = 'body { background-image: radial-gradient(rgba(255,255,255,0.055) 1px, transparent 1px); background-size: 36px 36px; }';
     document.head.appendChild(tex);
 
-    // Film grain overlay on top of everything
+    // Film grain overlay
     const grain = document.createElement('div');
     grain.setAttribute('aria-hidden', 'true');
-    grain.style.position = 'fixed';
-    grain.style.inset = '0';
-    grain.style.pointerEvents = 'none';
-    grain.style.zIndex = '9998';
-    grain.style.opacity = '0.07';
+    grain.style.cssText = 'position:fixed;inset:0;pointer-events:none;z-index:9998;opacity:0.07;';
     grain.style.backgroundImage = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")";
     document.body.appendChild(grain);
 });

@@ -1,0 +1,327 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    background: #000;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* Back Navigation */
+.back-nav {
+    padding: 100px 30px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.back-nav a {
+    color: rgba(255,255,255,0.45);
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: color 0.2s ease, letter-spacing 0.2s ease;
+}
+
+.back-nav a:hover {
+    color: #fff;
+    letter-spacing: 2px;
+}
+
+/* Artist Hero */
+.artist-hero {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 60px 30px 80px;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 80px;
+    align-items: start;
+}
+
+.artist-image {
+    width: 100%;
+    aspect-ratio: 1;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 120px;
+    color: rgba(255,255,255,0.1);
+    overflow: hidden;
+}
+
+.artist-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.artist-monogram {
+    font-size: clamp(72px, 14vw, 140px);
+    font-weight: 700;
+    letter-spacing: -4px;
+    color: rgba(255,255,255,0.22);
+    line-height: 1;
+    user-select: none;
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    text-transform: uppercase;
+}
+
+.artist-details h1 {
+    font-size: clamp(45px, 8vw, 80px);
+    margin-bottom: 15px;
+    font-weight: 700;
+    letter-spacing: -2px;
+    line-height: 1;
+}
+
+.artist-genre {
+    font-size: 11px;
+    color: rgba(255,255,255,0.68);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    font-weight: 400;
+}
+
+.artist-joined {
+    font-size: 10px;
+    color: rgba(255,255,255,0.32);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 26px;
+    font-weight: 400;
+}
+
+.artist-bio {
+    font-size: 15px;
+    line-height: 1.9;
+    color: rgba(255,255,255,0.82);
+    margin-bottom: 36px;
+    font-weight: 400;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.social-link {
+    padding: 14px 28px;
+    background: #fff;
+    color: #000;
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 700;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    touch-action: manipulation;
+}
+
+.social-link::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(0,0,0,0.1);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.social-link:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.social-link span {
+    position: relative;
+    z-index: 1;
+}
+
+/* Discography / Listen */
+.discography-section {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 80px 30px;
+}
+
+.section-header {
+    margin-bottom: 50px;
+}
+
+.section-header h2 {
+    font-size: clamp(36px, 6vw, 56px);
+    font-weight: 700;
+    letter-spacing: -2px;
+    margin-bottom: 15px;
+}
+
+.section-header p {
+    font-size: 15px;
+    color: rgba(255,255,255,0.68);
+    font-weight: 400;
+}
+
+/* DSP Buttons */
+.dsp-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 80px;
+}
+
+.dsp-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 30px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 700;
+    transition: all 0.3s;
+    border: 1px solid rgba(255,255,255,0.28);
+    min-height: 52px;
+    touch-action: manipulation;
+    position: relative;
+    overflow: hidden;
+}
+
+.dsp-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    transition: left 0.3s;
+    z-index: 0;
+}
+
+.dsp-btn:hover::before { left: 0; }
+
+.dsp-btn:hover {
+    color: #000;
+    border-color: transparent;
+    transform: translateY(-2px);
+}
+
+.dsp-btn span { position: relative; z-index: 1; }
+.dsp-btn svg  { position: relative; z-index: 1; }
+
+.dsp-btn.spotify::before       { background: #1DB954; }
+.dsp-btn.apple::before         { background: #FA243C; }
+.dsp-btn.youtube-music::before { background: #FF0000; }
+.dsp-btn.youtube::before       { background: #FF0000; }
+.dsp-btn.deezer::before        { background: #FF0092; }
+
+/* ── RESPONSIVE ──────────────────────────── */
+
+@media (max-width: 968px) {
+    .back-nav { padding: 80px 25px 15px; }
+
+    .artist-hero {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 40px 25px 60px;
+    }
+
+    .artist-image { max-width: 400px; margin: 0 auto; }
+    .artist-details h1 { font-size: clamp(40px, 7vw, 65px); }
+    .discography-section { padding: 60px 25px; }
+    .section-header { margin-bottom: 40px; }
+    .dsp-buttons { gap: 12px; margin-top: 70px; }
+}
+
+@media (max-width: 640px) {
+    .artist-hero { padding: 36px 22px 52px; gap: 32px; }
+    .dsp-buttons { gap: 10px; margin-top: 60px; }
+
+    .dsp-btn {
+        padding: 14px 20px;
+        font-size: 12px;
+        flex: 1 1 calc(50% - 5px);
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .back-nav { padding: 70px 20px 15px; }
+    .back-nav a { font-size: 12px; }
+
+    .artist-hero { padding: 30px 20px 50px; gap: 30px; }
+    .artist-image { max-width: 100%; font-size: 80px; }
+    .artist-details h1 { font-size: clamp(36px, 9vw, 50px); margin-bottom: 12px; }
+    .artist-genre { font-size: 11px; margin-bottom: 25px; }
+    .artist-bio { font-size: 15px; line-height: 1.8; margin-bottom: 30px; }
+
+    .social-links { gap: 10px; }
+    .social-link {
+        padding: 12px 24px;
+        font-size: 11px;
+        flex: 1 1 auto;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .discography-section { padding: 50px 20px; }
+    .section-header { margin-bottom: 35px; }
+    .section-header h2 { font-size: clamp(32px, 7vw, 45px); }
+    .section-header p { font-size: 13px; }
+
+    .dsp-buttons { gap: 10px; margin-top: 60px; }
+    .dsp-btn {
+        padding: 14px 24px;
+        font-size: 11px;
+        flex: 1 1 calc(50% - 5px);
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .back-nav { padding: 60px 15px 12px; }
+    .artist-hero { padding: 25px 15px 40px; gap: 25px; }
+    .artist-image { font-size: 60px; }
+    .artist-details h1 { font-size: clamp(32px, 10vw, 42px); }
+    .artist-bio { font-size: 14px; line-height: 1.7; }
+    .social-links { flex-direction: column; }
+    .social-link { width: 100%; }
+    .discography-section { padding: 40px 15px; }
+    .dsp-buttons { flex-direction: column; }
+    .dsp-btn { width: 100%; flex: 1 1 100%; }
+}
+
+/* Landscape mobile */
+@media (max-width: 968px) and (orientation: landscape) {
+    .artist-hero { grid-template-columns: 1fr 1.2fr; gap: 30px; }
+    .artist-image { max-width: 300px; }
+}
+
+@media (max-width: 768px) and (orientation: landscape) {
+    .artist-hero { padding: 25px 20px 40px; }
+    .artist-image { max-width: 250px; }
+}

@@ -1,12 +1,13 @@
-<style>
-  .hv-footer {
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+.hv-footer {
     background: #000;
     padding: 22px 40px;
     border-top: 1px solid rgba(255,255,255,0.08);
     font-family: 'Space Grotesk', system-ui, sans-serif;
-  }
+}
 
-  .hv-inner {
+.hv-inner {
     max-width: 1100px;
     margin: 0 auto;
     display: flex;
@@ -14,23 +15,23 @@
     justify-content: space-between;
     gap: 16px;
     flex-wrap: wrap;
-  }
+}
 
-  .hv-copy {
+.hv-copy {
     font-size: 11px;
     color: rgba(255,255,255,0.5);
     font-weight: 400;
     letter-spacing: 0.03em;
     margin: 0;
-  }
+}
 
-  .hv-socials {
+.hv-socials {
     display: flex;
     gap: 24px;
     align-items: center;
-  }
+}
 
-  .hv-socials a {
+.hv-socials a {
     font-size: 11px;
     color: rgba(255,255,255,0.65);
     text-decoration: none;
@@ -38,28 +39,15 @@
     text-transform: uppercase;
     font-weight: 400;
     transition: color 0.2s ease;
-  }
+}
 
-  .hv-socials a:hover {
+.hv-socials a:hover {
     color: #fff;
-  }
+}
 
-  @media (max-width: 600px) {
+@media (max-width: 600px) {
     .hv-footer { padding: 18px 20px; }
     .hv-inner { justify-content: center; gap: 12px; }
     .hv-copy { width: 100%; text-align: center; }
     .hv-socials { justify-content: center; gap: 16px; }
-  }
-</style>
-
-<footer class="hv-footer">
-  <div class="hv-inner">
-    <p class="hv-copy">© 2026 777Heaven Records. All rights reserved.</p>
-    <div class="hv-socials">
-      <a href="https://www.instagram.com/777hvnrx" target="_blank" rel="noopener noreferrer">Instagram</a>
-      <a href="https://www.facebook.com/777heavenrecords" target="_blank" rel="noopener noreferrer">Facebook</a>
-      <a href="https://www.tiktok.com/@777heavenrecords" target="_blank" rel="noopener noreferrer">TikTok</a>
-      <a href="https://www.youtube.com/@777heavenrecords" target="_blank" rel="noopener noreferrer">YouTube</a>
-    </div>
-  </div>
-</footer>
+}
