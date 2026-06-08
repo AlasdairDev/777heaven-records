@@ -78,6 +78,19 @@ body {
     display: inline;
 }
 
+a.artist-entry {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a.artist-entry:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1px;
+    text-decoration-color: rgba(255,255,255,0.35);
+}
+
 .roster-sep {
     color: rgba(255,255,255,0.42);
     font-weight: 400;

@@ -315,6 +315,56 @@ body {
     .dsp-btn { width: 100%; flex: 1 1 100%; }
 }
 
+/* ── COMING SOON STATE ───────────────────── */
+
+.cs-socials {
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+    font-weight: 400;
+    margin-top: 4px;
+}
+
+.cs-block {
+    padding: 72px 20px;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.07);
+    background: rgba(255,255,255,0.015);
+    margin-bottom: 16px;
+}
+
+.cs-eyebrow {
+    font-size: 9px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.28);
+    margin-bottom: 20px;
+}
+
+.cs-title {
+    font-size: clamp(36px, 8vw, 72px);
+    font-weight: 700;
+    letter-spacing: -3px;
+    color: rgba(255,255,255,0.07);
+    line-height: 1;
+    margin-bottom: 20px;
+}
+
+.cs-note {
+    font-size: 13px;
+    color: rgba(255,255,255,0.38);
+    font-weight: 400;
+    max-width: 320px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+@media (max-width: 480px) {
+    .cs-block { padding: 52px 15px; }
+    .cs-title { letter-spacing: -2px; }
+}
+
 /* Landscape mobile */
 @media (max-width: 968px) and (orientation: landscape) {
     .artist-hero { grid-template-columns: 1fr 1.2fr; gap: 30px; }
