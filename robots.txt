@@ -1,2 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /Includes/
+
+Sitemap: https://777heavenrecords.studio/sitemap.xml
