@@ -90,7 +90,16 @@ body {
     color: rgba(255,255,255,0.68);
     letter-spacing: 3px;
     text-transform: uppercase;
-    margin-bottom: 28px;
+    margin-bottom: 6px;
+    font-weight: 400;
+}
+
+.artist-joined {
+    font-size: 10px;
+    color: rgba(255,255,255,0.32);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 26px;
     font-weight: 400;
 }
 

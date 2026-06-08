@@ -71,10 +71,51 @@ function initializeMobileMenu() {
     });
 }
 
+// Inject DSP buttons on artist pages, auto-generating URLs from the artist name
+function initArtistPage() {
+    const h1 = document.querySelector('.artist-details h1');
+    if (!h1) return;
+
+    const name = h1.textContent.trim();
+    const q = encodeURIComponent(name);
+
+    // Use real artist profile URL if a Spotify embed is present with a real ID
+    const embed = document.querySelector('iframe[src*="open.spotify.com/embed/artist/"]');
+    const idMatch = embed && embed.src.match(/embed\/artist\/([^?]+)/);
+    const spotifyId = idMatch && idMatch[1] !== 'ARTIST_SPOTIFY_ID' ? idMatch[1] : null;
+    const spotifyUrl = spotifyId
+        ? `https://open.spotify.com/artist/${spotifyId}`
+        : `https://open.spotify.com/search/${q}`;
+
+    const dsps = [
+        { cls: 'spotify',       label: 'Spotify',       url: spotifyUrl,                                          icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>` },
+        { cls: 'apple',         label: 'Apple Music',   url: `https://music.apple.com/search?term=${q}`,          icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M23.994 6.124a8.23 8.23 0 0 0-.24-2.01c-.317-1.17-1.008-2.146-1.998-2.834-1.023-.71-2.21-1.03-3.527-1.01-.07 0-.14 0-.21.01-.64.03-1.25.18-1.83.39-.58.21-1.11.49-1.6.84-.48.35-.88.74-1.21 1.18-.33-.44-.73-.83-1.21-1.18-.49-.35-1.02-.63-1.6-.84-.58-.21-1.19-.36-1.83-.39-.07-.01-.14-.01-.21-.01-1.32-.02-2.504.3-3.527 1.01-.99.688-1.681 1.664-1.998 2.834-.24.717-.24 1.49-.24 2.01v11.37c0 .52 0 1.293.24 2.01.317 1.17 1.008 2.146 1.998 2.834 1.023.71 2.21 1.03 3.527 1.01.07 0 .14 0 .21-.01.64-.03 1.25-.18 1.83-.39.58-.21 1.11-.49 1.6-.84.48-.35.88-.74 1.21-1.18.33.44.73.83 1.21 1.18.49.35 1.02.63 1.6.84.58.21 1.19.36 1.83.39.07.01.14.01.21.01 1.32.02 2.504-.3 3.527-1.01.99-.688 1.681-1.664 1.998-2.834.24-.717.24-1.49.24-2.01V6.124zM12 15.313c-2.03 0-3.687-1.643-3.687-3.687S9.97 7.939 12 7.939s3.687 1.643 3.687 3.687-1.657 3.687-3.687 3.687zm7.375-8.438h-2.75V4.125h2.75v2.75z"/></svg>` },
+        { cls: 'youtube-music', label: 'YouTube Music', url: `https://music.youtube.com/search?q=${q}`,           icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.376 0 0 5.376 0 12s5.376 12 12 12 12-5.376 12-12S18.624 0 12 0zm0 19.104c-3.924 0-7.104-3.18-7.104-7.104S8.076 4.896 12 4.896s7.104 3.18 7.104 7.104-3.18 7.104-7.104 7.104zm0-11.976c-2.688 0-4.872 2.184-4.872 4.872S9.312 16.872 12 16.872 16.872 14.688 16.872 12 14.688 7.128 12 7.128zM9.6 15.6V8.4L15.6 12 9.6 15.6z"/></svg>` },
+        { cls: 'youtube',       label: 'YouTube',       url: `https://www.youtube.com/results?search_query=${q}`, icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>` },
+        { cls: 'deezer',        label: 'Deezer',        url: `https://www.deezer.com/search/${q}`,                icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M18.81 4.16v3.68h5.13V4.16h-5.13zm0 4.8v3.68h5.13V8.96h-5.13zm0 4.8v3.68h5.13v-3.68h-5.13zm-6.46-9.6v3.68h5.13V4.16h-5.13zm0 4.8v3.68h5.13V8.96h-5.13zm0 4.8v3.68h5.13v-3.68h-5.13zm0 4.8v3.68h5.13v-3.68h-5.13zM6.19 8.96v3.68h5.13V8.96H6.19zm0 4.8v3.68h5.13v-3.68H6.19zm0 4.8v3.68h5.13v-3.68H6.19zM0 13.76v3.68h5.13v-3.68H0zm0 4.8v3.68h5.13v-3.68H0z"/></svg>` },
+    ];
+
+    const wrapper = document.createElement('div');
+    wrapper.className = 'dsp-buttons';
+    dsps.forEach(({ cls, label, url, icon }) => {
+        const a = document.createElement('a');
+        a.href = url;
+        a.className = `dsp-btn ${cls}`;
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        a.innerHTML = `${icon}<span>${label}</span>`;
+        wrapper.appendChild(a);
+    });
+
+    const section = document.querySelector('.discography-section');
+    if (section) section.appendChild(wrapper);
+}
+
 // Load components when DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
     loadComponent('nav-placeholder', 'nav.html');
     loadComponent('footer-placeholder', 'footer.html');
+    initArtistPage();
 
     // Dot-grid texture on the body background
     const tex = document.createElement('style');
