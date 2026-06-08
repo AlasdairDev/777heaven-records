@@ -22,8 +22,8 @@ async function loadComponent(elementId, fileName) {
         let html = await response.text();
 
         if (basePath === '../') {
-            html = html.replace(/href="(?!http|#|mailto)/g, 'href="../');
-            html = html.replace(/src="(?!http)/g,           'src="../');
+            html = html.replace(/href="(?!http|#|mailto|\/)/g, 'href="../');
+            html = html.replace(/src="(?!http|\/)/g,           'src="../');
         }
 
         document.getElementById(elementId).innerHTML = html;
