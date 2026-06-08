@@ -313,6 +313,8 @@ body {
     .discography-section { padding: 40px 15px; }
     .dsp-buttons { flex-direction: column; }
     .dsp-btn { width: 100%; flex: 1 1 100%; }
+    .cs-block { padding: 52px 15px; }
+    .cs-title { letter-spacing: -2px; }
 }
 
 /* ── COMING SOON STATE ───────────────────── */
@@ -358,11 +360,6 @@ body {
     max-width: 320px;
     margin: 0 auto;
     line-height: 1.7;
-}
-
-@media (max-width: 480px) {
-    .cs-block { padding: 52px 15px; }
-    .cs-title { letter-spacing: -2px; }
 }
 
 /* Landscape mobile */

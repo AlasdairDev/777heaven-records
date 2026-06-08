@@ -110,10 +110,19 @@ function initArtistPage() {
     if (section) section.appendChild(wrapper);
 }
 
+function hydrateContactEmails() {
+    const email = ['777heavenofficial', 'gmail.com'].join('@');
+    document.querySelectorAll('.contact-email').forEach(el => {
+        el.href = 'mailto:' + email;
+        if (el.hasAttribute('data-email-text')) el.textContent = email;
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     loadComponent('nav-placeholder',    'nav.html');
     loadComponent('footer-placeholder', 'footer.html');
     initArtistPage();
+    hydrateContactEmails();
 
     // Dot-grid texture
     const tex = document.createElement('style');
