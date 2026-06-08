@@ -65,6 +65,7 @@ body {
 
 .heaven-records-roster {
     max-width: 880px;
+    width: 100%;
     line-height: 2.4;
     position: relative;
     z-index: 1;
@@ -146,6 +147,7 @@ a.artist-entry:hover {
 
 .inactive-roster {
     max-width: 880px;
+    width: 100%;
     line-height: 2.4;
 }
 
@@ -196,25 +198,71 @@ a.artist-entry:hover {
 }
 
 @media (max-width: 640px) {
-    .active-section { padding: 96px 20px 64px; }
-    .roster-title { letter-spacing: -2px; margin-bottom: 28px; }
-    .heaven-records-roster { line-height: 2.15; }
-    .roster-sub { margin-bottom: 40px; }
-    .inactive-section { padding: 48px 20px 64px; }
-    .inactive-roster { line-height: 2.15; }
+    .active-section { padding: 96px 0 64px; }
+    .roster-title { letter-spacing: -2px; margin-bottom: 24px; }
+    .roster-sub { margin-bottom: 28px; }
+    .inactive-section { padding: 48px 0 64px; }
+
+    /* Switch artist list to a single-column contained layout */
+    .heaven-records-roster {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        line-height: 1;
+        gap: 0;
+    }
+
+    .artist-entry {
+        display: block;
+        padding: 15px 20px;
+        font-size: 13px;
+        letter-spacing: 1.5px;
+        border-bottom: 1px solid rgba(255,255,255,0.07);
+        text-align: center;
+    }
+
+    a.artist-entry:hover {
+        text-decoration: none;
+        background: rgba(255,255,255,0.04);
+    }
+
+    .roster-sep { display: none; }
+
+    .roster-count { margin-top: 0; padding: 16px 20px; border-top: none; }
+
+    /* Inactive list same treatment */
+    .inactive-roster {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        line-height: 1;
+        gap: 0;
+    }
+
+    .inactive-entry {
+        display: block;
+        padding: 13px 20px;
+        font-size: 12px;
+        letter-spacing: 1.5px;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+        text-align: center;
+    }
+
+    .inactive-sep { display: none; }
 }
 
 @media (max-width: 480px) {
-    .active-section { padding: 88px 16px 56px; }
-    .roster-title { letter-spacing: -1.5px; margin-bottom: 24px; }
-    .heaven-records-roster { line-height: 2.05; }
-    .roster-sep { margin: 0 4px; }
-    .inactive-sep { margin: 0 4px; }
-    .inactive-roster { line-height: 2.05; }
+    .active-section { padding: 88px 0 56px; }
+    .roster-title { letter-spacing: -1.5px; margin-bottom: 20px; }
+    .artist-entry { padding: 13px 16px; font-size: 12px; }
+    .inactive-entry { padding: 11px 16px; font-size: 11px; }
+    .inactive-section { padding: 40px 0 56px; }
 }
 
 @media (max-width: 380px) {
-    .active-section { padding: 80px 14px 48px; }
+    .active-section { padding: 80px 0 48px; }
     .roster-title { letter-spacing: -1px; }
-    .roster-count { margin-top: 36px; }
+    .roster-count { padding: 14px 16px; font-size: 8px; }
+    .artist-entry { padding: 12px 14px; font-size: 11px; letter-spacing: 1px; }
+    .inactive-entry { padding: 10px 14px; font-size: 10px; letter-spacing: 1px; }
 }
