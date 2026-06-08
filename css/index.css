@@ -606,4 +606,6 @@ body {
     .collection { padding: 52px 16px; }
     .manifesto { padding: 60px 14px; }
     .submit-section { padding: 52px 14px; }
+    .stat-item { padding: 32px 16px; }
+    .stat-lbl { font-size: 9px; letter-spacing: 2px; }
 }
