@@ -302,7 +302,7 @@ body {
     position: absolute;
     top: 12px;
     right: 10px;
-    font-size: 70px;
+    font-size: clamp(44px, 7vw, 70px);
     font-weight: 700;
     color: rgba(255,255,255,0.10);
     letter-spacing: -4px;

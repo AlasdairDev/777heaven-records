@@ -115,8 +115,20 @@ body {
     to   { opacity: 1; transform: translateY(0); }
 }
 
+@media (max-width: 640px) {
+    .error-page { padding: 110px 24px 72px; }
+    .error-code { letter-spacing: -6px; }
+}
+
 @media (max-width: 480px) {
     .error-page { padding: 100px 20px 60px; }
     .error-code { letter-spacing: -4px; }
     .home-btn { width: 100%; }
+}
+
+@media (max-width: 380px) {
+    .error-page { padding: 88px 16px 52px; }
+    .error-code { letter-spacing: -3px; }
+    .error-msg { letter-spacing: -0.5px; }
+    .error-sub { font-size: 13px; margin-bottom: 40px; }
 }

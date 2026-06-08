@@ -51,3 +51,9 @@
     .hv-copy { width: 100%; text-align: center; }
     .hv-socials { justify-content: center; gap: 16px; flex-wrap: wrap; row-gap: 10px; }
 }
+
+@media (max-width: 380px) {
+    .hv-footer { padding: 16px 14px; }
+    .hv-socials { gap: 14px; }
+    .hv-copy { font-size: 10px; }
+}

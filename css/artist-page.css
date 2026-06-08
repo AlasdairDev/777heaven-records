@@ -362,6 +362,18 @@ body {
     line-height: 1.7;
 }
 
+@media (max-width: 380px) {
+    .back-nav { padding: 52px 14px 10px; }
+    .artist-hero { padding: 20px 14px 36px; gap: 20px; }
+    .artist-image { font-size: 48px; }
+    .artist-details h1 { font-size: clamp(28px, 10vw, 38px); letter-spacing: -1.5px; }
+    .artist-bio { font-size: 13px; }
+    .discography-section { padding: 36px 14px; }
+    .section-header h2 { letter-spacing: -1.5px; }
+    .dsp-btn { padding: 14px 16px; font-size: 11px; }
+    .cs-block { padding: 44px 14px; }
+}
+
 /* Landscape mobile */
 @media (max-width: 968px) and (orientation: landscape) {
     .artist-hero { grid-template-columns: 1fr 1.2fr; gap: 30px; }

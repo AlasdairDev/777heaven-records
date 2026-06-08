@@ -133,6 +133,7 @@ a.artist-entry:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-x: clip;
 }
 
 .inactive-label {

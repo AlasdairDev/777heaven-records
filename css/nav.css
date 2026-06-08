@@ -161,9 +161,19 @@ nav ul a:hover::after {
     .logo-nav img { height: 30px; }
 }
 
+@media (max-width: 640px) {
+    nav ul { top: 57px; }
+}
+
 @media (max-width: 480px) {
     nav { padding: 12px 18px; }
-    nav ul { top: 55px; }
+    nav ul { top: 54px; }
     nav ul a { padding: 16px 18px; font-size: 10px; }
     .logo-nav img { height: 28px; }
+}
+
+@media (max-width: 380px) {
+    nav { padding: 11px 14px; }
+    nav ul { top: 51px; }
+    .mobile-menu { padding: 8px; min-width: 40px; min-height: 40px; }
 }

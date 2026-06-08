@@ -571,6 +571,8 @@ body {
     .rp-top { flex-direction: column; align-items: flex-start; gap: 16px; }
     .collection { padding: 60px 20px; }
     .playlist-box { padding: 32px 20px; }
+    .marquee { gap: 32px; }
+    .marquee span { font-size: 12px; letter-spacing: 3px; }
 }
 
 @media (max-width: 480px) {
@@ -600,15 +602,26 @@ body {
     .manifesto { padding: 72px 16px; }
     .manifesto-text { letter-spacing: -1.5px; }
     .submit-section { padding: 64px 16px; }
+    .artist-grid { grid-template-columns: 1fr; }
+    .marquee { gap: 24px; }
+    .marquee span { font-size: 11px; letter-spacing: 2.5px; }
+    .marquee-section { padding: 36px 0; }
+    .collection h2 { letter-spacing: -1.5px; }
+    .playlist-box { padding: 28px 16px; }
 }
 
 @media (max-width: 380px) {
-    .hero { padding: 80px 16px 48px; }
-    .ethos { padding: 52px 16px; }
-    .collection { padding: 52px 16px; }
+    .hero { padding: 80px 14px 48px; }
+    .ethos { padding: 52px 14px; }
+    .collection { padding: 52px 14px; }
     .manifesto { padding: 60px 14px; }
     .manifesto-text { font-size: 8vw; letter-spacing: -1px; }
     .submit-section { padding: 52px 14px; }
-    .stat-item { padding: 32px 16px; }
+    .stat-item { padding: 32px 14px; }
     .stat-lbl { font-size: 9px; letter-spacing: 2px; }
+    .roster-preview { padding: 52px 14px; }
+    .rp-top h2 { letter-spacing: -1px; }
+    .playlist-box { padding: 24px 14px; }
+    .marquee { gap: 20px; }
+    .marquee span { font-size: 10px; letter-spacing: 2px; }
 }

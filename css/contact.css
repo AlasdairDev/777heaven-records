@@ -110,7 +110,8 @@ body {
     font-size: 17px;
     font-weight: 400;
     transition: opacity 0.2s;
-    word-break: break-all;
+    word-break: break-word;
+    overflow-wrap: anywhere;
 }
 
 .info-item a.email-link:hover {
@@ -372,6 +373,8 @@ body {
     .contact-section { padding: 0 20px 52px; gap: 40px; }
     .demo-box { padding: 30px 24px; }
     .partner-section { padding: 48px 20px 64px; }
+    .partner-grid { gap: 32px; }
+    .info-item a.email-link { font-size: 15px; }
 }
 
 @media (max-width: 480px) {
