@@ -49,5 +49,5 @@
     .hv-footer { padding: 18px 20px; }
     .hv-inner { justify-content: center; gap: 12px; }
     .hv-copy { width: 100%; text-align: center; }
-    .hv-socials { justify-content: center; gap: 16px; }
+    .hv-socials { justify-content: center; gap: 16px; flex-wrap: wrap; row-gap: 10px; }
 }

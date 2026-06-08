@@ -19,6 +19,7 @@ body {
     padding: 160px 40px 80px;
     text-align: center;
     position: relative;
+    overflow: hidden;
 }
 
 .page-header::before {

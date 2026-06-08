@@ -17,6 +17,7 @@ body {
 
 .hero {
     min-height: 100vh;
+    min-height: 100svh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -574,7 +575,8 @@ body {
 
 @media (max-width: 480px) {
     .hero-right h1 { letter-spacing: -1px; }
-    .hero-left img { max-width: 180px; }
+    .hero-left img { max-width: 200px; }
+    .hero-content { gap: 24px; }
 
     .btn {
         width: 100%;
@@ -595,7 +597,7 @@ body {
     }
 
     .stat-num { letter-spacing: -2px; }
-    .manifesto { padding: 72px 20px; }
+    .manifesto { padding: 72px 16px; }
     .manifesto-text { letter-spacing: -1.5px; }
     .submit-section { padding: 64px 16px; }
 }
@@ -605,6 +607,7 @@ body {
     .ethos { padding: 52px 16px; }
     .collection { padding: 52px 16px; }
     .manifesto { padding: 60px 14px; }
+    .manifesto-text { font-size: 8vw; letter-spacing: -1px; }
     .submit-section { padding: 52px 14px; }
     .stat-item { padding: 32px 16px; }
     .stat-lbl { font-size: 9px; letter-spacing: 2px; }
