@@ -333,23 +333,30 @@ body {
 
 .cta-section {
     padding: 100px 40px;
-    text-align: center;
+}
+
+.cta-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 80px;
+    align-items: center;
 }
 
 .cta-section h2 {
-    font-size: clamp(36px, 7vw, 56px);
-    margin-bottom: 25px;
+    font-size: clamp(38px, 6.5vw, 68px);
     font-weight: 700;
     letter-spacing: -2px;
+    line-height: 0.95;
 }
 
 .cta-section p {
-    max-width: 520px;
-    margin: 0 auto 40px;
     font-size: 15px;
-    line-height: 1.8;
-    color: rgba(255,255,255,0.68);
+    line-height: 1.85;
+    color: rgba(255,255,255,0.72);
     font-weight: 400;
+    margin-bottom: 36px;
 }
 
 .btn {
@@ -383,7 +390,9 @@ body {
     .value-card { padding: 36px 28px; }
     .team-section { padding: 80px 32px; }
     .member-card { max-width: none; flex: 1 1 calc(50% - 6px); height: auto; min-height: 164px; }
-    .cta-section { padding: 72px 32px; }
+    .cta-section { padding: 72px 32px; text-align: center; }
+    .cta-inner { grid-template-columns: 1fr; gap: 32px; }
+    .cta-section p { max-width: 480px; margin: 0 auto 36px; }
 }
 
 @media (max-width: 768px) {
