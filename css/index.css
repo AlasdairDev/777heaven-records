@@ -155,6 +155,7 @@ body {
 
 .marquee-section {
     padding: 44px 0;
+    background: rgba(255,255,255,0.025);
     border-top: 1px solid rgba(255,255,255,0.18);
     border-bottom: 1px solid rgba(255,255,255,0.18);
     overflow: hidden;
@@ -191,8 +192,7 @@ body {
 
 .ethos {
     padding: 100px 40px;
-    max-width: 1200px;
-    margin: 0 auto;
+    background: rgba(255,255,255,0.05);
 }
 
 .section-label {
@@ -209,6 +209,8 @@ body {
     grid-template-columns: repeat(3, 1fr);
     gap: 1px;
     background: rgba(255,255,255,0.12);
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .ethos-card {
@@ -232,7 +234,7 @@ body {
 
 .ethos-card:hover::before { height: 100%; }
 .ethos-card:hover {
-    background: rgba(255,255,255,0.055);
+    background: rgba(255,255,255,0.05);
     transform: translateY(-4px);
 }
 
@@ -262,6 +264,7 @@ body {
 .collection {
     padding: 100px 40px;
     text-align: center;
+    background: rgba(255,255,255,0.025);
     border-top: 1px solid rgba(255,255,255,0.1);
 }
 
@@ -330,7 +333,7 @@ body {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1px;
-    background: rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.05);
     border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
@@ -359,7 +362,7 @@ body {
 
 .roster-preview {
     padding: 100px 40px;
-    background: rgba(255,255,255,0.055);
+    background: rgba(255,255,255,0.05);
     border-top: 1px solid rgba(255,255,255,0.1);
     border-bottom: 1px solid rgba(255,255,255,0.1);
 }
@@ -457,6 +460,7 @@ body {
 
 .manifesto {
     padding: 120px 40px;
+    background: rgba(255,255,255,0.025);
     text-align: center;
     border-top: 1px solid rgba(255,255,255,0.1);
     border-bottom: 1px solid rgba(255,255,255,0.1);
@@ -494,6 +498,7 @@ body {
 
 .submit-section {
     padding: 100px 40px;
+    background: rgba(255,255,255,0.05);
     border-top: 1px solid rgba(255,255,255,0.1);
 }
 
