@@ -333,14 +333,14 @@ body {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1px;
-    background: rgba(255,255,255,0.06);
+    background: rgba(255,255,255,0.1);
     border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
 .stat-item {
     padding: 52px 32px;
     text-align: center;
-    background: rgba(255,255,255,0.025);
+    background: #000;
 }
 
 .stat-num {
