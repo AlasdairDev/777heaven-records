@@ -494,8 +494,21 @@ body {
 
 .submit-section {
     padding: 100px 40px;
-    text-align: center;
     border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.submit-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.submit-section .section-label {
+    text-align: left;
+    margin-bottom: 20px;
 }
 
 .submit-section h2 {
@@ -503,16 +516,14 @@ body {
     font-weight: 700;
     letter-spacing: -2px;
     line-height: 0.95;
-    margin-bottom: 24px;
 }
 
 .submit-section p {
-    max-width: 480px;
-    margin: 0 auto 40px;
     font-size: 15px;
     line-height: 1.85;
     color: rgba(255,255,255,0.72);
     font-weight: 400;
+    margin-bottom: 36px;
 }
 
 /* ── RESPONSIVE ──────────────────────────── */
@@ -546,6 +557,11 @@ body {
 
     .collection { padding: 80px 28px; }
     .playlist-box { padding: 40px 32px; }
+
+    .submit-section { padding: 80px 28px; text-align: center; }
+    .submit-inner { grid-template-columns: 1fr; gap: 32px; }
+    .submit-section .section-label { text-align: center; }
+    .submit-section p { max-width: 480px; margin: 0 auto 36px; }
 }
 
 @media (max-width: 768px) {
