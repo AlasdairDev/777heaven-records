@@ -6,9 +6,7 @@ async function loadComponent(elementId, fileName) {
         if (!target) return;
         const doc = new DOMParser().parseFromString(html, 'text/html');
         target.replaceChildren(...Array.from(doc.body.childNodes));
-    } catch (_) {
-        // footer load failure degrades gracefully
-    }
+    } catch (_) {}
 }
 
 function initializeMobileMenu() {

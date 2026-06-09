@@ -126,7 +126,7 @@ nav ul a:hover::after {
 
     nav ul {
         position: fixed;
-        top: 59px;          /* 14 + 30 + 14 + 1border */
+        top: 59px;
         left: 0;
         width: 100%;
         background: #000;
