@@ -4,9 +4,8 @@
 
 body {
     font-family: 'Space Grotesk', sans-serif;
-    background: #000;
+    background-color: #000;
     color: #fff;
-    overflow-x: hidden;
     min-height: 100vh;
     display: flex;
     flex-direction: column;

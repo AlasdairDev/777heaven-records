@@ -8,16 +8,13 @@
 
 body {
     font-family: 'Space Grotesk', system-ui, sans-serif;
-    background: #000;
+    background-color: #000;
     color: #fff;
-    overflow-x: hidden;
 }
 
 /* Back Navigation */
 .back-nav {
-    padding: 84px 30px 20px;
-    max-width: 1400px;
-    margin: 0 auto;
+    padding: 84px max(30px, calc((100% - 1400px) / 2)) 20px;
     border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
@@ -41,9 +38,7 @@ body {
 
 /* Artist Hero */
 .artist-hero {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 60px 30px 80px;
+    padding: 60px max(30px, calc((100% - 1400px) / 2)) 80px;
     display: grid;
     grid-template-columns: 1fr 1.5fr;
     gap: 80px;

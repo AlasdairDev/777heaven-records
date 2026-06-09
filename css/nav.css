@@ -182,7 +182,25 @@ nav ul a:hover::after {
     nav ul { top: 49px; }   /* 10 + 28 + 10 + 1 */
 }
 
+/* ── Z-INDEX SCALE ────────────────────────────────────────────────────────
+   1          section content (::before glows, interactive elements)
+   999        mobile nav dropdown
+   1000       fixed nav bar
+   1001       mobile burger button
+   9998       grain overlay (pointer-events: none — visual only)
+   ──────────────────────────────────────────────────────────────────────── */
+
+/* overflow-x on html+body fixes iOS Safari position:fixed scrolling bug */
+html {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    /* anchor links clear the fixed nav (nav ~63px + breathing room) */
+    scroll-padding-top: 80px;
+}
+
 body {
+    overflow-x: hidden;
+    background-color: #000;
     background-image:
         radial-gradient(rgba(255,255,255,0.09) 1.5px, transparent 1.5px),
         radial-gradient(rgba(255,255,255,0.02) 1px,   transparent 1px),
