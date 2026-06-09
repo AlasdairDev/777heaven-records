@@ -50,6 +50,7 @@ body {
     position: relative;
     z-index: 1;
     font-weight: 400;
+    font-style: italic;
 }
 
 .page-header .sub {
