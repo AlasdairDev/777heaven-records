@@ -79,7 +79,8 @@ function initArtistPage() {
         a.className = `dsp-btn ${cls}`;
         a.target = '_blank';
         a.rel = 'noopener noreferrer';
-        a.innerHTML = icon;
+        const svgDoc = new DOMParser().parseFromString(icon, 'image/svg+xml');
+        a.appendChild(document.adoptNode(svgDoc.documentElement));
         const span = document.createElement('span');
         span.textContent = label;
         a.appendChild(span);
