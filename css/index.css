@@ -72,7 +72,7 @@ body {
 
 .hero-right h1 {
     font-size: clamp(44px, 8.5vw, 96px);
-    line-height: 0.88;
+    line-height: 0.9;
     margin-bottom: 24px;
     font-weight: 700;
     letter-spacing: -3px;
@@ -276,7 +276,7 @@ body {
 .playlist-box {
     max-width: 640px;
     margin: 0 auto;
-    padding: 56px 48px;
+    padding: 48px 40px;
     background: rgba(255,255,255,0.05);
     border: 1px solid rgba(255,255,255,0.16);
     text-align: center;
@@ -468,8 +468,8 @@ body {
     font-size: clamp(40px, 7vw, 80px);
     font-weight: 700;
     letter-spacing: -3px;
-    line-height: 0.92;
-    margin: 24px auto 36px;
+    line-height: 0.96;
+    margin: 28px auto 44px;
     max-width: 900px;
 }
 
