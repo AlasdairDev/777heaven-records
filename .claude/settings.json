@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -c ' *)",
+      "Bash(git -C \"d:/User/Documents/Programming/Web Development/777heaven-records\" add css/)",
+      "Bash(git -C 'd:/User/Documents/Programming/Web Development/777heaven-records' commit -m ' *)",
+      "Bash(git commit -m ' *)"
+    ]
+  }
+}
