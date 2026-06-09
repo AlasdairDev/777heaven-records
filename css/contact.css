@@ -61,7 +61,6 @@ body {
     grid-template-columns: 1fr 1fr;
     gap: 80px;
     align-items: start;
-    background: rgba(255,255,255,0.025);
 }
 
 /* ── LEFT: CONTACT INFO ─────────────────── */

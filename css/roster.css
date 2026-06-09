@@ -12,7 +12,6 @@ body {
 
 .active-section {
     min-height: 100vh;
-    background: rgba(255,255,255,0.025);
     min-height: 100svh;
     display: flex;
     flex-direction: column;

@@ -193,6 +193,7 @@ nav ul a:hover::after {
 /* overflow-x on html+body fixes iOS Safari position:fixed scrolling bug */
 html {
     overflow-x: hidden;
+    background-color: #000;
     scroll-behavior: smooth;
     /* anchor links clear the fixed nav (nav ~63px + breathing room) */
     scroll-padding-top: 80px;
