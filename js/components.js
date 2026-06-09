@@ -98,39 +98,7 @@ function hydrateContactEmails() {
     });
 }
 
-function initStarfield() {
-    const W = 1920, H = 1080;
-    const rn = (a, b) => Math.random() * (b - a) + a;
-    const tints = ['#ffffff', '#e8f0ff', '#fff8f4', '#f0f4ff'];
-    const pick = () => tints[Math.random() * tints.length | 0];
-    const dots = [];
-
-    // brightest stars — soft glow + slight colour tint
-    for (let i = 0; i < 12; i++)
-        dots.push(`<circle cx="${rn(0,W)|0}" cy="${rn(0,H)|0}" r="1.5" fill="${pick()}" opacity="${rn(0.50,0.72).toFixed(2)}" filter="url(#glow)"/>`);
-
-    // bright stars
-    for (let i = 0; i < 35; i++)
-        dots.push(`<circle cx="${rn(0,W)|0}" cy="${rn(0,H)|0}" r="1" fill="${pick()}" opacity="${rn(0.28,0.46).toFixed(2)}"/>`);
-
-    // medium
-    for (let i = 0; i < 90; i++)
-        dots.push(`<circle cx="${rn(0,W)|0}" cy="${rn(0,H)|0}" r="0.7" fill="#fff" opacity="${rn(0.10,0.22).toFixed(2)}"/>`);
-
-    // faint background field
-    for (let i = 0; i < 180; i++)
-        dots.push(`<circle cx="${rn(0,W)|0}" cy="${rn(0,H)|0}" r="0.5" fill="#fff" opacity="${rn(0.03,0.08).toFixed(2)}"/>`);
-
-    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}"><defs><filter id="glow" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="2.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><g>${dots.join('')}</g></svg>`;
-    const url = 'data:image/svg+xml,' + encodeURIComponent(svg);
-    document.body.style.backgroundImage = `url("${url}")`;
-    document.body.style.backgroundSize = 'cover';
-    document.body.style.backgroundRepeat = 'no-repeat';
-    document.body.style.backgroundPosition = 'center';
-}
-
 document.addEventListener('DOMContentLoaded', () => {
-    initStarfield();
     initializeMobileMenu();
     initializeNavScroll();
     loadComponent('footer-placeholder', 'footer.html');
@@ -139,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const grain = document.createElement('div');
     grain.setAttribute('aria-hidden', 'true');
-    grain.style.cssText = 'position:fixed;inset:0;pointer-events:none;z-index:9998;opacity:0.08;';
+    grain.style.cssText = 'position:fixed;inset:0;pointer-events:none;z-index:9998;opacity:0.07;';
     grain.style.backgroundImage = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")";
     document.body.appendChild(grain);
 });

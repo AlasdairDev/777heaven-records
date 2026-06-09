@@ -183,15 +183,6 @@ nav ul a:hover::after {
 }
 
 body {
-    background-attachment: fixed;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    animation: starDrift 180s linear infinite;
-}
-
-@keyframes starDrift {
-    0%   { background-position: center; }
-    50%  { background-position: calc(50% + 18px) calc(50% + 12px); }
-    100% { background-position: center; }
+    background-image: radial-gradient(rgba(255,255,255,0.055) 1px, transparent 1px);
+    background-size: 36px 36px;
 }
