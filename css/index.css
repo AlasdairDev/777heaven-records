@@ -359,7 +359,7 @@ body {
 
 .roster-preview {
     padding: 100px 40px;
-    background: rgba(255,255,255,0.018);
+    background: rgba(255,255,255,0.055);
     border-top: 1px solid rgba(255,255,255,0.1);
     border-bottom: 1px solid rgba(255,255,255,0.1);
 }

@@ -132,6 +132,7 @@ a.artist-entry:hover {
     width: 100%;
     padding: 72px 40px 96px;
     text-align: center;
+    background: rgba(255,255,255,0.038);
     border-top: 1px solid rgba(255,255,255,0.07);
     display: flex;
     flex-direction: column;
