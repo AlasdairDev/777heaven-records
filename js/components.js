@@ -99,12 +99,34 @@ function hydrateContactEmails() {
     });
 }
 
+function initRosterHover() {
+    const pairs = [
+        { roster: '.heaven-records-roster', entry: '.artist-entry' },
+        { roster: '.inactive-roster',       entry: '.inactive-entry' },
+    ];
+    pairs.forEach(({ roster: rSel, entry: eSel }) => {
+        const roster = document.querySelector(rSel);
+        if (!roster) return;
+        let leaveTimer;
+        roster.querySelectorAll(eSel).forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                clearTimeout(leaveTimer);
+                roster.classList.add('roster-active');
+            });
+            el.addEventListener('mouseleave', () => {
+                leaveTimer = setTimeout(() => roster.classList.remove('roster-active'), 60);
+            });
+        });
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     initializeMobileMenu();
     initializeNavScroll();
     loadComponent('footer-placeholder', 'footer.html');
     initArtistPage();
     hydrateContactEmails();
+    initRosterHover();
 
     const grain = document.createElement('div');
     grain.setAttribute('aria-hidden', 'true');
