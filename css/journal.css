@@ -6,6 +6,9 @@ body {
     font-family: 'Space Grotesk', system-ui, sans-serif;
     background-color: #000;
     color: #fff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 /* ── PAGE HEADER ─── */
@@ -59,18 +62,24 @@ body {
 /* ── JOURNAL SECTION ─── */
 
 .journal-section {
-    padding: 64px max(40px, calc((100% - 1100px) / 2)) 72px;
+    flex: 1;
+    padding: 64px max(40px, calc((100% - 1100px) / 2));
+    display: flex;
+    flex-direction: column;
 }
 
 /* ── EMPTY STATE ─── */
 
 .journal-empty {
-    text-align: center;
-    padding: 32px 0;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 10px;
     letter-spacing: 5px;
     text-transform: uppercase;
     color: rgba(255,255,255,0.3);
+    min-height: 200px;
 }
 
 /* ── ARTICLE GRID ─── (ready for when articles are added) */
