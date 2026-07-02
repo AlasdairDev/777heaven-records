@@ -1,0 +1,133 @@
+@import url('/css/fonts.css');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    background-color: #000;
+    color: #fff;
+}
+
+/* ── PAGE HEADER ─── */
+
+.page-header {
+    padding: 160px 40px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.page-header::before {
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(255,255,255,0.048) 0%, transparent 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.page-header h1 {
+    font-size: clamp(50px, 10vw, 90px);
+    font-weight: 700;
+    letter-spacing: -3px;
+    margin-bottom: 22px;
+    position: relative;
+    z-index: 1;
+    animation: fadeUp 0.55s ease forwards;
+}
+
+.page-header .lead {
+    font-size: 16px;
+    color: rgba(255,255,255,0.75);
+    max-width: 560px;
+    margin: 0 auto;
+    line-height: 1.7;
+    position: relative;
+    z-index: 1;
+    font-weight: 400;
+    font-style: italic;
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── JOURNAL SECTION ─── */
+
+.journal-section {
+    padding: 64px max(40px, calc((100% - 1100px) / 2)) 120px;
+}
+
+/* ── EMPTY STATE ─── */
+
+.journal-empty {
+    text-align: center;
+    padding: 80px 0 40px;
+    font-size: 10px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+}
+
+/* ── ARTICLE GRID ─── (ready for when articles are added) */
+
+.article-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 40px;
+}
+
+.article-card {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 28px;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: opacity 0.2s;
+}
+
+.article-card:hover { opacity: 0.75; }
+
+.article-date {
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 12px;
+}
+
+.article-title {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 12px;
+    letter-spacing: -0.3px;
+}
+
+.article-excerpt {
+    font-size: 14px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.65;
+    font-weight: 400;
+}
+
+/* ── RESPONSIVE ─── */
+
+@media (max-width: 1024px) {
+    .journal-section { padding: 52px 32px 96px; }
+}
+
+@media (max-width: 768px) {
+    .page-header { padding: 128px 24px 64px; }
+    .journal-section { padding: 48px 24px 80px; }
+    .article-grid { grid-template-columns: 1fr; gap: 32px; }
+}
+
+@media (max-width: 480px) {
+    .page-header { padding: 112px 20px 56px; }
+    .journal-section { padding: 40px 20px 64px; }
+}
