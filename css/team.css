@@ -71,6 +71,7 @@ body {
 
 .team-section {
     padding: 80px 40px;
+    background: rgba(255,255,255,0.05);
     border-top: 1px solid rgba(255,255,255,0.1);
     border-bottom: 1px solid rgba(255,255,255,0.1);
 }
@@ -221,7 +222,6 @@ body {
 
 .cta-section {
     padding: 80px 40px;
-    background: rgba(255,255,255,0.05);
 }
 
 .cta-inner {
