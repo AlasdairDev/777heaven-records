@@ -178,6 +178,28 @@ nav ul a:hover::after {
     opacity: 1;
 }
 
+/* ── DROPDOWN CHEVRON ── */
+/* always-visible indicator that About has sub-pages */
+.has-dropdown > a::after {
+    content: '▾';
+    position: static;
+    display: inline-block;
+    margin-left: 4px;
+    font-size: 9px;
+    width: auto;
+    height: auto;
+    background: none;
+    opacity: 0.45;
+    vertical-align: middle;
+    transition: transform 0.25s ease, opacity 0.25s;
+}
+
+.has-dropdown:hover > a::after {
+    width: auto;
+    transform: rotate(180deg);
+    opacity: 0.85;
+}
+
 /* ── ≤1024px: hamburger for tablet + mobile ── */
 @media (max-width: 1024px) {
     nav { padding: 14px 24px; }
@@ -245,6 +267,7 @@ nav ul a:hover::after {
     }
 
     nav ul a::after { display: none; }
+    .has-dropdown > a::after { display: none; }
 
     .mobile-menu { display: flex; }
     .logo-nav img { height: 30px; }
