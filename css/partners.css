@@ -59,7 +59,7 @@ body {
 /* ── SHOWCASE SECTION ─── */
 
 .showcase-section {
-    padding: 80px max(40px, calc((100% - 1100px) / 2)) 96px;
+    padding: 64px max(40px, calc((100% - 1100px) / 2)) 72px;
     border-top: 1px solid rgba(255,255,255,0.1);
 }
 
@@ -123,7 +123,7 @@ a.partner-row:hover {
 /* ── PARTNERSHIP INQUIRY SECTION (bottom) ─── */
 
 .partner-section {
-    padding: 80px 40px 100px;
+    padding: 72px 40px 88px;
     background: rgba(255,255,255,0.05);
     border-top: 1px solid rgba(255,255,255,0.1);
 }
@@ -229,36 +229,36 @@ a.partner-row:hover {
 
 @media (max-width: 1024px) {
     .page-header { padding: 120px 28px 60px; }
-    .showcase-section { padding: 64px 28px 80px; }
-    .partner-section { padding: 64px 28px 80px; }
+    .showcase-section { padding: 56px 28px 64px; }
+    .partner-section { padding: 60px 28px 72px; }
     .partner-grid { grid-template-columns: 1fr; gap: 44px; }
 }
 
 @media (max-width: 768px) {
     .page-header { padding: 104px 24px 52px; }
-    .showcase-section { padding: 56px 24px 72px; }
-    .partner-section { padding: 56px 24px 72px; }
+    .showcase-section { padding: 48px 24px 56px; }
+    .partner-section { padding: 52px 24px 64px; }
 }
 
 @media (max-width: 640px) {
     .page-header { padding: 96px 20px 48px; }
     .page-header h1 { letter-spacing: -2px; }
-    .showcase-section { padding: 48px 20px 64px; }
+    .showcase-section { padding: 40px 20px 48px; }
     .partner-row { padding: 24px 0; gap: 24px; }
-    .partner-section { padding: 48px 20px 64px; }
+    .partner-section { padding: 44px 20px 56px; }
     .partner-grid { gap: 32px; }
 }
 
 @media (max-width: 480px) {
     .page-header { padding: 88px 16px 40px; }
-    .showcase-section { padding: 44px 16px 56px; }
+    .showcase-section { padding: 36px 16px 44px; }
     .partner-row-name { letter-spacing: -0.5px; }
-    .partner-section { padding: 44px 16px 56px; }
+    .partner-section { padding: 40px 16px 52px; }
     .partner-email-btn { width: 100%; }
 }
 
 @media (max-width: 380px) {
     .page-header { padding: 80px 14px 36px; }
-    .showcase-section { padding: 40px 14px 52px; }
-    .partner-section { padding: 40px 14px 52px; }
+    .showcase-section { padding: 32px 14px 40px; }
+    .partner-section { padding: 36px 14px 48px; }
 }

@@ -70,7 +70,7 @@ body {
 /* ── TEAM SECTION ─── */
 
 .team-section {
-    padding: 100px 40px;
+    padding: 80px 40px;
     border-top: 1px solid rgba(255,255,255,0.1);
     border-bottom: 1px solid rgba(255,255,255,0.1);
 }
@@ -220,7 +220,7 @@ body {
 /* ── CTA ─── */
 
 .cta-section {
-    padding: 100px 40px;
+    padding: 80px 40px;
     background: rgba(255,255,255,0.05);
 }
 

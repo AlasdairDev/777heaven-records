@@ -127,16 +127,16 @@ body {
 /* ── RESPONSIVE ─── */
 
 @media (max-width: 1024px) {
-    .journal-section { padding: 52px 32px 96px; }
+    .journal-section { padding: 52px 32px; }
 }
 
 @media (max-width: 768px) {
     .page-header { padding: 128px 24px 64px; }
-    .journal-section { padding: 48px 24px 80px; }
+    .journal-section { padding: 48px 24px; }
     .article-grid { grid-template-columns: 1fr; gap: 32px; }
 }
 
 @media (max-width: 480px) {
     .page-header { padding: 112px 20px 56px; }
-    .journal-section { padding: 40px 20px 64px; }
+    .journal-section { padding: 40px 20px; }
 }
