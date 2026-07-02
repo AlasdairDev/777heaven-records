@@ -14,7 +14,7 @@ body {
 /* ── PAGE HEADER ─── */
 
 .page-header {
-    padding: 160px 40px 80px;
+    padding: 100px 40px 56px;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -131,12 +131,12 @@ body {
 }
 
 @media (max-width: 768px) {
-    .page-header { padding: 128px 24px 64px; }
+    .page-header { padding: 72px 24px 40px; }
     .journal-section { padding: 48px 24px; }
     .article-grid { grid-template-columns: 1fr; gap: 32px; }
 }
 
 @media (max-width: 480px) {
-    .page-header { padding: 112px 20px 56px; }
+    .page-header { padding: 64px 20px 32px; }
     .journal-section { padding: 40px 20px; }
 }

@@ -15,7 +15,7 @@ body {
 /* ── PAGE HEADER ────────────────────────── */
 
 .page-header {
-    padding: 160px 40px 80px;
+    padding: 100px 40px 56px;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -343,7 +343,7 @@ body {
 /* ── RESPONSIVE ──────────────────────────── */
 
 @media (max-width: 1024px) {
-    .page-header { padding: 120px 28px 60px; }
+    .page-header { padding: 80px 28px 44px; }
 
     .contact-section {
         grid-template-columns: 1fr;
@@ -358,14 +358,14 @@ body {
 }
 
 @media (max-width: 768px) {
-    .page-header { padding: 104px 24px 52px; }
+    .page-header { padding: 72px 24px 40px; }
     .contact-section { padding: 0 24px 60px; gap: 44px; }
     .demo-box { padding: 36px 28px; }
     .partner-section { padding: 56px 24px 72px; }
 }
 
 @media (max-width: 640px) {
-    .page-header { padding: 96px 20px 48px; }
+    .page-header { padding: 68px 20px 36px; }
     .page-header h1 { letter-spacing: -2px; }
     .contact-section { padding: 0 20px 52px; gap: 40px; }
     .demo-box { padding: 30px 24px; }
@@ -375,7 +375,7 @@ body {
 }
 
 @media (max-width: 480px) {
-    .page-header { padding: 88px 16px 40px; }
+    .page-header { padding: 64px 16px 32px; }
     .page-header h1 { letter-spacing: -2px; font-size: clamp(38px, 10vw, 88px); }
     .contact-section { padding: 0 16px 48px; }
 
@@ -389,7 +389,7 @@ body {
 }
 
 @media (max-width: 380px) {
-    .page-header { padding: 80px 14px 36px; }
+    .page-header { padding: 56px 14px 28px; }
     .contact-section { padding: 0 14px 40px; }
     .demo-box { padding: 24px 16px; }
     .partner-section { padding: 40px 14px 52px; }

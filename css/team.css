@@ -11,7 +11,7 @@ body {
 /* ── PAGE HEADER ─── */
 
 .page-header {
-    padding: 160px 40px 80px;
+    padding: 100px 40px 56px;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -274,7 +274,7 @@ body {
 /* ── RESPONSIVE ─── */
 
 @media (max-width: 1024px) {
-    .page-header { padding: 120px 32px 56px; }
+    .page-header { padding: 80px 32px 44px; }
     .team-section { padding: 80px 32px; }
     .member-card { max-width: none; flex: 1 1 calc(50% - 6px); height: auto; min-height: 164px; }
     .cta-section { padding: 72px 32px; text-align: center; }
@@ -283,13 +283,13 @@ body {
 }
 
 @media (max-width: 768px) {
-    .page-header { padding: 104px 24px 48px; }
+    .page-header { padding: 72px 24px 40px; }
     .team-section { padding: 68px 24px; }
     .cta-section { padding: 60px 24px; }
 }
 
 @media (max-width: 640px) {
-    .page-header { padding: 96px 20px 44px; }
+    .page-header { padding: 68px 20px 36px; }
     .page-header h1 { letter-spacing: -2px; }
     .team-section { padding: 56px 20px; }
     .member-card { max-width: none; flex: 1 1 calc(50% - 6px); min-height: 150px; }
@@ -297,7 +297,7 @@ body {
 }
 
 @media (max-width: 480px) {
-    .page-header { padding: 88px 16px 40px; }
+    .page-header { padding: 64px 16px 32px; }
     .team-section { padding: 48px 16px; }
     .team-dept { margin-bottom: 44px; padding-bottom: 44px; border-bottom: 1px solid rgba(255,255,255,0.07); }
     .team-dept:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
@@ -307,7 +307,7 @@ body {
 }
 
 @media (max-width: 380px) {
-    .page-header { padding: 80px 14px 36px; }
+    .page-header { padding: 56px 14px 28px; }
     .page-header h1 { letter-spacing: -1.5px; }
     .team-section { padding: 40px 14px; }
 }
