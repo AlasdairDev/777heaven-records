@@ -11,7 +11,7 @@ body {
 /* ── PAGE HEADER ─── */
 
 .page-header {
-    padding: 160px 40px 80px;
+    padding: 100px 40px 56px;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -60,7 +60,7 @@ body {
 
 .showcase-section {
     padding: 64px max(40px, calc((100% - 1100px) / 2)) 72px;
-    min-height: calc(100vh - 320px);
+    min-height: calc(100vh - 240px);
     background: rgba(255,255,255,0.05);
     border-top: 1px solid rgba(255,255,255,0.1);
 }
@@ -229,20 +229,20 @@ a.partner-row:hover {
 /* ── RESPONSIVE ─── */
 
 @media (max-width: 1024px) {
-    .page-header { padding: 120px 28px 60px; }
+    .page-header { padding: 80px 28px 44px; }
     .showcase-section { padding: 56px 28px 64px; }
     .partner-section { padding: 60px 28px 72px; }
     .partner-grid { grid-template-columns: 1fr; gap: 44px; }
 }
 
 @media (max-width: 768px) {
-    .page-header { padding: 104px 24px 52px; }
+    .page-header { padding: 72px 24px 40px; }
     .showcase-section { padding: 48px 24px 56px; }
     .partner-section { padding: 52px 24px 64px; }
 }
 
 @media (max-width: 640px) {
-    .page-header { padding: 96px 20px 48px; }
+    .page-header { padding: 68px 20px 36px; }
     .page-header h1 { letter-spacing: -2px; }
     .showcase-section { padding: 40px 20px 48px; }
     .partner-row { padding: 24px 0; gap: 24px; }
@@ -251,7 +251,7 @@ a.partner-row:hover {
 }
 
 @media (max-width: 480px) {
-    .page-header { padding: 88px 16px 40px; }
+    .page-header { padding: 64px 16px 32px; }
     .showcase-section { padding: 36px 16px 44px; }
     .partner-row-name { letter-spacing: -0.5px; }
     .partner-section { padding: 40px 16px 52px; }
@@ -259,7 +259,7 @@ a.partner-row:hover {
 }
 
 @media (max-width: 380px) {
-    .page-header { padding: 80px 14px 36px; }
+    .page-header { padding: 56px 14px 28px; }
     .showcase-section { padding: 32px 14px 40px; }
     .partner-section { padding: 36px 14px 48px; }
 }
