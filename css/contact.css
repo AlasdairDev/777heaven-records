@@ -56,11 +56,11 @@ body {
 /* ── TWO-COLUMN LAYOUT ──────────────────── */
 
 .contact-section {
-    padding: 0 max(40px, calc((100% - 1100px) / 2)) 120px;
+    padding: 0 max(40px, calc((100% - 1100px) / 2)) 64px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 80px;
-    align-items: start;
+    align-items: stretch;
 }
 
 /* ── LEFT: CONTACT INFO ─────────────────── */
@@ -76,7 +76,7 @@ body {
     font-size: 14px;
     line-height: 1.8;
     color: rgba(255,255,255,0.8);
-    margin-bottom: 44px;
+    margin-bottom: 0;
     font-weight: 400;
 }
 
@@ -151,6 +151,8 @@ body {
     background: rgba(255,255,255,0.04);
     border: 1px solid rgba(255,255,255,0.15);
     padding: 52px 48px;
+    display: flex;
+    flex-direction: column;
 }
 
 .demo-eyebrow {
@@ -174,7 +176,8 @@ body {
     line-height: 1.85;
     color: rgba(255,255,255,0.8);
     font-weight: 400;
-    margin-bottom: 38px;
+    margin-bottom: 0;
+    flex: 1;
 }
 
 .demo-btn {
@@ -183,6 +186,7 @@ body {
     justify-content: center;
     width: 100%;
     padding: 18px;
+    margin-top: 36px;
     background: #fff;
     color: #000;
     text-decoration: none;
@@ -297,8 +301,12 @@ body {
     border-color: #fff;
 }
 
-.partner-types {
+.partner-right {
     padding-top: 4px;
+}
+
+.partner-types {
+    margin-top: 36px;
 }
 
 .partner-type-item {
@@ -340,6 +348,100 @@ body {
     flex-shrink: 0;
 }
 
+/* ── CONTACT FORMS ───────────────────────── */
+
+.form-honeypot {
+    display: none;
+}
+
+.contact-form {
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+
+/* ── FOLLOW US ROW ───────────────────────── */
+
+.contact-socials {
+    padding: 0 max(40px, calc((100% - 1100px) / 2)) 80px;
+}
+
+.contact-socials h3 {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.62);
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-label {
+    display: block;
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.38);
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.form-input,
+.form-textarea {
+    width: 100%;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: #fff;
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-size: 14px;
+    padding: 12px 14px;
+    outline: none;
+    transition: border-color 0.2s, background 0.2s;
+    resize: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    border-color: rgba(255,255,255,0.35);
+    background: rgba(255,255,255,0.06);
+}
+
+.form-submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 15px 32px;
+    background: #fff;
+    color: #000;
+    border: none;
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.25s, transform 0.25s;
+    min-height: 48px;
+    touch-action: manipulation;
+    margin-top: 12px;
+}
+
+.form-submit:hover {
+    background: rgba(255,255,255,0.88);
+    transform: translateY(-2px);
+}
+
 /* ── RESPONSIVE ──────────────────────────── */
 
 @media (max-width: 1024px) {
@@ -348,27 +450,38 @@ body {
     .contact-section {
         grid-template-columns: 1fr;
         gap: 52px;
-        padding: 0 28px 72px;
+        padding: 0 28px 52px;
+        align-items: start;
     }
 
+    /* On single-column, demo-box should not use flex stretch — natural height */
+    .demo-box {
+        padding: 40px 32px;
+        display: block;
+    }
+    .demo-body { flex: unset; margin-bottom: 28px; }
+    .demo-btn { margin-top: 0; }
+
     .contact-info h2 { font-size: 28px; }
-    .demo-box { padding: 40px 32px; }
+    .contact-socials { padding: 0 28px 60px; }
     .partner-section { padding: 64px 28px 80px; }
     .partner-grid { grid-template-columns: 1fr; gap: 44px; }
 }
 
 @media (max-width: 768px) {
     .page-header { padding: 72px 24px 40px; }
-    .contact-section { padding: 0 24px 60px; gap: 44px; }
+    .contact-section { padding: 0 24px 44px; gap: 44px; }
     .demo-box { padding: 36px 28px; }
+    .contact-socials { padding: 0 24px 52px; }
     .partner-section { padding: 56px 24px 72px; }
 }
 
 @media (max-width: 640px) {
     .page-header { padding: 68px 20px 36px; }
     .page-header h1 { letter-spacing: -2px; }
-    .contact-section { padding: 0 20px 52px; gap: 40px; }
+    .contact-section { padding: 0 20px 40px; gap: 40px; }
     .demo-box { padding: 30px 24px; }
+    .contact-socials { padding: 0 20px 44px; }
     .partner-section { padding: 48px 20px 64px; }
     .partner-grid { gap: 32px; }
     .info-item a.email-link { font-size: 15px; }
@@ -377,10 +490,14 @@ body {
 @media (max-width: 480px) {
     .page-header { padding: 64px 16px 32px; }
     .page-header h1 { letter-spacing: -2px; font-size: clamp(38px, 10vw, 88px); }
-    .contact-section { padding: 0 16px 48px; }
+    .contact-section { padding: 0 16px 36px; }
 
-    .socials { flex-direction: column; }
-    .social-link { width: 100%; }
+    .contact-socials { padding: 0 16px 40px; }
+    .contact-socials .socials { flex-direction: column; }
+    .contact-socials .social-link { width: 100%; }
+
+    .form-row { grid-template-columns: 1fr; }
+    .form-submit { width: 100%; }
 
     .demo-box { padding: 28px 20px; }
     .demo-heading { letter-spacing: -1.5px; }
@@ -390,7 +507,8 @@ body {
 
 @media (max-width: 380px) {
     .page-header { padding: 56px 14px 28px; }
-    .contact-section { padding: 0 14px 40px; }
+    .contact-section { padding: 0 14px 32px; }
     .demo-box { padding: 24px 16px; }
+    .contact-socials { padding: 0 14px 36px; }
     .partner-section { padding: 40px 14px 52px; }
 }

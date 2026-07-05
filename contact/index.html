@@ -7,7 +7,7 @@
     <meta name="theme-color" content="#000000">
     <meta name="msapplication-TileColor" content="#000000">
     <meta name="msapplication-TileImage" content="/assets/favicons/favicon-192.png">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'self'; worker-src 'none'; base-uri 'self'; form-action 'none'; object-src 'none'; upgrade-insecure-requests">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'self'; worker-src 'none'; base-uri 'self'; form-action https://formspree.io; object-src 'none'; upgrade-insecure-requests">
     <meta name="referrer" content="strict-origin-when-cross-origin">    <title>Contact, 777heaven Records</title>
     <meta name="description" content="Get in touch with 777Heaven Records. Submit your demo or reach out to the team.">
     <meta property="og:type" content="website">
@@ -68,20 +68,23 @@
             <h2>Let's Connect</h2>
             <p>For general questions, quick intros, or anything that doesn't fit the other boxes, this is where to start.</p>
 
-            <div class="info-item">
-                <h3>Email</h3>
-                <a href="#" class="email-link contact-email" data-email-text></a>
-            </div>
-
-            <div class="info-item">
-                <h3>Follow Us</h3>
-                <div class="socials">
-                    <a href="https://www.instagram.com/777hvnrx" class="social-link" target="_blank" rel="noopener noreferrer">Instagram</a>
-                    <a href="https://www.facebook.com/777hvnrecords" class="social-link" target="_blank" rel="noopener noreferrer">Facebook</a>
-                    <a href="https://www.tiktok.com/@777heavenrecords" class="social-link" target="_blank" rel="noopener noreferrer">TikTok</a>
-                    <a href="https://www.youtube.com/@777heavenrecords" class="social-link" target="_blank" rel="noopener noreferrer">YouTube</a>
+            <form class="contact-form" action="https://formspree.io/f/mrewjror" method="POST">
+                <input type="hidden" name="_next" value="https://777heavenrecords.studio/contact">
+                <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="form-honeypot">
+                <div class="form-group">
+                    <label class="form-label" for="connect-name">Name</label>
+                    <input class="form-input" type="text" id="connect-name" name="name" required>
                 </div>
-            </div>
+                <div class="form-group">
+                    <label class="form-label" for="connect-email">Email</label>
+                    <input class="form-input" type="email" id="connect-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="connect-message">Message</label>
+                    <textarea class="form-textarea" id="connect-message" name="message" rows="4" required></textarea>
+                </div>
+                <button class="form-submit" type="submit">Send Message</button>
+            </form>
         </div>
 
         <div class="demo-box">
@@ -89,9 +92,18 @@
             <h2 class="demo-heading">Submit<br>Your Music</h2>
             <p class="demo-body">We listen to everything. Share your music through the form below, links only, no file attachments. We'll be in touch if it's a good fit.</p>
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSfak0GIpEouCKiyZC1cGX3d8y5vAyjD1NucxYDyE3IPbUvi7g/viewform" target="_blank" rel="noopener noreferrer" class="demo-btn">Open Submission Form</a>
-            <p class="demo-note">or email us at <a href="#" class="contact-email" data-email-text></a></p>
         </div>
 
+    </div>
+
+    <div class="contact-socials">
+        <h3>Follow Us</h3>
+        <div class="socials">
+            <a href="https://www.instagram.com/777hvnrx" class="social-link" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="https://www.facebook.com/777hvnrecords" class="social-link" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a href="https://www.tiktok.com/@777heavenrecords" class="social-link" target="_blank" rel="noopener noreferrer">TikTok</a>
+            <a href="https://www.youtube.com/@777heavenrecords" class="social-link" target="_blank" rel="noopener noreferrer">YouTube</a>
+        </div>
     </div>
 
     <section class="partner-section" id="partners">
@@ -102,15 +114,37 @@
                 <div class="partner-left">
                     <h2 class="partner-heading">Open for Collaborations</h2>
                     <p class="partner-body">Running a collective, organizing events, curating playlists, or looking to work with our artists in some way? Drop us a message. We're based in Manila but happy to link up anywhere. If it makes sense for the music and the people involved, we're listening.</p>
-                    <a href="#" class="partner-email-btn contact-email">Email Us</a>
+                    <div class="partner-types">
+                        <div class="partner-type-item">Collectives &amp; Other Labels</div>
+                        <div class="partner-type-item">Event Organizers &amp; Venues</div>
+                        <div class="partner-type-item">Playlist Curators</div>
+                        <div class="partner-type-item">Brand Collaborations</div>
+                        <div class="partner-type-item">Press &amp; Media</div>
+                    </div>
                 </div>
 
-                <div class="partner-types">
-                    <div class="partner-type-item">Collectives &amp; Other Labels</div>
-                    <div class="partner-type-item">Event Organizers &amp; Venues</div>
-                    <div class="partner-type-item">Playlist Curators</div>
-                    <div class="partner-type-item">Brand Collaborations</div>
-                    <div class="partner-type-item">Press &amp; Media</div>
+                <div class="partner-right">
+                    <form class="contact-form collab-form" action="https://formspree.io/f/xbdvwqpw" method="POST">
+                        <input type="hidden" name="_next" value="https://777heavenrecords.studio/contact#partners">
+                        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="form-honeypot">
+                        <div class="form-group">
+                            <label class="form-label" for="collab-name">Name</label>
+                            <input class="form-input" type="text" id="collab-name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="collab-email">Email</label>
+                            <input class="form-input" type="email" id="collab-email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="collab-org">Organization / Collective (optional)</label>
+                            <input class="form-input" type="text" id="collab-org" name="organization">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="collab-message">Message</label>
+                            <textarea class="form-textarea" id="collab-message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button class="form-submit" type="submit">Send</button>
+                    </form>
                 </div>
 
             </div>
