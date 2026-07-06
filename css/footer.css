@@ -39,6 +39,11 @@
     text-transform: uppercase;
     font-weight: 400;
     transition: color 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 4px;
+    touch-action: manipulation;
 }
 
 .hv-socials a:hover {

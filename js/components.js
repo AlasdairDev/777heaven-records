@@ -121,8 +121,10 @@ function initRosterHover() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    initializeMobileMenu();
-    initializeNavScroll();
+    loadComponent('nav-placeholder', 'nav.html').then(() => {
+        initializeMobileMenu();
+        initializeNavScroll();
+    });
     loadComponent('footer-placeholder', 'footer.html');
     initArtistPage();
     hydrateContactEmails();

@@ -208,17 +208,12 @@ a.artist-entry:hover {
     .heaven-records-roster { line-height: 2; }
     .inactive-roster { line-height: 2; }
 
-    .artist-entry, .roster-sep { font-size: 13px; }
-    .inactive-entry, .inactive-sep { font-size: 12px; }
-
     .roster-count { letter-spacing: 2px; }
 }
 
 @media (max-width: 480px) {
     .active-section { padding: 88px 20px 56px; }
     .roster-title { letter-spacing: -1.5px; margin-bottom: 20px; }
-    .artist-entry, .roster-sep { font-size: 11px; }
-    .inactive-entry, .inactive-sep { font-size: 10px; }
     .inactive-section { padding: 40px 20px 56px; }
 }
 
@@ -226,7 +221,5 @@ a.artist-entry:hover {
     .active-section { padding: 80px 16px 48px; }
     .roster-title { letter-spacing: -1px; }
     .roster-count { padding: 14px 0; font-size: 8px; letter-spacing: 1.5px; }
-    .artist-entry, .roster-sep { font-size: 10px; }
-    .inactive-entry, .inactive-sep { font-size: 9px; }
     .inactive-section { padding: 36px 16px 48px; }
 }

@@ -29,8 +29,10 @@ body {
     text-transform: uppercase;
     color: rgba(255,255,255,0.38);
     text-decoration: none;
-    margin-bottom: 40px;
+    margin-bottom: 28px;
     transition: color 0.2s;
+    min-height: 44px;
+    touch-action: manipulation;
 }
 
 .article-back:hover { color: rgba(255,255,255,0.75); }
@@ -243,6 +245,7 @@ body {
     .article-header { padding: 72px 24px 40px; }
     .article-body { padding: 0 24px 72px; }
     .article-footer-nav { padding: 0 24px 60px; padding-top: 36px; }
+    .article-photo-full { margin: 40px -24px; width: calc(100% + 48px); }
 }
 
 @media (max-width: 480px) {
