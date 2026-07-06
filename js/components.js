@@ -1,6 +1,23 @@
+/* ── CLICKJACKING GUARD ──────────────────────────────────────────────────
+   GitHub Pages can't send X-Frame-Options / frame-ancestors headers, and
+   frame-ancestors is ignored in a <meta> CSP. This breaks the page out of
+   any frame it doesn't own. If a cross-origin framer blocks access to
+   window.top, we fall back to hiding the document. */
+(function frameGuard() {
+    try {
+        if (window.self !== window.top) {
+            window.top.location = window.self.location.href;
+        }
+    } catch (_) {
+        // Cross-origin framer blocked top navigation — blank the page instead.
+        document.documentElement.style.display = 'none';
+    }
+})();
+
 async function loadComponent(elementId, fileName) {
     try {
         const response = await fetch('/partials/' + fileName);
+        if (!response.ok) return;
         const html = await response.text();
         const target = document.getElementById(elementId);
         if (!target) return;
