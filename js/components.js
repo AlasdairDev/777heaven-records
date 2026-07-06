@@ -108,14 +108,6 @@ function initArtistPage() {
     if (section) section.appendChild(wrapper);
 }
 
-function hydrateContactEmails() {
-    const email = ['777heavenofficial', 'gmail.com'].join('@');
-    document.querySelectorAll('.contact-email').forEach(el => {
-        el.href = 'mailto:' + email;
-        if (el.hasAttribute('data-email-text')) el.textContent = email;
-    });
-}
-
 function initRosterHover() {
     const pairs = [
         { roster: '.heaven-records-roster', entry: '.artist-entry' },
@@ -144,7 +136,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     loadComponent('footer-placeholder', 'footer.html');
     initArtistPage();
-    hydrateContactEmails();
     initRosterHover();
 
     const grain = document.createElement('div');
