@@ -2,7 +2,7 @@
 
 .hv-footer {
     background-color: #000;
-    padding: 22px 40px;
+    padding: 10px 40px;
     border-top: 1px solid rgba(255,255,255,0.08);
     font-family: 'Space Grotesk', system-ui, sans-serif;
 }
@@ -41,7 +41,7 @@
     transition: color 0.2s ease;
     display: inline-flex;
     align-items: center;
-    min-height: 44px;
+    min-height: 28px;
     padding: 0 4px;
     touch-action: manipulation;
 }
@@ -51,14 +51,14 @@
 }
 
 @media (max-width: 600px) {
-    .hv-footer { padding: 18px 20px; }
+    .hv-footer { padding: 10px 20px; }
     .hv-inner { justify-content: center; gap: 12px; }
     .hv-copy { width: 100%; text-align: center; }
     .hv-socials { justify-content: center; gap: 16px; flex-wrap: wrap; row-gap: 10px; }
 }
 
 @media (max-width: 380px) {
-    .hv-footer { padding: 16px 14px; }
+    .hv-footer { padding: 8px 14px; }
     .hv-socials { gap: 14px; }
     .hv-copy { font-size: 10px; }
 }
