@@ -67,9 +67,22 @@ Journal-specific properties (`.journal-section`, `.featured-section`,
 journal.css's own existing 768px and 480px values, following the same
 gradual step-down ratio the six standard files use.
 
-Note: `journal.css` has no 1024px override for `.page-header` at all
-(unlike `about.css`, which does). That gap is out of scope for this change —
-flagging it, not fixing it here.
+`journal.css` also had no 1024px override for `.page-header` at all (unlike
+`about.css`). Brought into scope: journal's desktop base (`100px 40px 40px`)
+differs from about.css's (`100px 40px 56px` — journal has no `.lead`
+paragraph pushing extra bottom space), so about.css's exact 1024 numbers
+don't transfer directly. Applying the same ~20% step about.css used, scaled
+to journal's own desktop values, gives `80px 32px 32px` — which also slots
+in smoothly between journal's own existing desktop (100/40/40) and 768px
+(60/24/20) values. Add as a new line inside the existing 1024px block (which
+already has non-page-header rules):
+
+```css
+@media (max-width: 1024px) {
+    .page-header { padding: 80px 32px 32px; }
+    /* ...existing rules in this block unchanged... */
+}
+```
 
 New `@media (max-width: 640px)` block (insert between the existing 768px and
 480px blocks, preserving source order):
@@ -165,6 +178,34 @@ block):
 `.article-footer-nav`'s `flex-direction: column; gap: 16px;` (set at the
 existing 480px tier) already applies at 380px too via cascade stacking — not
 repeated in the new block.
+
+## Group B — exact values
+
+### `index.css`
+
+Line 643's `.manifesto-text { font-size: 8vw; letter-spacing: -1px; }` at
+≤380px: the `letter-spacing: -1px` is correct and consistent (continues the
+established trend of letter-spacing softening toward 0 as text shrinks —
+480px already sets `-1.5px`). Only `font-size: 8vw;` is the bug. Fix is a
+pure deletion, letting the base `clamp(40px, 7vw, 80px)` keep governing size:
+
+```css
+.manifesto-text { letter-spacing: -1px; }
+```
+
+### `contact.css`
+
+Line 492's `.page-header h1 { letter-spacing: -2px; font-size: clamp(38px,
+10vw, 88px); }` at ≤480px: the 640px tier already sets `letter-spacing:
+-2px`, which cascades down through 480px and 380px on its own — this line's
+`letter-spacing: -2px` is a harmless redundant restatement, not part of the
+bug. Only `font-size: clamp(38px, 10vw, 88px)` is wrong (lowers the floor
+from the base `clamp(48px, 10vw, 88px)`, inconsistent with every sibling
+page). Fix is a pure deletion of the font-size part:
+
+```css
+.page-header h1 { letter-spacing: -2px; }
+```
 
 ## Verification
 
