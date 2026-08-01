@@ -242,8 +242,17 @@ Audited `about.css`, `contact.css`, `team.css`, `partners.css`, `roster.css`,
   ("Coming Soon") appears identically on all 22 active artist pages (there is
   no shared partial for it — `partials/` only covers nav and footer). Fixed
   with `&nbsp;` between "Coming" and "Soon" on the 7 pages already touched
-  above; the other 15 pages carry the same string and the same fix, pending
-  a scope decision on whether to apply it site-wide.
+  above; the other 15 single-word-name pages carry the same string, and got
+  the same fix in a follow-up pass so all 22 active artist pages are
+  consistent: 6treet, anyu, atari2k, bensplayssuuu, chest-in, decent,
+  forsythia, ikia, jazter, jucu, kayle, moxy, neverland, samskara, zyun.
+
+## Status
+
+Phases 1 and 2 (Groups A, B, C) are complete. All findings from the audit
+were either fixed or confirmed as non-issues (`roster.css`, `contact.css`
+flex-wrap/orphan checks came back clean). This closes out the site-wide
+responsive polish pass.
 
 ## Verification
 
