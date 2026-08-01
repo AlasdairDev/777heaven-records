@@ -207,6 +207,44 @@ page). Fix is a pure deletion of the font-size part:
 .page-header h1 { letter-spacing: -2px; }
 ```
 
+## Group C — findings and fixes
+
+Audited `about.css`, `contact.css`, `team.css`, `partners.css`, `roster.css`,
+`artist-page.css` against real page content (not CSS in isolation).
+
+- **`partners.css` — real bug.** `.partner-row` has no `flex-wrap` and
+  `.partner-row-cat` has `flex-shrink: 0`; longer name+category combos (e.g.
+  "Nico Creatives" + "Distribution") can overflow the row on ≤380px/320px
+  phones. Fix: `flex-wrap: wrap; row-gap: 4px;` on `.partner-row`, plus
+  `letter-spacing: 2px;` on `.partner-row-cat`, inside the existing 480px
+  block.
+- **`about.css` / `team.css` — orphan risk.** Both pages share the identical
+  "WORK WITH US" cta heading (same clamp, same centered layout). Fixed with
+  `&nbsp;` between "WITH" and "US" in both `about/index.html` and
+  `team/index.html`.
+- **`about.css` — orphan risk.** `.value-card h3` "Your Masters Stay Yours"
+  (4 words, card goes full-width ≤480px). Fixed with `&nbsp;` between "Stay"
+  and "Yours" in `about/index.html`.
+- **`roster.css` — clean.** Already the best-tuned file in the codebase
+  (6-step letter-spacing progression on `.roster-title`, dedicated 380px
+  treatment on `.roster-count`). Artist names wrapping mid-phrase in the
+  flowing roster list is the intended design, not an orphan bug — left as-is.
+- **`contact.css` — clean.** No orphan or flex-wrap issues found; longest
+  headings either fit or break at a natural point.
+- **`artist-page.css` — pattern-level orphan risk, not a CSS bug.**
+  `.artist-details h1` is a shared template; risk is per-artist depending on
+  whether the name is multi-word. Fixed with `&nbsp;` between the last two
+  words of the h1 on all 7 multi-word active artists' pages: Agony and
+  Ecstasy, Aren't We Ordinary?, Daena Amor, Holding Rivers, Ocram Argeinat,
+  Strawberry Sweets, Yuval Aguaviva. Single-word names (6TREET, ANYU, etc.)
+  have no risk and were left untouched.
+- **`artist-page.css` — minor orphan risk, template-wide.** `.cs-title`
+  ("Coming Soon") appears identically on all 22 active artist pages (there is
+  no shared partial for it — `partials/` only covers nav and footer). Fixed
+  with `&nbsp;` between "Coming" and "Soon" on the 7 pages already touched
+  above; the other 15 pages carry the same string and the same fix, pending
+  a scope decision on whether to apply it site-wide.
+
 ## Verification
 
 No automated visual regression tooling exists in this repo. Verify via the
