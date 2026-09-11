@@ -71,7 +71,10 @@ body {
 .journal-layout {
     display: grid;
     grid-template-columns: 1fr 260px;
-    max-height: calc(100vh - 340px);
+    /* minmax(0,1fr) lets the row shrink below its content so the inner
+       scroller actually engages; an `auto` row gets clipped instead. */
+    grid-template-rows: minmax(0, 1fr);
+    min-height: 0;
     overflow: hidden;
 }
 
@@ -288,8 +291,9 @@ body {
 @media (max-width: 768px) {
     .page-header { padding: 60px 24px 20px; }
     .journal-section { padding: 0 24px 32px; }
-    .journal-layout { grid-template-columns: 1fr; max-height: none; overflow: visible; }
-    .journal-main { border-right: none; }
+    .journal-layout { grid-template-columns: 1fr; grid-template-rows: auto; overflow: visible; }
+    .journal-main { border-right: none; overflow: visible; }
+    .articles-section { overflow: visible; }
     .articles-list { overflow-y: visible; }
     .milestones-sidebar { border-top: 1px solid rgba(255,255,255,0.1); padding: 28px 20px; }
     .milestones-list { overflow-y: visible; }
@@ -301,4 +305,26 @@ body {
     .featured-section { padding: 20px 16px; }
     .articles-section { padding: 20px 16px; }
     .milestones-sidebar { padding: 20px 16px; }
+}
+
+/* ── DESKTOP SHELL: only .articles-list scrolls ─── */
+
+/* Pin the page to the viewport so the Latest list is the only scroller.
+   Vertical budget: page-header 277 + .journal-section padding 40 + footer 49
+   = 366px of chrome, leaving 100vh - 366 for .journal-layout. Below ~800px
+   of viewport height that leaves under two article rows, so the short-
+   viewport block underneath hands scrolling back to the page instead. */
+@media (min-width: 769px) and (min-height: 800px) {
+    body { height: 100vh; }
+    .journal-section { min-height: 0; }
+    .journal-layout { height: 100%; }
+}
+
+/* Short desktop viewports (laptops at 100% zoom, OS display scaling above
+   125%): not enough height to seat the featured card and a usable list, so
+   let the whole page scroll rather than crushing the list to nothing. */
+@media (min-width: 769px) and (max-height: 799px) {
+    .journal-layout { grid-template-rows: auto; overflow: visible; }
+    .journal-main, .articles-section, .milestones-sidebar { overflow: visible; }
+    .articles-list, .milestones-list { overflow-y: visible; }
 }
